@@ -42,13 +42,15 @@
   },
   "postcss": {
     "plugins": {
-     "autoprefixer": {},
-     "postcss-pxtorem": {
-            "rootValue": 75,
-            "propList":["*"] 
-         }
-     }
- },
+      "autoprefixer": {},
+      "postcss-pxtorem": {
+        "rootValue": 75,
+        "propList": [
+          "*"
+        ]
+      }
+    }
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions"
