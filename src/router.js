@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Chotcity from './views/c-hotcity.vue'
+import Zmsite from './views/z-productList.vue'
 
 Vue.use(Router)
 
@@ -12,6 +13,11 @@ export default new Router({
       path: '/',
       name: 'Chotcity',
       component: Chotcity
+    },
+    {
+      path: '/msite',
+      name: 'Zmsite',
+      component: Zmsite
     },
     // {
     //   path: '/about',
