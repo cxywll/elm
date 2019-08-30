@@ -1,9 +1,9 @@
 <template>
 <div>
   <div class="S-foot">
-        <div class="S-icon" @click="btn($index)" v-for="(i,$index) in arr" :key="$index">
-          <router-link :to="i.path">
-            <p :class="i.icon" class="iconfont" :style="{color: index == $index?'#3190e8':'#888'}"></p>
+        <div class="S-icon" v-for="(i,$index) in arr" :key="$index">
+          <router-link :to="i.path" active-class="active">
+            <p :class="i.icon" class="iconfont"></p>
             <p class="S-menu">{{i.name}}</p>
           </router-link>
         </div> 
@@ -37,6 +37,9 @@ export default {
 }
 </script>
 <style scoped>
+.active .iconfont{
+    color:#3190e8
+}
 .S-icon:nth-child(1) .iconfont{
   font-size: 1.3rem;
 }
@@ -59,13 +62,13 @@ export default {
 }
 .S-icon{
   width: 25%;
-  height: 100px;
+  height: 1.8rem;
   text-align: center;
   float: left;
 }
 .S-icon .iconfont{
   font-size: 0.6rem;
-  line-height: 1rem;
+  line-height: 1.1rem;
 }
 .S-icon .menu{
   line-height: 0.1rem;
