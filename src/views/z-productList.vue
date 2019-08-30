@@ -1,7 +1,11 @@
 <template>
   <div class="msite">
-    
     <div class="z-nev">
+    <Shead>
+      <template v-slot:left><i class="iconfont"></i></template>
+      <template v-slot:center><a href="home">1</a></template>
+      <template v-slot:right ><a href="login">登录|注册</a></template>
+    </Shead>
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
@@ -76,6 +80,7 @@
 <script>
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.min.css";
+import Shead from '../components/Shead'
 export default {
   name: "msite",
   data() {
@@ -84,6 +89,9 @@ export default {
       lists: [],
       commodity: [] //商品
     };
+  },
+  components:{
+    Shead
   },
   created() {
     this.msite();

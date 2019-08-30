@@ -49,7 +49,7 @@ export default new Router({
     },
   {
     path: '/msite',
-    name: 'Zmsite',
+    name: 'msite',
     component: Zmsite
   },
     // {
