@@ -104,7 +104,7 @@ export default {
 };
 </script>
 
-<style scopend>
+<style scoped>
 * {
   margin: 0;
   padding: 0;
