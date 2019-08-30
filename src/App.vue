@@ -1,10 +1,19 @@
 <template>
   <div id="app">
-    <router-view/>
+    <Sfoot></Sfoot>
+    
   </div>
 </template>
-
+<script>
+import Sfoot from './components/Sfoot.vue'
+export default {
+  components: {
+    Sfoot
+  },
+}
+</script>
 <style>
+*{margin: 0;padding: 0;text-decoration: none}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

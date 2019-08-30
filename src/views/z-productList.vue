@@ -1,25 +1,32 @@
 <template>
   <div class="msite">
     <div class="z-nev">
+      <Shead>
+        <template v-slot:left>
+          <i class="iconfont"></i>
+        </template>
+        <template v-slot:center>
+          <a href="home">home</a>
+        </template>
+        <template v-slot:right>
+          <a href="login">登录|注册</a>
+        </template>
+      </Shead>
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <ul class="list">
-              <li v-for="(i,index) in list" :key="index">
-                <a href>
-                  <img :src="'https://fuss10.elemecdn.com/'+i.image_url" alt />
-                  <span>{{i.title}}</span>
-                </a>
+              <li v-for="(i,index) in list" :key="index" @click="commoditys(i)">
+                <img :src="'https://fuss10.elemecdn.com/'+i.image_url" alt />
+                <span>{{i.title}}</span>
               </li>
             </ul>
           </div>
           <div class="swiper-slide">
             <ul class="list">
-              <li v-for="(i,index) in lists" :key="index">
-                <a href>
-                  <img :src="'https://fuss10.elemecdn.com/'+i.image_url" alt />
-                  <span>{{i.title}}</span>
-                </a>
+              <li v-for="(i,index) in lists" :key="index" @click="commoditys(i)">
+                <img :src="'https://fuss10.elemecdn.com/'+i.image_url" alt />
+                <span>{{i.title}}</span>
               </li>
             </ul>
           </div>
@@ -79,6 +86,7 @@
 <script>
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.min.css";
+import Shead from "../components/Shead";
 export default {
   name: "msite",
   data() {
@@ -87,6 +95,9 @@ export default {
       lists: [],
       commodity: [] //商品
     };
+  },
+  components: {
+    Shead
   },
   created() {
     this.msite();
@@ -99,6 +110,10 @@ export default {
     });
   },
   methods: {
+    commoditys(id) {
+      console.log(id);
+      this.$router.push({ path: "/food", query: { title: id.title } });
+    },
     msite() {
       this.$http
         .get("http://elm.cangdu.org/v2/index_entry", {
@@ -133,7 +148,6 @@ export default {
         })
         .then(data => {
           this.commodity = data.data;
-          console.log(this.commodity);
         });
     }
   }
@@ -141,6 +155,12 @@ export default {
 </script>
 
 <style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
 .msite {
   background: #f5f5f5;
 }
@@ -164,13 +184,11 @@ export default {
   width: 100px;
   height: 100px;
 }
-.list li a span {
+.list li span {
   font-size: 24px;
   display: block;
 }
-.list li a {
-  color: #666;
-}
+
 .z-main {
   background-color: #fff;
 }
@@ -236,6 +254,9 @@ export default {
   transform: scale(0.8);
   margin-right: -5px;
 }
+.swiper-container {
+  margin-top: 100px;
+}
 .shop_right .shop_detail_header .shop_detail_ul .supports {
   font-size: 24px;
   color: #999;
@@ -289,11 +310,13 @@ export default {
   margin-right: -25px;
 }
 .shop_right .rating_order_num .rating_order_num_right .delivery_left {
+  font-size: 20px;
   color: #fff;
   background-color: #3190e8;
   border: 2px solid #3190e8;
 }
 .shop_right .rating_order_num .rating_order_num_right .delivery_right {
+  font-size: 20px;
   color: #3190e8;
   border: 2px solid #3190e8;
 }
@@ -307,7 +330,7 @@ export default {
   font-size: 20px;
   color: #666;
 }
-.fee_right span{
-      color: #3190e8;
+.fee_right span {
+  color: #3190e8;
 }
 </style>
