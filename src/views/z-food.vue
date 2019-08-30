@@ -1,12 +1,12 @@
 <template>
-    <head>
+    <Shead>
          <template v-slot:left><i class="iconfont"></i></template>
         <template v-slot:center><a href="home">1</a></template>
-    </head>
+    </Shead>
 </template>
 
 <script>
-import head from '../components/Shead'
+import Shead from '../components/Shead'
 export default {
     name:"",
     data(){
@@ -15,7 +15,7 @@ export default {
         }
     },
     components:{
-        head
+        Shead
     }
 }
 </script>
