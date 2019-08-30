@@ -18,7 +18,7 @@
           </div>
           <div class="swiper-slide">
             <ul class="list">
-              <li v-for="(i,index) in lists" :key="index">
+              <li v-for="(i,index) in lists" :key="index" @click="commoditys(i)">
                   <img :src="'https://fuss10.elemecdn.com/'+i.image_url" alt />
                   <span>{{i.title}}</span>
               </li>
@@ -105,8 +105,8 @@ export default {
   },
   methods: {
     commoditys(id){
-      // console.log(id)
-      // console.log(this.$routes)
+      console.log(id)
+      this.$router.push({path:'/food',query:{title:id.title}}); 
     },
     msite() {
       this.$http
@@ -149,6 +149,12 @@ export default {
 </script>
 
 <style scoped>
+*{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-decoration: none;
+      }
 .msite {
   background: #f5f5f5;
 }
