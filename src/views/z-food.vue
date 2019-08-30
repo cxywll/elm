@@ -19,11 +19,13 @@
           <div>筛选</div>
       </div>
     </div>
+     <Sfoot></Sfoot>
   </div>
 </template>
 
 <script>
 import Shead from "../components/Shead";
+import Sfoot from '../components/Sfoot'
 export default {
   name: "food",
   data() {
@@ -33,7 +35,8 @@ export default {
     };
   },
   components: {
-    Shead
+    Shead,
+    Sfoot
   },
   created() {
     this.title = this.$route.query.title;

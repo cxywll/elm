@@ -80,6 +80,7 @@
         </ul>
       </div>
     </div>
+    <Sfoot></Sfoot>
   </div>
 </template>
 
@@ -87,6 +88,7 @@
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.min.css";
 import Shead from "../components/Shead";
+import Sfoot from "../components/Sfoot";
 export default {
   name: "msite",
   data() {
@@ -97,7 +99,8 @@ export default {
     };
   },
   components: {
-    Shead
+    Shead,
+    Sfoot
   },
   created() {
     this.msite();

@@ -5,14 +5,17 @@
         <template v-slot:center>8</template>
         <template v-slot:right>9</template>
       </Shead>
+      <Sfoot></Sfoot>
     </div>
 </template>
 <script>
 import Shead from './Shead.vue'
+import Sfoot from './Sfoot.vue'
 export default {
   name: 'Outer',
   components: {
     Shead,
+    Sfoot
   }
 }
 </script>

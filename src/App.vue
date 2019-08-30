@@ -4,11 +4,11 @@
   </div>
 </template>
 <script>
-import Home from './components/Home.vue'
+import Zmsite from './views/z-productList.vue'
 export default {
   components: {
-    Home
-  },
+    Zmsite
+  }
 }
 </script>
 <style>
