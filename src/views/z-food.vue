@@ -80,7 +80,7 @@ export default {
   },
   created() {
     this.title = this.$route.query.title;
-    this.list();
+    this.list(); 
   },
   methods: {
     backBtn() {
