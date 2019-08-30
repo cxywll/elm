@@ -9,6 +9,9 @@ export default {
 </script>
 
 <style>
-
+    p{
+        height: 100px;
+        background-color: red;
+    }
 </style>
 
