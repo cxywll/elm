@@ -97,7 +97,7 @@ export default {
   methods: {
     commoditys(id){
       console.log(id)
-      console.log(this.$routes)
+      // console.log(this.$routes)
     },
     msite() {
       this.$http
@@ -133,7 +133,6 @@ export default {
         })
         .then(data => {
           this.commodity = data.data;
-          console.log(this.commodity);
         });
     }
   }
