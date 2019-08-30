@@ -8,7 +8,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     p{
         height: 100px;
         background-color: red;
