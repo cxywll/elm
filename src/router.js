@@ -8,6 +8,7 @@ import Mine from './components/Mine.vue'
 import List from './components/List.vue'
 import Chotcity from './views/c-hotcity.vue'
 import Zmsite from './views/z-productList.vue'
+import Zfood from './views/z-food.vue'
 
 Vue.use(Router)
 
@@ -16,7 +17,7 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path:'/Shead',
+      path: '/Shead',
       name: 'Shead',
       component: Shead
     },
@@ -24,24 +25,25 @@ export default new Router({
       path: '/',
       name: 'Sfoot',
       component: Sfoot,
-      children:[{
-        path:'/',
-        name:'Outer',
+      children: [{
+        path: '/',
+        name: 'Outer',
         component: Outer
-      },{
-        path:'/Sfoot/List',
-        name:'List',
+      }, {
+        path: '/Sfoot/List',
+        name: 'List',
         component: List
-      },{
-        path:'/Sfoot/Search',
-        name:'Search',
+      }, {
+        path: '/Sfoot/Search',
+        name: 'Search',
         component: Search
-      },{
-        path:'/Sfoot/Mine',
-        name:'Mine',
-        component: Mine
-      }]
-    },{
+      }, {
+        path: '/Sfoot/Mine',
+        name: 'Mine',
+          component: Mine
+        }]
+    },
+    {
       path: '/',
       name: 'Chotcity',
       component: Chotcity
@@ -51,13 +53,10 @@ export default new Router({
       name: 'Zmsite',
       component: Zmsite
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    // }
+    {
+      path: '/food',
+      name: 'Zfood',
+      component: Zfood
+    },
   ]
 })

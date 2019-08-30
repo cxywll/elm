@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Sfoot></Sfoot>
+    
   </div>
 </template>
 <script>
