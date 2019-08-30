@@ -1,10 +1,7 @@
 <template>
   <div id="app">
     <Sfoot></Sfoot>
-<<<<<<< HEAD
     
-=======
->>>>>>> f248fa06ccab4544347520c0405fb8972e65812e
   </div>
 </template>
 <script>

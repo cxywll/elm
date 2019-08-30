@@ -105,7 +105,7 @@ export default {
   },
   methods: {
     commoditys(id){
-      console.log(id)
+      // console.log(id)
       // console.log(this.$routes)
     },
     msite() {
