@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-<<<<<<< HEAD
     <Sfoot></Sfoot>
-=======
-    <router-view/>
->>>>>>> 79abbb3f90c457712d17b6c06a338665ae30d064
   </div>
 </template>
 <script>

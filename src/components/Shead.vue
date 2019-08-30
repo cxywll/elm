@@ -12,9 +12,14 @@ export default {
 </script>
 <style scoped>
 .S-head{
-  height: 1.2rem;
-  background-color: #3190e8;
-  font-size: 0.6rem;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 1.2rem;
+    background-color: #3190e8;
+    font-size: 0.6rem;
+    overflow: hidden;
 }
 .left{
     float: left;
@@ -39,6 +44,7 @@ export default {
 }
 .right{
     float: right;
+    font-size: 0.4rem;
     line-height: 1.2rem;
     color: #fff;
     padding-right: 0.2rem;

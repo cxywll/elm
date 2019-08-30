@@ -133,7 +133,6 @@ export default {
         })
         .then(data => {
           this.commodity = data.data;
-          console.log(this.commodity);
         });
     }
   }
