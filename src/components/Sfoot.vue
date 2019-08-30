@@ -22,7 +22,7 @@ export default {
       index:0,
         n: 0,
         arr:[
-          {icon:'icon-changyonglogo40',name:'外卖',path:'/'},
+          {icon:'icon-changyonglogo40',name:'外卖',path:'/Sfoot'},
           {icon:'icon-zhinanzhen',name:'搜索',path:'/Sfoot/Search'},
           {icon:'icon-dingdan',name:'订单',path:'/Sfoot/List'},
           {icon:'icon-wode',name:'我的',path:'/Sfoot/Mine'},

@@ -1,14 +1,13 @@
 <template>
   <div id="app">
-    <Sfoot></Sfoot>
-    
+    <router-view/>
   </div>
 </template>
 <script>
-import Sfoot from './components/Sfoot.vue'
+import Home from './components/Home.vue'
 export default {
   components: {
-    Sfoot
+    Home
   },
 }
 </script>
