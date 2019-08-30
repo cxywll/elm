@@ -2,7 +2,7 @@
   <div class="food">
     <Shead>
       <template v-slot:left>
-        <i class="iconfont" @click="backBtn">返回</i>
+        <i class="iconfont icon-jiantou" @click="backBtn"></i>
       </template>
       <template v-slot:center>
         <a href="home">{{title}}</a>
@@ -111,6 +111,7 @@ export default {
   list-style: none;
   text-decoration: none;
 }
+a{color: #fff;}
 .sort_container {
   position: fixed;
   left: 0;
