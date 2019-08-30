@@ -5,21 +5,17 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <ul class="list">
-              <li v-for="(i,index) in list" :key="index">
-                <a href>
+              <li v-for="(i,index) in list" :key="index" @click="commoditys(i)">
                   <img :src="'https://fuss10.elemecdn.com/'+i.image_url" alt />
                   <span>{{i.title}}</span>
-                </a>
               </li>
             </ul>
           </div>
           <div class="swiper-slide">
             <ul class="list">
               <li v-for="(i,index) in lists" :key="index">
-                <a href>
                   <img :src="'https://fuss10.elemecdn.com/'+i.image_url" alt />
                   <span>{{i.title}}</span>
-                </a>
               </li>
             </ul>
           </div>
@@ -33,7 +29,7 @@
       </header>
       <div class="shoplist_container">
         <ul>
-          <li v-for="(i,index) in commodity" :key="index" class="shop_li">
+          <li v-for="(i,index) in commodity" :key="index" class="shop_li" >
             <section>
               <img :src="'//elm.cangdu.org/img/'+i.image_path" alt class="shop_img" />
             </section>
@@ -99,6 +95,10 @@ export default {
     });
   },
   methods: {
+    commoditys(id){
+      console.log(id)
+      console.log(this.$routes)
+    },
     msite() {
       this.$http
         .get("http://elm.cangdu.org/v2/index_entry", {
@@ -164,13 +164,11 @@ export default {
   width: 100px;
   height: 100px;
 }
-.list li a span {
+.list li  span {
   font-size: 24px;
   display: block;
 }
-.list li a {
-  color: #666;
-}
+
 .z-main {
   background-color: #fff;
 }
