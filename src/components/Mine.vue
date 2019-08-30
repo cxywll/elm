@@ -30,14 +30,17 @@
         <div>
 
         </div>
+        <Sfoot></Sfoot>
     </div>
 </template>
 <script>
 import Shead from './Shead.vue'
+import Sfoot from './Sfoot.vue'
 export default {
     name:'Mine',
   components: {
     Shead,
+    Sfoot
   },
   data () {
     return {
