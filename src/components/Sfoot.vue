@@ -51,6 +51,7 @@ export default {
   left: 0;
   bottom: 0;
   border-top: 1px solid #ccc;
+  z-index: 5;
 }
 .S-foot a{
   text-decoration: none;

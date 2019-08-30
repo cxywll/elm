@@ -1,6 +1,7 @@
 <template>
     <div class="S-head">
         <span class="left"><slot name="left"></slot></span>
+
         <span class="center"><slot name="center"></slot></span>
         <span class="right"><slot name="right"></slot></span>
     </div>
@@ -20,6 +21,7 @@ export default {
     background-color: #3190e8;
     font-size: 0.6rem;
     overflow: hidden;
+    z-index: 5;
 }
 .left{
     float: left;
