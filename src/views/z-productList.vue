@@ -1,26 +1,32 @@
 <template>
   <div class="msite">
     <div class="z-nev">
-    <Shead>
-      <template v-slot:left><i class="iconfont"></i></template>
-      <template v-slot:center><a href="home">home</a></template>
-      <template v-slot:right ><a href="login">登录|注册</a></template>
-    </Shead>
+      <Shead>
+        <template v-slot:left>
+          <i class="iconfont"></i>
+        </template>
+        <template v-slot:center>
+          <a href="home">home</a>
+        </template>
+        <template v-slot:right>
+          <a href="login">登录|注册</a>
+        </template>
+      </Shead>
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <ul class="list">
               <li v-for="(i,index) in list" :key="index" @click="commoditys(i)">
-                  <img :src="'https://fuss10.elemecdn.com/'+i.image_url" alt />
-                  <span>{{i.title}}</span>
+                <img :src="'https://fuss10.elemecdn.com/'+i.image_url" alt />
+                <span>{{i.title}}</span>
               </li>
             </ul>
           </div>
           <div class="swiper-slide">
             <ul class="list">
               <li v-for="(i,index) in lists" :key="index" @click="commoditys(i)">
-                  <img :src="'https://fuss10.elemecdn.com/'+i.image_url" alt />
-                  <span>{{i.title}}</span>
+                <img :src="'https://fuss10.elemecdn.com/'+i.image_url" alt />
+                <span>{{i.title}}</span>
               </li>
             </ul>
           </div>
@@ -34,7 +40,7 @@
       </header>
       <div class="shoplist_container">
         <ul>
-          <li v-for="(i,index) in commodity" :key="index" class="shop_li" >
+          <li v-for="(i,index) in commodity" :key="index" class="shop_li">
             <section>
               <img :src="'//elm.cangdu.org/img/'+i.image_path" alt class="shop_img" />
             </section>
@@ -80,7 +86,7 @@
 <script>
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.min.css";
-import Shead from '../components/Shead'
+import Shead from "../components/Shead";
 export default {
   name: "msite",
   data() {
@@ -90,7 +96,7 @@ export default {
       commodity: [] //商品
     };
   },
-  components:{
+  components: {
     Shead
   },
   created() {
@@ -104,9 +110,9 @@ export default {
     });
   },
   methods: {
-    commoditys(id){
-      console.log(id)
-      this.$router.push({path:'/food',query:{title:id.title}}); 
+    commoditys(id) {
+      console.log(id);
+      this.$router.push({ path: "/food", query: { title: id.title } });
     },
     msite() {
       this.$http
@@ -149,12 +155,12 @@ export default {
 </script>
 
 <style scoped>
-*{
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      text-decoration: none;
-      }
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
 .msite {
   background: #f5f5f5;
 }
@@ -178,7 +184,7 @@ export default {
   width: 100px;
   height: 100px;
 }
-.list li  span {
+.list li span {
   font-size: 24px;
   display: block;
 }
@@ -249,7 +255,7 @@ export default {
   margin-right: -5px;
 }
 .swiper-container {
-  margin-top:100px;
+  margin-top: 100px;
 }
 .shop_right .shop_detail_header .shop_detail_ul .supports {
   font-size: 24px;
@@ -322,7 +328,7 @@ export default {
   font-size: 20px;
   color: #666;
 }
-.fee_right span{
-      color: #3190e8;
+.fee_right span {
+  color: #3190e8;
 }
 </style>
