@@ -16,7 +16,11 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+<<<<<<< HEAD
       path: '/Shead',
+=======
+      path:'/Shead',
+>>>>>>> f248fa06ccab4544347520c0405fb8972e65812e
       name: 'Shead',
       component: Shead
     },
@@ -41,6 +45,13 @@ export default new Router({
         name: 'Mine',
         component: Mine
       }]
+<<<<<<< HEAD
+=======
+    },{
+      path: '/',
+      name: 'Chotcity',
+      component: Chotcity
+>>>>>>> f248fa06ccab4544347520c0405fb8972e65812e
     },
     {
     path: '/',
