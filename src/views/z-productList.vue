@@ -3,7 +3,7 @@
     <div class="z-nev">
     <Shead>
       <template v-slot:left><i class="iconfont"></i></template>
-      <template v-slot:center><a href="home">1</a></template>
+      <template v-slot:center><a href="home">home</a></template>
       <template v-slot:right ><a href="login">登录|注册</a></template>
     </Shead>
       <div class="swiper-container">
@@ -241,6 +241,9 @@ export default {
   display: flex;
   transform: scale(0.8);
   margin-right: -5px;
+}
+.swiper-container {
+  margin-top:100px;
 }
 .shop_right .shop_detail_header .shop_detail_ul .supports {
   font-size: 24px;
