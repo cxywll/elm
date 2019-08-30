@@ -41,15 +41,11 @@ export default new Router({
         name: 'Mine',
           component: Mine
         }]
-    }, {
+    },
+    {
       path: '/',
       name: 'Chotcity',
       component: Chotcity
-    },
-    {
-    path: '/',
-    name: 'Chotcity',
-    component: Chotcity
     },
   {
     path: '/msite',
