@@ -310,11 +310,13 @@ export default {
   margin-right: -25px;
 }
 .shop_right .rating_order_num .rating_order_num_right .delivery_left {
+  font-size: 20px;
   color: #fff;
   background-color: #3190e8;
   border: 2px solid #3190e8;
 }
 .shop_right .rating_order_num .rating_order_num_right .delivery_right {
+  font-size: 20px;
   color: #3190e8;
   border: 2px solid #3190e8;
 }
