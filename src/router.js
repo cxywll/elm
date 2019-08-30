@@ -53,7 +53,7 @@ export default new Router({
     },
   {
     path: '/msite',
-    name: 'msite',
+    name: 'Zmsite',
     component: Zmsite
   },
     // {
