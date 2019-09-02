@@ -1,33 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-// 热门城市
-=======
->>>>>>> 658d554152878d06f82078979b3863433849ed0b
->>>>>>> ddab78442048a5eadf17671ea610edb311a37bd1
 import hotcity from './views/f-hotcity.vue'
 // 搜索城市
 import fsearch from './views/f-search.vue'
-<<<<<<< HEAD
 import Hello from './components/HelloWorld.vue'
-=======
-<<<<<<< HEAD
 
-// import Hello from './components/HelloWorld.vue'
 // 头部
-=======
-import Hello from './components/HelloWorld.vue'
->>>>>>> 658d554152878d06f82078979b3863433849ed0b
->>>>>>> ddab78442048a5eadf17671ea610edb311a37bd1
-import Chotcity from './views/c-hotcity.vue'
+// import Hello from './components/HelloWorld.vue'
+// import Chotcity from './views/c-hotcity.vue'
 // 登录
 import register from './views/j-register.vue'
-<<<<<<< HEAD
-=======
 // 公共组件
->>>>>>> ddab78442048a5eadf17671ea610edb311a37bd1
 import Sfoot from './components/Sfoot.vue'
 import Shead from './components/Shead.vue'
 import Search from './components/Search.vue'
@@ -62,16 +45,11 @@ export default new Router({
     //   component: Hello
     // },
     {
-<<<<<<< HEAD
       path: '/Hello',
       name: 'Hello',
       component: Hello
     },
   {
-=======
-=======
->>>>>>> 658d554152878d06f82078979b3863433849ed0b
->>>>>>> ddab78442048a5eadf17671ea610edb311a37bd1
       path: '/Shead',
       name: 'Shead',
       component: Shead
