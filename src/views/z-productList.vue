@@ -109,11 +109,6 @@ export default {
     this.msite();
     this.place = this.$route.query.address;
   },
-  watch: {
-    place(a,b){
-
-    }
-  },
   mounted() {
     new Swiper(".swiper-container", {
       pagination: {
