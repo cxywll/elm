@@ -4,10 +4,10 @@
   </div>
 </template>
 <script>
-// import Zmsite from './views/z-productList.vue'
+import Zmsite from './views/z-productList.vue'
 export default {
   components: {
-    // Zmsite
+    Zmsite
   }
 }
 </script>
