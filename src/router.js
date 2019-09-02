@@ -1,9 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import hotcity from './views/f-hotcity.vue'
-import fsearch from './views/f-search.vue'
-import Hello from './components/HelloWorld.vue'
-import Chotcity from './views/c-hotcity.vue'
 import register from './views/j-register.vue'
 import Sfoot from './components/Sfoot.vue'
 import Shead from './components/Shead.vue'
@@ -64,6 +60,6 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: register
-    },
+    }
   ]
 })
