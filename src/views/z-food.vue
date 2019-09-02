@@ -64,7 +64,7 @@ export default {
 };
 </script>
 
-<style scopend>
+<style scoped>
 a{color: #fff;}
 .sort_container {
     position: fixed;

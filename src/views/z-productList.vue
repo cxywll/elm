@@ -101,9 +101,11 @@ export default {
   components: {
     Shead,
     Sfoot
+    
   },
   created() {
     this.msite();
+    console.log(this.$route)
   },
   mounted() {
     new Swiper(".swiper-container", {

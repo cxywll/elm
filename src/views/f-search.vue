@@ -23,7 +23,7 @@
 		</div>
 		<!-- 搜索数据输出-->
 		<ul v-if="data_list"  style="list-style: none;min-height:60px;">
-            <router-link to="/Hello" v-for="(i,index) in data_list">
+            <router-link :to='{name:"Zmsite",query:{data:i.name}}' v-for="(i,index) in data_list">
 			    <li class="sear_list"  @click="history(i)">
 			    	<p>{{i.name}}</p>
 			    	<span class="a" style="color: #999;font-size: 15px">{{i.address}}</span>
@@ -35,7 +35,7 @@
 			<div class="history">搜索历史</div>   
 			<div class="box" v-for='(item,$index) in select' :key="$index">
 				<div @click="rap">
-					<router-link :to='{name:"Hello",query:{data:item.split(",")[0]}}'>
+					<router-link :to='{name:"Zmsite",query:{data:item.split(",")[0]}}'>
 					<p style="font-size:14px;color:dodgerblue;">{{item.split(',')[0]}}</p>
 					<p style="color:#cccc;">{{item.split(',')[1]}}</p>
 					</router-link>
@@ -121,7 +121,7 @@ import { constants } from "crypto";
 			}
 		})
 </script>
-<style type="text/css" scoped>
+<style scoped>
 		*{
 			list-style-type:none;
 		}

@@ -1,24 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+// 热门城市
 import hotcity from './views/f-hotcity.vue'
+// 搜索城市
 import fsearch from './views/f-search.vue'
-import Hello from './components/HelloWorld.vue'
-=======
-<<<<<<< HEAD
->>>>>>> ea40245952b8a8fa8424bf575373613ff5410651
+
+// import Hello from './components/HelloWorld.vue'
+// 头部
 import Chotcity from './views/c-hotcity.vue'
+// 登录
 import register from './views/j-register.vue'
+// 公共组件
 import Sfoot from './components/Sfoot.vue'
 import Shead from './components/Shead.vue'
 import Search from './components/Search.vue'
 import Mine from './components/Mine.vue'
 import List from './components/List.vue'
+// 美食主页
 import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
->>>>>>> a5fce193b1c12b1fd8a885e52cf77220538907d2
 
 Vue.use(Router)
 
@@ -27,7 +27,6 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-<<<<<<< HEAD
       path: '/',
       name: 'hotcity',
       component: hotcity
@@ -40,12 +39,12 @@ export default new Router({
         name:route.query
       })
     },
+    // {
+    //   path: '/Hello',
+    //   name: 'Hello',
+    //   component: Hello
+    // },
     {
-      path: '/Hello',
-      name: 'Hello',
-      component: Hello
-    }
-=======
       path: '/Shead',
       name: 'Shead',
       component: Shead
@@ -91,11 +90,5 @@ export default new Router({
       name: 'register',
       component: register
     },
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 4f78e57c3b21cd21acbe2465eed7b69d3fea27f2
->>>>>>> a5fce193b1c12b1fd8a885e52cf77220538907d2
->>>>>>> ea40245952b8a8fa8424bf575373613ff5410651
   ]
 })
