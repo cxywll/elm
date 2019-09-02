@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    123456
+    {{this.$route.query.data}}
   </div>
 </template>
 
@@ -9,6 +9,9 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  created(){
+    console.log(this.$route)
   }
 }
 </script>

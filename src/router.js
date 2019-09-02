@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Chotcity from './views/c-hotcity.vue'
+import hotcity from './views/f-hotcity.vue'
+import fsearch from './views/f-search.vue'
+import Hello from './components/HelloWorld.vue'
 
 Vue.use(Router)
 
@@ -10,16 +12,21 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Chotcity',
-      component: Chotcity
+      name: 'hotcity',
+      component: hotcity
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    // }
+    {
+      path: '/f-search/:id',
+      name: 'search',
+      component: fsearch,
+      props: route=>({
+        name:route.query
+      })
+    },
+    {
+      path: '/Hello',
+      name: 'Hello',
+      component: Hello
+    }
   ]
 })
