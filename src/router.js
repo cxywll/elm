@@ -1,5 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import hotcity from './views/f-hotcity.vue'
+import fsearch from './views/f-search.vue'
+import Hello from './components/HelloWorld.vue'
+import Chotcity from './views/c-hotcity.vue'
+import register from './views/j-register.vue'
 import Sfoot from './components/Sfoot.vue'
 import Shead from './components/Shead.vue'
 import Search from './components/Search.vue'
@@ -20,18 +25,25 @@ export default new Router({
       component: Shead
     },
     {
+      // 赵永超:美食主页
       path: '/msite',
       name: 'Zmsite',
       component: Zmsite
-    }, {
+    },
+    {
+      // 订单
       path: '/List',
       name: 'List',
       component: List
-    }, {
+    },
+    {
+      // 搜索美食
       path: '/Search',
       name: 'Search',
       component: Search
-    }, {
+    },
+    {
+      // 我的
       path: '/Mine',
       name: 'Mine',
       component: Mine
@@ -42,9 +54,16 @@ export default new Router({
         component: Sfoot
     },
     {
+      // 滑动店铺点击
       path: '/food',
       name: 'Zfood',
       component: Zfood
+    },
+    {
+      // 密码登录
+      path: '/register',
+      name: 'register',
+      component: register
     },
   ]
 })
