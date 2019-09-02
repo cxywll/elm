@@ -37,7 +37,7 @@ export default new Router({
       component: Mine
     },
     {
-        path: '/',
+        path: '/Sfoot',
         name: 'Sfoot',
         component: Sfoot
     },
