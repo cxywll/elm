@@ -1,12 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+<<<<<<< HEAD
 // 热门城市
+=======
+>>>>>>> 658d554152878d06f82078979b3863433849ed0b
 import hotcity from './views/f-hotcity.vue'
 // 搜索城市
 import fsearch from './views/f-search.vue'
+<<<<<<< HEAD
 
 // import Hello from './components/HelloWorld.vue'
 // 头部
+=======
+import Hello from './components/HelloWorld.vue'
+>>>>>>> 658d554152878d06f82078979b3863433849ed0b
 import Chotcity from './views/c-hotcity.vue'
 // 登录
 import register from './views/j-register.vue'
@@ -27,6 +34,7 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+<<<<<<< HEAD
       path: '/',
       name: 'hotcity',
       component: hotcity
@@ -45,6 +53,8 @@ export default new Router({
     //   component: Hello
     // },
     {
+=======
+>>>>>>> 658d554152878d06f82078979b3863433849ed0b
       path: '/Shead',
       name: 'Shead',
       component: Shead
