@@ -1,15 +1,39 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+// 热门城市
+=======
+>>>>>>> 658d554152878d06f82078979b3863433849ed0b
+>>>>>>> ddab78442048a5eadf17671ea610edb311a37bd1
 import hotcity from './views/f-hotcity.vue'
+// 搜索城市
 import fsearch from './views/f-search.vue'
+<<<<<<< HEAD
 import Hello from './components/HelloWorld.vue'
+=======
+<<<<<<< HEAD
+
+// import Hello from './components/HelloWorld.vue'
+// 头部
+=======
+import Hello from './components/HelloWorld.vue'
+>>>>>>> 658d554152878d06f82078979b3863433849ed0b
+>>>>>>> ddab78442048a5eadf17671ea610edb311a37bd1
 import Chotcity from './views/c-hotcity.vue'
+// 登录
 import register from './views/j-register.vue'
+<<<<<<< HEAD
+=======
+// 公共组件
+>>>>>>> ddab78442048a5eadf17671ea610edb311a37bd1
 import Sfoot from './components/Sfoot.vue'
 import Shead from './components/Shead.vue'
 import Search from './components/Search.vue'
 import Mine from './components/Mine.vue'
 import List from './components/List.vue'
+// 美食主页
 import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
 
@@ -32,29 +56,46 @@ export default new Router({
         name:route.query
       })
     },
+    // {
+    //   path: '/Hello',
+    //   name: 'Hello',
+    //   component: Hello
+    // },
     {
+<<<<<<< HEAD
       path: '/Hello',
       name: 'Hello',
       component: Hello
     },
   {
+=======
+=======
+>>>>>>> 658d554152878d06f82078979b3863433849ed0b
+>>>>>>> ddab78442048a5eadf17671ea610edb311a37bd1
       path: '/Shead',
       name: 'Shead',
       component: Shead
     },
     {
+      // 赵永超:美食主页
       path: '/msite',
       name: 'Zmsite',
       component: Zmsite
-    }, {
+    },
+    {
+      // 订单
       path: '/List',
       name: 'List',
       component: List
-    }, {
+    },
+    {
+      // 搜索美食
       path: '/Search',
       name: 'Search',
       component: Search
-    }, {
+    },
+    {
+      // 我的
       path: '/Mine',
       name: 'Mine',
       component: Mine
@@ -65,11 +106,13 @@ export default new Router({
         component: Sfoot
     },
     {
+      // 滑动店铺点击
       path: '/food',
       name: 'Zfood',
       component: Zfood
     },
     {
+      // 密码登录
       path: '/register',
       name: 'register',
       component: register

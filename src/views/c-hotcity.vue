@@ -14,7 +14,10 @@ export default {
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 
+=======
+>>>>>>> ddab78442048a5eadf17671ea610edb311a37bd1
 .header{
 	width: 100%;
 	height: 50px;
@@ -37,5 +40,13 @@ export default {
 	line-height: 50px;
 	float: right;
 }
+<<<<<<< HEAD
+=======
+/* <style scoped>
+    p{
+        height: 100px;
+        background-color: red;
+    } */
+>>>>>>> ddab78442048a5eadf17671ea610edb311a37bd1
 </style>
 

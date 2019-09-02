@@ -108,12 +108,15 @@ export default {
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 * {
   margin: 0;
   padding: 0;
   list-style: none;
   text-decoration: none;
 }
+=======
+>>>>>>> ddab78442048a5eadf17671ea610edb311a37bd1
 a{color: #fff;}
 .sort_container {
   position: fixed;

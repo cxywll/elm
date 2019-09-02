@@ -5,7 +5,7 @@
 			<p style="float: right;"><span>登录</span>/<span>注册</span></p>
 		</div>
 		<div class="opt">
-			<p>当前城市定位 <span style="color:#cccccc;float: right;font-size: 10px;margin-right:10px;">定位不准时，请在城市列表中选择</span></p>
+			<p style="margin-top:1.06667rem;font-size:18px;">当前城市定位 <span style="color:#cccccc;float: right;font-size: 15px;margin-right:10px;">定位不准时，请在城市列表中选择</span></p>
 			
 				<router-link :to='/f-search/+3' >
 						<p style="color: dodgerblue;height: 30px;margin-left:10px;margin-top:3px;">北京<span style="font-weight: 600;color: #2C3E50;float: right;">&gt;</span></p>
@@ -25,16 +25,12 @@
 			<div v-for="s,key in soarr">
 				<h4 class="letter">{{key}}</h4>
 				<ul>
-          <router-link :to='/f-search/+i.id'  v-for='i in s'>
-					<li class="list">
-							{{i.name}}
-					</li>
-        </router-link>
+          			<router-link :to='/f-search/+i.id'  v-for='i in s'>
+						<li class="list">{{i.name}}</li>
+        			</router-link>
 				</ul>
 			</div>
 		</div>
-    <router-view>
-		</router-view>
 	</div>
 </template>
 
@@ -77,17 +73,17 @@
 </script>
 
 
-<style>
+<style scoped>
 	* {
 		margin: 0;
 		padding: 0;
 		font-size: 30px;
 	}
-a{
-	text-decoration: none;
-	color:dodgerblue ;
-		font-size: 20px;
-}
+	a{
+		text-decoration: none;
+		color:dodgerblue ;
+			font-size: 20px;
+	}
 	
 	#app {
 		background: #f5f5f5;
@@ -114,7 +110,7 @@ a{
 	}
 	
 	.opt>p {
-    font-size: 18px;
+    font-size: 25px;
 		padding: 1px;
 		line-height: 60px;
 	}
