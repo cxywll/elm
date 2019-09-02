@@ -4,14 +4,14 @@
   </div>
 </template>
 <script>
-import Zmsite from './views/z-productList.vue'
+// import Zmsite from './views/z-productList.vue'
 export default {
   components: {
-    Zmsite
+    // Zmsite
   }
 }
 </script>
-<style>
+<style scoped>
 *{margin: 0;padding: 0;text-decoration: none;list-style: none;}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
