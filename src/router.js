@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import register from './views/j-register.vue'
+// 公共组件
 import Sfoot from './components/Sfoot.vue'
 import Shead from './components/Shead.vue'
 import Search from './components/Search.vue'
 import Mine from './components/Mine.vue'
 import List from './components/List.vue'
+// 美食主页
 import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
 

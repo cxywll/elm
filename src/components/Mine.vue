@@ -14,15 +14,15 @@
             </div>
             <div class="S-login-infor" v-else>
               <p class="S-user-infor">
-                <router-link to="/">登陆</router-link><span>/</span>
-                <router-link to="/">注册</router-link>
+                <router-link to="/register">登陆</router-link><span>/</span>
+                <router-link to="/register">注册</router-link>
               </p>
               <p class="S-user-tele">
-                <router-link to="/"><i class="iconfont icon-44"></i>暂无绑定手机号</router-link>
+                <router-link to="/register"><i class="iconfont icon-44"></i>暂无绑定手机号</router-link>
               </p>
             </div>
             <div class="turnright">
-              <router-link to="/">
+              <router-link to="/register">
                 <i class="iconfont icon-jiantouyou"></i>
               </router-link>
             </div>
