@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< HEAD
 import Chotcity from './views/c-hotcity.vue'
 import register from './views/j-register.vue'
-=======
 import Sfoot from './components/Sfoot.vue'
 import Shead from './components/Shead.vue'
 import Search from './components/Search.vue'
@@ -12,7 +10,6 @@ import List from './components/List.vue'
 import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
 
->>>>>>> 4f78e57c3b21cd21acbe2465eed7b69d3fea27f2
 Vue.use(Router)
 
 export default new Router({
@@ -25,18 +22,25 @@ export default new Router({
       component: Shead
     },
     {
+      // 赵永超:美食主页
       path: '/msite',
       name: 'Zmsite',
       component: Zmsite
-    }, {
+    },
+    {
+      // 订单
       path: '/List',
       name: 'List',
       component: List
-    }, {
+    },
+    {
+      // 搜索美食
       path: '/Search',
       name: 'Search',
       component: Search
-    }, {
+    },
+    {
+      // 我的
       path: '/Mine',
       name: 'Mine',
       component: Mine
@@ -47,17 +51,16 @@ export default new Router({
         component: Sfoot
     },
     {
+      // 滑动店铺点击
       path: '/food',
       name: 'Zfood',
       component: Zfood
     },
-<<<<<<< HEAD
     {
+      // 密码登录
       path: '/register',
       name: 'register',
       component: register
     },
-=======
->>>>>>> 4f78e57c3b21cd21acbe2465eed7b69d3fea27f2
   ]
 })
