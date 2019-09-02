@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import hotcity from './views/f-hotcity.vue'
 // 搜索城市
 import fsearch from './views/f-search.vue'
-import Hello from './components/HelloWorld.vue'
+// import Hello from './components/HelloWorld.vue'
 
 // 头部
 // import Hello from './components/HelloWorld.vue'
@@ -89,6 +89,6 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: register
-    },
+    }
   ]
 })
