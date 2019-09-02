@@ -36,7 +36,8 @@ export default new Router({
       path: '/Hello',
       name: 'Hello',
       component: Hello
-    }
+    },
+  {
       path: '/Shead',
       name: 'Shead',
       component: Shead
