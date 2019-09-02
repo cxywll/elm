@@ -101,11 +101,10 @@ export default {
   components: {
     Shead,
     Sfoot
-    
   },
   created() {
     this.msite();
-    console.log(this.$route)
+    console.log(this.$route);
   },
   mounted() {
     new Swiper(".swiper-container", {
@@ -115,9 +114,7 @@ export default {
     });
   },
   methods: {
-
     commoditys(id) {
-      console.log(id);
       this.$router.push({ path: "/food", query: { title: id.title } });
     },
     msite() {

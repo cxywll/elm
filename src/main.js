@@ -10,11 +10,11 @@ import VueAxios from 'vue-axios'
 axios.defaults.withCredentials = true;
 
 import '../font/iconfont.css'
-import VueResource from 'vue-resource'
+// import VueResource from 'vue-resource'
 Vue.config.productionTip = false
 
-Vue.use(VueResource)
 Vue.use(VueAxios, axios)
+// Vue.use(VueResource)
 
 new Vue({
   router,

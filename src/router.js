@@ -39,11 +39,6 @@ export default new Router({
         name:route.query
       })
     },
-    // {
-    //   path: '/Hello',
-    //   name: 'Hello',
-    //   component: Hello
-    // },
     {
       path: '/Hello',
       name: 'Hello',
