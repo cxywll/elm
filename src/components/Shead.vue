@@ -33,15 +33,17 @@ export default {
     font-weight: bold;
 }
 .center{
-    width: 80%;
-    font-weight: bold;
+    width: 55%;
     position: absolute;
     left: 50%;
-    margin-left: -40%;
+    margin-left: -30%;
     top: 0;
     text-align: center;
     line-height: 1.2rem;
     color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .right{
     float: right;

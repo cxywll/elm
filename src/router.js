@@ -7,6 +7,8 @@ import Shead from './components/Shead.vue'
 import Search from './components/Search.vue'
 import Mine from './components/Mine.vue'
 import List from './components/List.vue'
+import Sallcity from './views/Sallcity.vue'
+import Scitys from './views/Scitys.vue'
 // 美食主页
 import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
@@ -21,6 +23,16 @@ export default new Router({
       path: '/Shead',
       name: 'Shead',
       component: Shead
+    },
+    {
+      path: '/Sallcity',
+      name: 'Sallcity',
+      component: Sallcity
+    },
+    {
+      path: '/Scitys',
+      name: 'Scitys',
+      component: Scitys
     },
     {
       // 赵永超:美食主页

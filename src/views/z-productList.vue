@@ -6,10 +6,11 @@
           <i class="iconfont"></i>
         </template>
         <template v-slot:center>
-          <a href="home">home</a>
+          <router-link to="/Sallcity">{{place}}</router-link>
         </template>
         <template v-slot:right>
-          <a href="login">登录|注册</a>
+          <router-link to="/register">登录</router-link><span class="fen">|</span>
+          <router-link to="/register">注册</router-link>
         </template>
       </Shead>
       <div class="swiper-container">
@@ -95,7 +96,8 @@ export default {
     return {
       list: [], //商品列表
       lists: [],
-      commodity: [] //商品
+      commodity: [], //商品
+      place:'北京房山',//地址
     };
   },
   components: {
@@ -105,6 +107,12 @@ export default {
   },
   created() {
     this.msite();
+    this.place = this.$route.query.address;
+  },
+  watch: {
+    place(a,b){
+
+    }
   },
   mounted() {
     new Swiper(".swiper-container", {
@@ -158,6 +166,18 @@ export default {
 </script>
 
 <style scoped>
+a{
+  color: #fff;
+}
+.right a{
+  float: left;
+}
+.fen{
+  display: block;
+  float: left;
+  margin: 0 .2rem;
+  z-index: 5;
+}
 * {
   margin: 0;
   padding: 0;
