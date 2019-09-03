@@ -6,14 +6,15 @@ import register from './views/j-register.vue'
 // 公共组件
 import Sfoot from './components/Sfoot.vue'
 import Shead from './components/Shead.vue'
-import Search from './components/Search.vue'
 import Mine from './components/Mine.vue'
-import List from './components/List.vue'
+import List from './views/C-dingdan.vue'
 import Sallcity from './views/Sallcity.vue'
 import Scitys from './views/Scitys.vue'
 // 美食主页
 import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
+// 搜索美食
+import Csfood from './views/C-searchfood.vue'
 
 Vue.use(Router)
 
@@ -21,29 +22,26 @@ export default new Router({
   mode: 'history',
   // base: process.env.BASE_URL,
   routes: [
-    // {
-    //   path: '/yorder',
-    //   name: 'Yorder',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component:Yorder
-    // },
     {
+      // 附近商家点击
       path: '/yorder',
       name: 'Yorder',
       component:Yorder
-    },{
+    },
+    {
+      // 公共头部
       path: '/Shead',
       name: 'Shead',
       component: Shead
     },
     {
+      // 默认首页
       path: '/',
       name: 'Sallcity',
       component: Sallcity
     },
     {
+      // 搜索城市
       path: '/Scitys',
       name: 'Scitys',
       component: Scitys
@@ -55,17 +53,23 @@ export default new Router({
       component: Zmsite
     },
     {
+      // 搜索美食
+      path:'/csfood',
+      name:'Csfood',
+      component:Csfood
+    },
+    {
       // 订单
       path: '/List',
       name: 'List',
       component: List
     },
-    {
-      // 搜索美食
-      path: '/Search',
-      name: 'Search',
-      component: Search
-    },
+    // {
+    //   // 搜索美食
+    //   path: '/Search',
+    //   name: 'Search',
+    //   component: Search
+    // },
     {
       // 我的
       path: '/Mine',
