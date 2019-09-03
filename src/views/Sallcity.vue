@@ -21,7 +21,7 @@
       <div class="hotcity">
         <p>热门城市</p>
           <span v-for="(i,$index) in hotlist" :key="$index" @click="id = i.id">
-            <router-link :to="{path:'/Scitys',query:{city:i.name}}" >
+            <router-link :to="{path:'/Scitys',query:{city:i.name,id: i.id}}" >
               {{i.name}}
             </router-link>
           </span>
@@ -30,7 +30,7 @@
           <div v-for="(i,$key,$index) in newObj" :key="$index" class="city">
             <p>{{$key}} <i>（按字母排序）</i></p>
             <span v-for="(j,$ind) in i" :key="$ind" @click="id = i.id">
-              <router-link :to="{path:'/Scitys',query:{city:j.name,id: i.id}}">
+              <router-link :to="{path:'/Scitys',query:{city:j.name,id: j.id}}">
                 {{j.name}}
               </router-link>
             </span>
