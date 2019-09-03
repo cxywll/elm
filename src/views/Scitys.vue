@@ -1,34 +1,40 @@
 <template>
     <div class="ht">
         <Shead>
-        <template v-slot:left>
-          <router-link :to="{path:'/Sallcity'}"><i class="iconfont icon-jiantou"></i></router-link>
-        </template>
-        <template v-slot:center>
-          <router-link :to="{path:'/Sallcity'}">{{city}}</router-link>
-        </template>
-        <template v-slot:right>
-          <router-link :to="{path:'/Sallcity'}"><a>切换城市</a></router-link>
-        </template>
-      </Shead>
+            <template v-slot:left>
+                <router-link :to="{path:'/'}"><i class="iconfont icon-jiantou"></i></router-link>
+            </template>
+            <template v-slot:center>
+                <router-link :to="{path:'/'}">{{city}}</router-link>
+            </template>
+            <template v-slot:right>
+                <router-link :to="{path:'/'}"><a>切换城市</a></router-link>
+            </template>
+        </Shead>
         <div class="search clearfix">
-            <div class="search_s">
-                <input type="text" class="input" placeholder="输入学校、商务楼、地址" v-model="s_content">
-            </div>
-            <div class="history">
-                <p v-if="h_list" class="h_c clearfix"><span v-for="(i,index) in h_list" :key="index" class="rem">{{i}}</span></p>
-                <p class="h_t">搜索历史</p>
-            </div>
-            <div class="search_sub" @click="search">
-                 提交
+            <input type="text" class="input" placeholder="输入学校、商务楼、地址" v-model="s_content">
+            <button class="search_sub" @click="search">提交</button>
+        </div>
+        <div class="searchList">
+            <div class="list clearfix">
+                <router-link :to="{path: '/msite',query:{address:i.name}}" v-for="(i,$index) in list" :key="$index">
+                    <div class="citylist" @click="place(i)">
+                        <p>{{i.name}}</p>
+                        <p class="add">{{i.address}}</p>
+                    </div>
+                </router-link>
             </div>
         </div>
-        <div class="list clearfix">
-            <div v-for="(i,$index) in list" :key="$index" @click="place(i.name)">
-               <router-link :to="{path: '/msite',query:{address:i.name}}">
-                    <p>{{i.name}}</p>
-                    <p class="add">{{i.address}}</p>
-               </router-link>
+        <div class="history">
+            <div class="h_t">搜索历史</div>
+            <ul class="list">
+                <li class="citylist" v-for="(item,index) in historycity" :key="index">
+                   <p>{{item.name}}</p>
+                    <p class="add">{{item.address}}</p>
+                </li>
+            </ul>
+            <div class="clearHistory">
+                <p @click="clearHistory">清空历史</p>
             </div>
         </div>
     </div>
@@ -45,13 +51,19 @@ export default {
         return{
             city: this.$route.query.city,
             s_content:'',
+            // 搜索列表
             list:'',
-            h_list:[],
+            // 搜索历史
+            historycity:[]
         }
     },
     created(){
         localStorage.city = this.$route.query.city;
-        localStorage.h_list = {arr:[]};
+        if(localStorage.historycity){
+            this.historycity = JSON.parse(localStorage.historycity)
+        }else{
+            this.historycity = []
+        }
     },
     methods:{
         search(){
@@ -62,7 +74,12 @@ export default {
                 })
         },
         place(a){
-            localStorage.place = a;
+            this.historycity.push(a);
+            localStorage.historycity = JSON.stringify(this.historycity)
+        },
+        clearHistory(){
+            this.historycity=[];
+            localStorage.clear();
         }
     }
 }
@@ -72,7 +89,7 @@ export default {
 .list a p{
     color: #666;
 }
-.history span{
+.searchList span{
     float: left;
     padding: .1rem .1rem;
     margin: .1rem .1rem;
@@ -80,15 +97,26 @@ export default {
     line-height: .4rem;
     border-radius: .2rem;
 }
-.history .h_c{
+.h_c{
     background-color: #ccc;
 }
-.history .h_t{
-    text-align: center;
-    height: .8rem;
+.h_t{
+    height: 0.8rem;
     background-color: #f7f7f7;
-    font-size: .4rem;
-    line-height: .8rem;
+    font-size: 0.4rem;
+    line-height: 0.8rem;
+    padding: 0 0.3rem;
+    box-sizing: border-box;
+}
+.clearHistory{
+    width: 100%;
+    height: 1.3rem;
+    text-align: center;
+    font-size: 0.5rem;
+    background-color: #fff;
+    line-height: 1.3rem;
+    border-top: 1px #ccc solid;
+    color: #a3a3a3;
 }
 a .iconfont{
     font-size: .5rem;
@@ -97,10 +125,12 @@ a .iconfont{
 a{
     color: #fff;
 }
-.list div{
+.citylist{
     font-size: 0.4rem;
     height: 2rem;
     border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    /* background-color: red; */
 }
 .list p{
     line-height: 1rem;
@@ -112,31 +142,31 @@ a{
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-    .ht{
-        width: 100%;
-        height: auto;
-        background-color: #f7f7f7;
-        padding-top: 1.15rem;
-    }
-    .clearfix:before,.clearfix:after{
-        content: '';
-        display: table;
-    }
-    .clearfix:after{
-        clear: both;
-    }
-    .head{
-        width:100%;
-        height:1rem;
-        line-height: 1rem;
-        font-size: 0.3rem;
-        text-align: center;
-        background-color: #3190e8;
-        color: #fff;
-        position: fixed;
-        top: 0;
-        left: 0;
-    }
+.ht{
+    width: 100%;
+    height: auto;
+    background-color: #eee;
+    padding-top: 1.15rem;
+}
+.clearfix:before,.clearfix:after{
+    content: '';
+    display: table;
+}
+.clearfix:after{
+    clear: both;
+}
+.head{
+    width:100%;
+    height:1rem;
+    line-height: 1rem;
+    font-size: 0.3rem;
+    text-align: center;
+    background-color: #3190e8;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;    
+}
     
     .head .rb{
         float: left;
@@ -154,24 +184,26 @@ a{
     }
     .search{
         width: 100%;
-        height: auto;
         background-color: #fff;
-        border-top: 0.015rem solid #f7f7f7;
+        border-bottom: 1px solid #ccc;
+        margin-top: 0.3rem;
     }
-    .search_s{
-        width: 80%;
-        height: 1.3rem;
-        padding: 0.4rem 10% 0.1rem;
+    .search input{
+        width: 90%;
+        height: 0.9rem;
+        margin: 0 5%;
+        margin-top: 0.2rem;
     }
     .search_sub{
-        width: 80%;
+        width: 90%;
         height: 1rem;
-        margin: 0.25rem 10%;
+        margin: 0.25rem 5%;
         background-color: #3190e8;
         color: #fff;
         font-size: 0.4rem;
         line-height: 1rem;
         text-align: center;
+        border:none;
         border-radius: 5px;
     }
     .input{

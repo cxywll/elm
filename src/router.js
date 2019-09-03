@@ -25,7 +25,7 @@ export default new Router({
       component: Shead
     },
     {
-      path: '/Sallcity',
+      path: '/',
       name: 'Sallcity',
       component: Sallcity
     },
