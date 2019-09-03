@@ -12,13 +12,14 @@
         <p class="pt">
           当前定位的城市：<span>定位不准时，请在城市列表中选择</span>
         </p>
-        <router-link :to="{path:'/Scitys',query:{city:mcity}}">
+        <router-link :to="{path:'/Scitys',query:{city:mcity,id:id}}">
             <p class="mc" >
               {{mcity}}<span><a style="color: #3190e8"><i class="iconfont icon-jiantouyou"></i></a></span>
             </p>
         </router-link>
       </div>
       <div class="hotcity">
+<<<<<<< HEAD
         <p>热门城市</p>
           <span v-for="(i,$index) in hotlist" :key="$index" @click="change(i.name,i.id)">
             <router-link :to="{path:'/Scitys',query:{city:i.name}}" >
@@ -33,6 +34,15 @@
               <router-link :to="{path:'/Scitys',query:{city:j.name,id: i.id}}">
                 {{j.name}}
               </router-link>
+=======
+          <span v-for="(i,$index) in hotlist" :key="$index" @click="id = i.id"><router-link :to="{path:'/Scitys',query:{city:i.name,id: i.id}}" >{{i.name}}</router-link></span>
+      </div>
+      <div class="allcity">
+          <div v-for="(i,$key,$index) in newObj" :key="$index" class="city">
+            <p>{{$key}}</p>
+            <span v-for="(j,$ind) in i" :key="$ind" @click="id = i.id">
+              <router-link :to="{path:'/Scitys',query:{city:j.name,id: i.id}}">{{j.name}}</router-link>
+>>>>>>> 3e59faa13505f321ae20a939990e4477ea251701
             </span>
           </div>
       </div>
@@ -47,22 +57,26 @@ export default {
   },
   data(){
     return{
-      mcity: '北京',
+      mcity: '',
       hotlist:'',
       alllist:'',
       newObj:{},
+      id:''
     }
   },
   created(){
-    fetch('http://elm.cangdu.org/v1/cities?type=hot')
-      .then(response=>response.json())
-      .then(response=>{
-        this.hotlist = response;
+    this.$http.get('https://elm.cangdu.org/v1/cities?type=guess')
+      .then(data=>{
+        this.mcity = data.data.name;
+        this.id = data.data.id;
       })
-    fetch('http://elm.cangdu.org/v1/cities?type=group')
-      .then(response=>response.json())
-      .then(response=>{
-        this.alllist = response;
+    this.$http.get('http://elm.cangdu.org/v1/cities?type=hot')
+      .then(data=>{
+        this.hotlist = data.data;
+      })
+    this.$http.get('http://elm.cangdu.org/v1/cities?type=group')
+      .then(data=>{
+        this.alllist = data.data;
         var newkey = Object.keys(this.alllist).sort();
         var newObj = {};
         for (var i = 0; i < newkey.length; i++) {
@@ -73,10 +87,6 @@ export default {
       })
   },
   methods:{
-    change(a,b){
-      this.mcity = a;
-      localStorage.id = b;
-    }
   }
 }
 </script>

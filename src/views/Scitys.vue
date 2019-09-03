@@ -57,6 +57,7 @@ export default {
             historycity:[]
         }
     },
+<<<<<<< HEAD
     created(){
         localStorage.city = this.$route.query.city;
         if(localStorage.historycity){
@@ -65,12 +66,13 @@ export default {
             this.historycity = []
         }
     },
+=======
+>>>>>>> 3e59faa13505f321ae20a939990e4477ea251701
     methods:{
         search(){
-            fetch('http://elm.cangdu.org/v1/pois?type=search&city_id='+this.$route.id+'&keyword='+this.s_content+'')
-                .then(response=>response.json())
-                .then(response=>{
-                    this.list = response;
+            this.$http.get('http://elm.cangdu.org/v1/pois?type=search&city_id='+this.$route.query.id+'&keyword='+this.s_content+'')
+                .then(data=>{
+                    this.list = data.data;
                 })
         },
         place(a){
