@@ -28,10 +28,12 @@
         <div class="history">
             <div class="h_t">搜索历史</div>
             <ul class="list">
-                <li class="citylist" v-for="(item,index) in historycity" :key="index">
-                   <p>{{item.name}}</p>
-                    <p class="add">{{item.address}}</p>
-                </li>
+                <router-link :to="{path:'/msite',query:{address:i.name}}"  v-for="(i,index) in historycity" :key="index">
+                    <li class="citylist">
+                        <p>{{i.name}}</p>
+                        <p class="add">{{i.address}}</p>
+                    </li>
+                </router-link>
             </ul>
             <div class="clearHistory">
                 <p @click="clearHistory">清空历史</p>
@@ -57,7 +59,6 @@ export default {
             historycity:[]
         }
     },
-<<<<<<< HEAD
     created(){
         localStorage.city = this.$route.query.city;
         if(localStorage.historycity){
@@ -66,13 +67,15 @@ export default {
             this.historycity = []
         }
     },
-=======
->>>>>>> 3e59faa13505f321ae20a939990e4477ea251701
     methods:{
         search(){
             this.$http.get('http://elm.cangdu.org/v1/pois?type=search&city_id='+this.$route.query.id+'&keyword='+this.s_content+'')
                 .then(data=>{
-                    this.list = data.data;
+                    if(this.s_content == ''){
+                        alert('请输入城市')
+                    }else{
+                        this.list = data.data;
+                    }
                 })
         },
         place(a){
