@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< HEAD
 import Chotcity from './views/c-hotcity.vue'
 import Yorder from './views/y-order.vue'
-=======
 import register from './views/j-register.vue'
 // 公共组件
 import Sfoot from './components/Sfoot.vue'
@@ -16,7 +14,6 @@ import Scitys from './views/Scitys.vue'
 // 美食主页
 import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
->>>>>>> e2c080a520c481614f39a13957c5f70a758aa2b5
 
 Vue.use(Router)
 
@@ -25,7 +22,6 @@ export default new Router({
   // base: process.env.BASE_URL,
   routes: [
     {
-<<<<<<< HEAD
       path: '/',
       name: 'Chotcity',
       component: Chotcity
@@ -37,7 +33,8 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component:Yorder
-=======
+    },
+    {
       path: '/Shead',
       name: 'Shead',
       component: Shead
@@ -92,7 +89,6 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: register
->>>>>>> e2c080a520c481614f39a13957c5f70a758aa2b5
     }
   ]
 })
