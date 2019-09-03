@@ -14,4 +14,16 @@
   /* text-align: center; */
   color: #2c3e50;
 }
+ .clearfix::after,
+        .clearfix::before {
+            content: '';
+            display: table;
+        }
+        .clearfix::after {
+            clear: both;
+        }
+        .clearfix {
+            zoom: 1;
+        }
+
 </style>
