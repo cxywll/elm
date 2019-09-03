@@ -6,7 +6,7 @@
           <i class="iconfont"></i>
         </template>
         <template v-slot:center>
-          <router-link to="/Sallcity">{{place}}</router-link>
+          <router-link to="/">{{place}}</router-link>
         </template>
         <template v-slot:right>
           <router-link to="/register">登录</router-link><span class="fen">|</span>
