@@ -309,7 +309,7 @@
                 selectList(v1) {
                     console.log(v1);
                 }
-            }
+            }    
         }
         // 第二个组件
         var shoppingCart = {

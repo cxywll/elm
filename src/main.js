@@ -3,8 +3,13 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import 'lib-flexible/flexible.js'
-Vue.config.productionTip = false
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import '../font/iconfont.css'
+Vue.use(VueAxios, axios)
 
+axios.defaults.withCredentials = true;
+Vue.config.productionTip = false
 new Vue({
   router,
   store,
