@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// import Yorder from './views/y-order.vue'
 import Yorder from './views/y-order.vue'
 import register from './views/j-register.vue'
 // 公共组件
@@ -20,12 +21,19 @@ export default new Router({
   mode: 'history',
   // base: process.env.BASE_URL,
   routes: [
+    // {
+    //   path: '/yorder',
+    //   name: 'Yorder',
+    //   // route level code-splitting
+    //   // this generates a separate chunk (about.[hash].js) for this route
+    //   // which is lazy-loaded when the route is visited.
+    //   component:Yorder
+    // },
     {
       path: '/yorder',
       name: 'Yorder',
       component:Yorder
-    },
-    {
+    },{
       path: '/Shead',
       name: 'Shead',
       component: Shead

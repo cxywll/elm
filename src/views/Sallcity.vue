@@ -12,7 +12,7 @@
         <p class="pt">
           当前定位的城市：<span>定位不准时，请在城市列表中选择</span>
         </p>
-        <router-link :to="{path:'/Scitys',query:{city:mcity,id:id}}">
+        <router-link :to="{path:'/Scitys',query:{city:mcity,id: id}}">
             <p class="mc" >
               {{mcity}}<span><a style="color: #3190e8"><i class="iconfont icon-jiantouyou"></i></a></span>
             </p>
@@ -20,8 +20,8 @@
       </div>
       <div class="hotcity">
         <p>热门城市</p>
-          <span v-for="(i,$index) in hotlist" :key="$index" @click="change(i.name,i.id)">
-            <router-link :to="{path:'/Scitys',query:{city:i.name}}" >
+          <span v-for="(i,$index) in hotlist" :key="$index" @click="id = i.id">
+            <router-link :to="{path:'/Scitys',query:{city:i.name,id: i.id}}" >
               {{i.name}}
             </router-link>
           </span>
@@ -29,8 +29,8 @@
       <div class="allcity">
           <div v-for="(i,$key,$index) in newObj" :key="$index" class="city">
             <p>{{$key}} <i>（按字母排序）</i></p>
-            <span v-for="(j,$ind) in i" :key="$ind" @click="change(j.name,j.id)">
-              <router-link :to="{path:'/Scitys',query:{city:j.name,id: i.id}}">
+            <span v-for="(j,$ind) in i" :key="$ind" @click="id = i.id">
+              <router-link :to="{path:'/Scitys',query:{city:j.name,id: j.id}}">
                 {{j.name}}
               </router-link>
             </span>

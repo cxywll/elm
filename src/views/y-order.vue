@@ -4,7 +4,7 @@
                 <div class="content clearfix">
                     <!-- 左侧菜单 -->
                     <ul class='product'>
-                        <li @click='xianshi(index)' v-for='item,index in arr' :class="{'active':i==index}">
+                        <li @click='xianshi(index)' v-for='(item,index) in arr' :class="{'active':i==index}" :key="index">
                             {{item.type}}
                         </li>
                     </ul>
@@ -17,7 +17,7 @@
                             </ul>
                         </div>
                         <!-- 右侧商品列表 -->
-                        <div class='item-box clearfix' v-for='item,index in list'>
+                        <div class='item-box clearfix' v-for='(item,index) in list' :key="index">
                             <div class="img">
                                 <img :src="item.img" alt="">
                             </div>
@@ -299,21 +299,19 @@
                 total() {//计算商品总价
                     var n = 0;
                     this.selectList.forEach(element => {
-                        console.log((element.price).split('￥')[1]);
                         n += (element.price).split('￥')[1] * element.num;
                     });
                     return n.toFixed(2);
                 }
             },
             watch: {
-                selectList(v1) {
-                    console.log(v1);
+                selectList(v1,v2) {
+
                 }
             }    
         }
         // 第二个组件
         var shoppingCart = {
-            // template: '<div>{{$route.params}}</div>',
             template:'#shoppingCart',
             data() {
                 return {
@@ -325,7 +323,6 @@
                     var n = 0;
                     console.log(this.selectList)
                     this.goodlist.forEach(element => {
-                        console.log((element.price).split('￥')[1]);
                         n += (element.price).split('￥')[1] * element.num;
                     });
                     return n.toFixed(2);
@@ -334,17 +331,5 @@
            
             
         }
-        // const router = new VueRouter({
-        //     routes: [
-        //         {
-        //             path: '/',
-        //             component: selectGoods
-        //         }, {
-        //             path: '/shoppingCart',
-        //             name: 'shoppingCart',
-        //             component: shoppingCart
-        //         }
-        //     ]
-        // })
         
     </script>
