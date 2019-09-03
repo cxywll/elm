@@ -49,16 +49,11 @@ export default {
             h_list:[],
         }
     },
-    created(){
-        localStorage.city = this.$route.query.city;
-        localStorage.h_list = {arr:[]};
-    },
     methods:{
         search(){
-            fetch('http://elm.cangdu.org/v1/pois?type=search&city_id='+this.$route.id+'&keyword='+this.s_content+'')
-                .then(response=>response.json())
-                .then(response=>{
-                    this.list = response;
+            this.$http.get('http://elm.cangdu.org/v1/pois?type=search&city_id='+this.$route.query.id+'&keyword='+this.s_content+'')
+                .then(data=>{
+                    this.list = data.data;
                 })
         },
         place(a){
