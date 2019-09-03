@@ -4,8 +4,13 @@
                 <div class="content clearfix">
                     <!-- 左侧菜单 -->
                     <ul class='product'>
+<<<<<<< HEAD
                         <li @click='xianshi(index)' v-for='item,index in arr' :class="{'active':i==index}">
                             {{item.name}}
+=======
+                        <li @click='xianshi(index)' v-for='(item,index) in arr' :class="{'active':i==index}" :key="index">
+                            {{item.type}}
+>>>>>>> f41f36dff75aae32fc6f6e286c6426ff1e19c3ad
                         </li>
                     </ul>
                     <!-- 右侧具体信息 -->
@@ -17,7 +22,11 @@
                             </ul>
                         </div>
                         <!-- 右侧商品列表 -->
+<<<<<<< HEAD
                         <div class='item-box clearfix' v-for='item,index in arr[idx].foods'>
+=======
+                        <div class='item-box clearfix' v-for='(item,index) in list' :key="index">
+>>>>>>> f41f36dff75aae32fc6f6e286c6426ff1e19c3ad
                             <div class="img">
                                 <img :src="'//elm.cangdu.org/img/'+item.image_path" alt="">
                             </div>
@@ -310,6 +319,7 @@
                 },
                 total() {//计算商品总价
                     var n = 0;
+<<<<<<< HEAD
                     // console.log(this.selectList)
                     if(this.addArr.length){
                     	this.addArr.forEach(element => {
@@ -317,16 +327,51 @@
 	                        n += element.price* element.num;
 	                    });
                     }
+=======
+                    this.selectList.forEach(element => {
+                        n += (element.price).split('￥')[1] * element.num;
+                    });
+>>>>>>> f41f36dff75aae32fc6f6e286c6426ff1e19c3ad
                     return n.toFixed(2);
                 }
             },
             watch: {
+<<<<<<< HEAD
                 selectList(old,newVal) {
                     console.log(v1);
                     console.log(old,newVal)
+=======
+                selectList(v1,v2) {
+
+>>>>>>> f41f36dff75aae32fc6f6e286c6426ff1e19c3ad
                 }
             }        
         }
+<<<<<<< HEAD
+=======
+        // 第二个组件
+        var shoppingCart = {
+            template:'#shoppingCart',
+            data() {
+                return {
+                    goodlist: this.$route.params.selectList||[]                  
+                }
+            },
+            computed: {
+                total() {//计算商品总价
+                    var n = 0;
+                    console.log(this.selectList)
+                    this.goodlist.forEach(element => {
+                        n += (element.price).split('￥')[1] * element.num;
+                    });
+                    return n.toFixed(2);
+                }
+            },
+           
+            
+        }
+        
+>>>>>>> f41f36dff75aae32fc6f6e286c6426ff1e19c3ad
     </script>
   <style type="text/css" scoped>
   	.box {

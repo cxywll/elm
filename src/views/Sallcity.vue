@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="Sbigbox">
       <Shead>
         <template v-slot:left>
           <router-link to="/Mine"><span>elem</span></router-link>
@@ -12,20 +12,27 @@
         <p class="pt">
           当前定位的城市：<span>定位不准时，请在城市列表中选择</span>
         </p>
-        <router-link :to="{path:'/Scitys',query:{city:mcity,id:id}}">
+        <router-link :to="{path:'/Scitys',query:{city:mcity,id: id}}">
             <p class="mc" >
               {{mcity}}<span><a style="color: #3190e8"><i class="iconfont icon-jiantouyou"></i></a></span>
             </p>
         </router-link>
       </div>
       <div class="hotcity">
-          <span v-for="(i,$index) in hotlist" :key="$index" @click="id = i.id"><router-link :to="{path:'/Scitys',query:{city:i.name,id: i.id}}" >{{i.name}}</router-link></span>
+        <p>热门城市</p>
+          <span v-for="(i,$index) in hotlist" :key="$index" @click="id = i.id">
+            <router-link :to="{path:'/Scitys',query:{city:i.name,id: i.id}}" >
+              {{i.name}}
+            </router-link>
+          </span>
       </div>
       <div class="allcity">
           <div v-for="(i,$key,$index) in newObj" :key="$index" class="city">
-            <p>{{$key}}</p>
+            <p>{{$key}} <i>（按字母排序）</i></p>
             <span v-for="(j,$ind) in i" :key="$ind" @click="id = i.id">
-              <router-link :to="{path:'/Scitys',query:{city:j.name,id: i.id}}">{{j.name}}</router-link>
+              <router-link :to="{path:'/Scitys',query:{city:j.name,id: j.id}}">
+                {{j.name}}
+              </router-link>
             </span>
           </div>
       </div>
@@ -70,12 +77,16 @@ export default {
       })
   },
   methods:{
+    
   }
 }
 </script>
   
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#Sbigbox{
+  background-color: #eee;
+}
 a span{
   font-size: .5rem;
   color: #fff;
@@ -86,6 +97,7 @@ a span{
   background-color: #3190e8;
   font-size: 0.25rem;
   color: #fff;
+  background-color: #fff;
   line-height: 0.8rem;
 }
 .title{
@@ -107,6 +119,8 @@ a span{
   font-size: 0.2rem;
   margin-top: 1.4rem;
   border-bottom: 2px solid #ccc;
+  background-color: #fff;
+  margin-bottom: 0.2rem;
 }
 .pt{
   padding-left: 0.1rem;
@@ -132,52 +146,70 @@ a span{
 }
 
 .hotcity{
-  height: 1.65rem;
+  min-height: 1.65rem;
   font-size: 0.1rem;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #a3a3a3;
+  background-color: #fff;
+}
+.city{
+  background-color: #fff;
+}
+.hotcity p{
+  width: 100%;
+  height: 60px;
+  font-size: 0.35rem;
+  line-height: 60px;
+  padding: 0 0.2rem;
+  box-sizing: border-box;
 }
 .hotcity span{
   cursor: pointer;
   display: inline-block;
   width: 25%;
-  height: 0.75rem;
-  line-height: 0.75rem;
+  height: 0.85rem;
+  line-height: 0.85rem;
   text-align: center;
-  font-size: 0.2rem;
-  border: 2px solid rgb(179, 177, 177);
+  border-top: 2px solid rgb(179, 177, 177);
+  border-left: 2px solid rgb(179, 177, 177);
   box-sizing: border-box;
-  border-radius: 6px;
 }
 .hotcity a{
   color: #3190e8;
-  font-size: .3rem;
+  font-size: 0.4rem;
 }
 .allcity a{
   color: #666;
-  font-size: .3rem;
+  font-size: 0.4rem;
 }
 .allcity{
   width:100%;
   height: 1.65rem;
   font-size: 0.1rem;
 }
-.allcity div{
-  border-bottom: 1px solid #000;
-}
 .allcity p{
-  line-height: 0.5rem;
+  line-height: 0.8rem;
+  background-color: #eee;
+  font-size: 0.35rem;
+  padding-left: 0.3rem;
+  box-sizing: border-box;
+}
+.allcity p>i{
+  color: #a3a3a3;
+  font-size: 0.3rem;
+  font-style: initial;
 }
 .allcity span{
   cursor: pointer;
   display: inline-block;
   width: 25%;
-  height: 0.75rem;
-  line-height: 0.75rem;
+  height: 0.85rem;
+  line-height: 0.85rem;
   text-align: center;
   font-size: 0.15rem;
-  border: 2px solid rgb(179, 177, 177);
+  border-right: 2px solid rgb(179, 177, 177);
+  border-bottom: 2px solid rgb(179, 177, 177);
+  padding: 0 0.1rem;
   box-sizing: border-box;
-  border-radius: .1rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

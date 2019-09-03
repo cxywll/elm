@@ -1,19 +1,27 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+<<<<<<< HEAD
 import Chotcity from './views/c-hotcity.vue'
+=======
+// import Yorder from './views/y-order.vue'
+>>>>>>> f41f36dff75aae32fc6f6e286c6426ff1e19c3ad
 import Yorder from './views/y-order.vue'
 import register from './views/j-register.vue'
 // 公共组件
 import Sfoot from './components/Sfoot.vue'
 import Shead from './components/Shead.vue'
-import Search from './components/Search.vue'
 import Mine from './components/Mine.vue'
-import List from './components/List.vue'
+import List from './views/C-dingdan.vue'
 import Sallcity from './views/Sallcity.vue'
 import Scitys from './views/Scitys.vue'
 // 美食主页
 import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
+<<<<<<< HEAD
+=======
+// 搜索美食
+import Csfood from './views/C-searchfood.vue'
+>>>>>>> f41f36dff75aae32fc6f6e286c6426ff1e19c3ad
 
 Vue.use(Router)
 
@@ -22,29 +30,36 @@ export default new Router({
   // base: process.env.BASE_URL,
   routes: [
     {
+<<<<<<< HEAD
       path: '/',
       name: 'Chotcity',
       component: Chotcity
     },
     {
+=======
+      // 附近商家点击
+>>>>>>> f41f36dff75aae32fc6f6e286c6426ff1e19c3ad
       path: '/yorder',
       name: 'Yorder',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component:Yorder
     },
     {
+<<<<<<< HEAD
+=======
+      // 公共头部
+>>>>>>> f41f36dff75aae32fc6f6e286c6426ff1e19c3ad
       path: '/Shead',
       name: 'Shead',
       component: Shead
     },
     {
-      path: '/Sallcity',
+      // 默认首页
+      path: '/',
       name: 'Sallcity',
       component: Sallcity
     },
     {
+      // 搜索城市
       path: '/Scitys',
       name: 'Scitys',
       component: Scitys
@@ -56,17 +71,23 @@ export default new Router({
       component: Zmsite
     },
     {
+      // 搜索美食
+      path:'/csfood',
+      name:'Csfood',
+      component:Csfood
+    },
+    {
       // 订单
       path: '/List',
       name: 'List',
       component: List
     },
-    {
-      // 搜索美食
-      path: '/Search',
-      name: 'Search',
-      component: Search
-    },
+    // {
+    //   // 搜索美食
+    //   path: '/Search',
+    //   name: 'Search',
+    //   component: Search
+    // },
     {
       // 我的
       path: '/Mine',
