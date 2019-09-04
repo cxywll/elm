@@ -9,7 +9,7 @@
           <a href="home">home</a>
         </template>
         <template v-slot:right>
-          <a href="login">登录|注册</a>
+          <a href="register">登录|注册</a>
         </template>
       </Shead>
       <div class="swiper-container">

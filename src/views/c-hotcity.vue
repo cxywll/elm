@@ -13,7 +13,6 @@ export default {
 }
 </script>
 
-<<<<<<< HEAD
 <style>
 .header{
 	width: 100%;
@@ -37,12 +36,10 @@ export default {
 	line-height: 50px;
 	float: right;
 }
-=======
-<style scoped>
+<style>
     p{
         height: 100px;
         background-color: red;
     }
->>>>>>> 4f78e57c3b21cd21acbe2465eed7b69d3fea27f2
 </style>
 

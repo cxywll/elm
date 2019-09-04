@@ -1,7 +1,7 @@
 <template>
 	<div class="j-box">
 		<div class="j-header">
-			<div class="j-headerleft">&lt;</div>
+			<div class="j-headerleft"><router-link to="./msite">&lt;</router-link></div>
 			<div class="j-headerright">密码登录</div>
 		</div>
 		<div class="j-content">
@@ -10,7 +10,7 @@
 				<div class="j-content-two-left"><input type="password" placeholder="密码" class="j-inputs" v-model="password" id="seePassword"></div>
 				<div class="j-content-two-right">
 					<div class="j-see-password" id="password">
-						<p class="j-off">off...</p>
+						<p class="j-off" id="passwordS">off...</p>
 						<div class="j-see-password-move" :class="isOpen?'active':''" id="j-see-password-move" @click="passMove($event)"></div>
 					</div>
 				</div>
@@ -33,7 +33,7 @@
 			<button class="j-btn" @click="j_btn">登录</button>
 		</div>
 		<div class="j-footer-bottom">
-			<a href="" class="j-a">重置密码？</a>
+			<router-link to="./reset" class="j-a">重置密码？</router-link>
 		</div>
 	</div>
 </template>
@@ -42,8 +42,8 @@
 	export default {
 		data() {
 			return {
-				register: '1111111',
-				password: '1111',
+				register: '',
+				password: '',
 				verify: '',
 				verifyImg: '',
 				verifyNumber: '',
@@ -52,36 +52,47 @@
 		},
 		methods: {
 			j_btn(a) {
-				if(this.register == '' || this.password == '' || this.verifyNumber == '') {
-					alert('密码或用户为空')
-					return
-				} else {
+				if(this.register == '') {
+					alert('请输入账号');
+					return;
+				} else if (this.password == ''){
+					alert('请输入密码')
+					return;
+				} else if (this.verifyNumber == ''){
+					alert('请输入验证码')
+					return;
+				}else {
 					this.axios.post('https://elm.cangdu.org/v2/login', {
 						username: this.register,
 						password: this.password,
 						captcha_code: this.verifyNumber
 					}).then((data) => {
-						if(this.register == data.data.username && this.password == data.data.password) {
-							alert('登录成功')
-						} else {
-							alert('登录失败')
-						}
 						console.log(data);
+						if(data.data.message == '密码错误') {
+							alert('登录失败');
+						} else if (data.data.message == '验证码不正确'){
+							alert('验证码错误');
+						} else {
+							alert('登录成功');
+                            this.$router.push({path:'/msite'})
+						}
 					})
-
 				}
 			},
 			passMove(e) {
 				this.isOpen = !this.isOpen;
 				var seePassword = document.querySelector('#seePassword')
 				var password = document.querySelector('#password')
+				var passwordS=document.querySelector('#passwordS')
 				console.log(seePassword, password)
 				if(this.isOpen) {
 					seePassword.type = 'text'
 					password.style.background = '#4cd964'
+					passwordS.innerHTML='off'
 				} else {
 					seePassword.type = 'password'
 					password.style.background = '#CCCCCC'
+					passwordS.innerHTML='on'
 
 				}
 			},
@@ -94,7 +105,7 @@
 		},
 		created() {
 			this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
-				//console.log(data)
+//				console.log(data)
 				this.verifyImg = data.data.code
 			})
 		}
@@ -178,9 +189,6 @@
 		position: relative;
 		border-radius: 15px;
 		color: #fdfdfd;
-		/*text-align: center;
-		font-size: 25px;
-		line-height: 35px;*/
 	}
 	
 	.j-see-password-move {
@@ -249,7 +257,7 @@
 	.j-content-three-center {
 		width: 130px;
 		height: 100px;
-		margin-left: 120px;
+		margin-left: -120px;
 		/*background: gold;*/
 		float: left;
 		line-height: 150px;
