@@ -1,18 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< HEAD
-// import Yorder from './views/y-order.vue'
-=======
-import Chotcity from './views/c-hotcity.vue'
->>>>>>> d4a81435bbd0b64c3131b1d4db0bc0f7eccd22e6
 import register from './views/j-register.vue'
 import reset from './views/j-reset.vue'
 import Yorder from './views/y-order.vue'
 // 公共组件
 import Sfoot from './components/Sfoot.vue'
+import Search from './components/Search.vue'
 import Shead from './components/Shead.vue'
 import Mine from './components/Mine.vue'
-import List from './views/C-dingdan.vue'
+import List from './components/List.vue'
 import Sallcity from './views/Sallcity.vue'
 import Scitys from './views/Scitys.vue'
 // 美食主页
@@ -27,8 +23,6 @@ export default new Router({
   // base: process.env.BASE_URL,
   routes: [
     {
-<<<<<<< HEAD
-=======
       // 默认首页
       path: '/',
       name: 'Sallcity',
@@ -41,7 +35,6 @@ export default new Router({
       component:Yorder
     },
     {
->>>>>>> d4a81435bbd0b64c3131b1d4db0bc0f7eccd22e6
       path: '/Shead',
       name: 'Shead',
       component: Shead
@@ -97,6 +90,11 @@ export default new Router({
       path: '/reset',
       name: 'reset',
       component: reset
+    },
+    {
+      path: '/Search',
+      name: 'Search',
+      component: Search
     },
   ]
 })

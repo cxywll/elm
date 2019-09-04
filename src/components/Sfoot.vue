@@ -23,13 +23,8 @@ export default {
         n: 0,
         arr:[
           {icon:'icon-changyonglogo40',name:'外卖',path:'/msite'},
-<<<<<<< HEAD
           {icon:'icon-zhinanzhen',name:'搜索',path:'/Search'},
           {icon:'icon-caidan',name:'订单',path:'/List'},
-=======
-          {icon:'icon-zhinanzhen',name:'搜索',path:'/csfood'},
-          {icon:'icon-dingdan',name:'订单',path:'/List'},
->>>>>>> d4a81435bbd0b64c3131b1d4db0bc0f7eccd22e6
           {icon:'icon-wode',name:'我的',path:'/Mine'},
           ]
     }
