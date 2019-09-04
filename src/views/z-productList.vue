@@ -3,13 +3,20 @@
     <div class="z-nev">
       <Shead>
         <template v-slot:left>
-          <i class="iconfont"></i>
+          <router-link to='/csfood'>
+            <i class="iconfont" style="font-size:0.6rem;"></i>
+          </router-link>
         </template>
         <template v-slot:center>
-          <a href="home">home</a>
+          <router-link to="/">{{place}}</router-link>
         </template>
         <template v-slot:right>
+<<<<<<< HEAD
           <a href="register">登录|注册</a>
+=======
+          <router-link to="/register">登录</router-link><span class="fen">|</span>
+          <router-link to="/register">注册</router-link>
+>>>>>>> 0c52ac4cfe1097b1b2326f2530b4b90caa59958e
         </template>
       </Shead>
       <div class="swiper-container">
@@ -95,15 +102,18 @@ export default {
     return {
       list: [], //商品列表
       lists: [],
-      commodity: [] //商品
+      commodity: [], //商品
+      place:'北京房山',//地址
     };
   },
   components: {
     Shead,
     Sfoot
+    
   },
   created() {
     this.msite();
+    this.place = this.$route.query.address;
   },
   mounted() {
     new Swiper(".swiper-container", {
@@ -114,7 +124,6 @@ export default {
   },
   methods: {
     commoditys(id) {
-      console.log(id);
       this.$router.push({ path: "/food", query: { title: id.title } });
     },
     msite() {
@@ -158,6 +167,18 @@ export default {
 </script>
 
 <style scoped>
+a{
+  color: #fff;
+}
+.right a{
+  float: left;
+}
+.fen{
+  display: block;
+  float: left;
+  margin: 0 .2rem;
+  z-index: 5;
+}
 * {
   margin: 0;
   padding: 0;

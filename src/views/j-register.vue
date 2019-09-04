@@ -1,9 +1,20 @@
 <template>
 	<div class="j-box">
+<<<<<<< HEAD
 		<div class="j-header">
 			<div class="j-headerleft"><router-link to="./msite">&lt;</router-link></div>
 			<div class="j-headerright">密码登录</div>
 		</div>
+=======
+		<Shead>
+			<template v-slot:left>
+				<router-link to="/Mine"><i class="iconfont icon-jiantou"></i></router-link>
+			</template>
+			<template v-slot:center>
+			<a>密码登陆</a>
+			</template>
+        </Shead>
+>>>>>>> 0c52ac4cfe1097b1b2326f2530b4b90caa59958e
 		<div class="j-content">
 			<div class="j-content-one"><input type="text" placeholder="账号" class="j-input" v-model="register"></div>
 			<div class="j-content-two">
@@ -39,7 +50,11 @@
 </template>
 
 <script>
+import Shead from '../components/Shead'
 	export default {
+		components: {
+			Shead	
+		},
 		data() {
 			return {
 				register: '',
@@ -51,6 +66,7 @@
 			}
 		},
 		methods: {
+<<<<<<< HEAD
 			j_btn(a) {
 				if(this.register == '') {
 					alert('请输入账号');
@@ -62,6 +78,13 @@
 					alert('请输入验证码')
 					return;
 				}else {
+=======
+			j_btn() {
+				if(this.register == '' || this.password == '' || this.verifyNumber == '') {
+					alert('密码或用户为空')
+					return
+				} else {
+>>>>>>> 0c52ac4cfe1097b1b2326f2530b4b90caa59958e
 					this.axios.post('https://elm.cangdu.org/v2/login', {
 						username: this.register,
 						password: this.password,
@@ -79,12 +102,15 @@
 					})
 				}
 			},
-			passMove(e) {
+			passMove() {
 				this.isOpen = !this.isOpen;
 				var seePassword = document.querySelector('#seePassword')
 				var password = document.querySelector('#password')
+<<<<<<< HEAD
 				var passwordS=document.querySelector('#passwordS')
 				console.log(seePassword, password)
+=======
+>>>>>>> 0c52ac4cfe1097b1b2326f2530b4b90caa59958e
 				if(this.isOpen) {
 					seePassword.type = 'text'
 					password.style.background = '#4cd964'
@@ -98,26 +124,33 @@
 			},
 			verifyImg_again() {
 				this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
-					//console.log(data)
 					this.verifyImg = data.data.code
 				})
 			}
 		},
 		created() {
 			this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
+<<<<<<< HEAD
 //				console.log(data)
+=======
+>>>>>>> 0c52ac4cfe1097b1b2326f2530b4b90caa59958e
 				this.verifyImg = data.data.code
 			})
 		}
 	};
 </script>
 
-<style>
+<style scoped>
 	* {
 		margin: 0;
 		padding: 0;
 	}
-	
+	a .iconfont{
+		color: #fff;
+	}
+	.iconfont{
+		font-size: 0.5rem;
+	}
 	.j-box {
 		width: 100%;
 		height: 1330px;
@@ -129,6 +162,7 @@
 		width: 100%;
 		height: 90px;
 		background: #3190e8;
+		position: relative;
 	}
 	
 	.j-headerleft {
@@ -141,19 +175,23 @@
 	}
 	
 	.j-headerright {
+		width: 10rem;
 		color: white;
 		height: 90px;
 		float: left;
 		line-height: 90px;
 		font-size: 35px;
-		margin-left: 330px;
+		position: absolute;
+		text-align: center;
+		left: 0;
+		top: 0;
 	}
 	
 	.j-content {
 		width: 100%;
 		height: 300px;
 		background: white;
-		margin-top: 25px;
+		margin-top: 1.3rem;
 	}
 	
 	.j-content-one {
@@ -214,6 +252,7 @@
 		font-size: 30px;
 		border: none;
 		outline: none;
+		float: left;
 	}
 	
 	.j-inputs {
@@ -255,12 +294,19 @@
 	}
 	
 	.j-content-three-center {
+<<<<<<< HEAD
 		width: 130px;
 		height: 100px;
 		margin-left: -120px;
 		/*background: gold;*/
+=======
+		width: 2.1rem;
+		height: 1.32rem;
+		margin-left: 1rem;
+>>>>>>> 0c52ac4cfe1097b1b2326f2530b4b90caa59958e
 		float: left;
 		line-height: 150px;
+		background: gold;
 	}
 	
 	.j-content-three-right {

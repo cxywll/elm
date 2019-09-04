@@ -4,12 +4,6 @@
   </div>
 </template>
 <script>
-import Zmsite from './views/z-productList.vue'
-export default {
-  components: {
-    Zmsite
-  }
-}
 </script>
 <style>
 *{margin: 0;padding: 0;text-decoration: none;list-style: none;}
@@ -20,4 +14,16 @@ export default {
   /* text-align: center; */
   color: #2c3e50;
 }
+ .clearfix::after,
+        .clearfix::before {
+            content: '';
+            display: table;
+        }
+        .clearfix::after {
+            clear: both;
+        }
+        .clearfix {
+            zoom: 1;
+        }
+
 </style>

@@ -23,7 +23,7 @@ export default {
         n: 0,
         arr:[
           {icon:'icon-changyonglogo40',name:'外卖',path:'/msite'},
-          {icon:'icon-zhinanzhen',name:'搜索',path:'/Search'},
+          {icon:'icon-zhinanzhen',name:'搜索',path:'/csfood'},
           {icon:'icon-dingdan',name:'订单',path:'/List'},
           {icon:'icon-wode',name:'我的',path:'/Mine'},
           ]
@@ -38,7 +38,7 @@ export default {
 </script>
 <style scoped>
 .active .iconfont{
-    color:#3190e8
+    color:#3190e8;
 }
 .S-icon:nth-child(1) .iconfont{
   font-size: 1.3rem;
