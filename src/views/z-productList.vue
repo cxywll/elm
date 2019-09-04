@@ -3,13 +3,16 @@
     <div class="z-nev">
       <Shead>
         <template v-slot:left>
-          <i class="iconfont"></i>
+          <router-link to='/csfood'>
+            <i class="iconfont" style="font-size:0.6rem;"></i>
+          </router-link>
         </template>
         <template v-slot:center>
-          <a href="home">home</a>
+          <router-link to="/">{{place}}</router-link>
         </template>
         <template v-slot:right>
-          <a href="login">登录|注册</a>
+          <router-link to="/register">登录</router-link><span class="fen">|</span>
+          <router-link to="/register">注册</router-link>
         </template>
       </Shead>
       <div class="swiper-container">
@@ -95,7 +98,8 @@ export default {
     return {
       list: [], //商品列表
       lists: [],
-      commodity: [] //商品
+      commodity: [], //商品
+      place:'北京房山',//地址
     };
   },
   components: {
@@ -104,7 +108,11 @@ export default {
   },
   created() {
     this.msite();
+<<<<<<< HEAD
     console.log(this.$route);
+=======
+    this.place = localStorage.place;
+>>>>>>> a03f9398c9cc272cb966bc82c5847f830f937193
   },
   mounted() {
     new Swiper(".swiper-container", {
@@ -160,6 +168,18 @@ export default {
 </script>
 
 <style scoped>
+a{
+  color: #fff;
+}
+.right a{
+  float: left;
+}
+.fen{
+  display: block;
+  float: left;
+  margin: 0 .2rem;
+  z-index: 5;
+}
 * {
   margin: 0;
   padding: 0;

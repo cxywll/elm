@@ -1,9 +1,8 @@
 <template>
     <div>
-       <Shead>
-        <template v-slot:left>10</template>
-        <template v-slot:center>11</template>
-        <template v-slot:right>12</template>
+      <Shead>
+          <template v-slot:left><i class="iconfont icon-jiantou"></i></template>
+          <template v-slot:center>搜索</template>
       </Shead>
       <Sfoot></Sfoot>
     </div>
