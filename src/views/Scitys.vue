@@ -15,6 +15,7 @@
             <input type="text" class="input" placeholder="输入学校、商务楼、地址" v-model="s_content">
             <button class="search_sub" @click="search">提交</button>
         </div>
+        <!-- 搜索列表 -->
         <div class="searchList">
             <div class="list clearfix">
                 <router-link :to="{path: '/msite'}" v-for="(i,$index) in list" :key="$index">

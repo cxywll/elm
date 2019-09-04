@@ -3,14 +3,20 @@
     <div class="z-nev">
       <Shead>
         <template v-slot:left>
-          <i class="iconfont"></i>
+          <router-link to='/csfood'>
+            <i class="iconfont" style="font-size:0.6rem;"></i>
+          </router-link>
         </template>
         <template v-slot:center>
           <router-link to="/">{{place}}</router-link>
         </template>
         <template v-slot:right>
+<<<<<<< HEAD
+          <a href="register">登录|注册</a>
+=======
           <router-link to="/register">登录</router-link><span class="fen">|</span>
           <router-link to="/register">注册</router-link>
+>>>>>>> 0c52ac4cfe1097b1b2326f2530b4b90caa59958e
         </template>
       </Shead>
       <div class="swiper-container">

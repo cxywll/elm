@@ -1,7 +1,11 @@
 <template>
     <div class="mine">
         <Shead>
-            <template v-slot:left><i class="iconfont icon-jiantou"></i></template>
+            <template v-slot:left>
+                <a href="/msite" style="color:#fff;">
+                  <i class="iconfont icon-jiantou"></i>
+                </a>
+            </template>
             <template v-slot:center>我的</template>
         </Shead>
         <div class="information">
