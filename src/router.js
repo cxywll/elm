@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< HEAD
 // import hotcity from './views/f-hotcity.vue'
 // 搜索城市
 // import fsearch from './views/f-search.vue'
@@ -10,12 +9,7 @@ import Router from 'vue-router'
 // import Hello from './components/HelloWorld.vue'
 // import Chotcity from './views/c-hotcity.vue'
 // 登录
-=======
-<<<<<<< HEAD
 import Yorder from './views/y-order.vue'
-=======
->>>>>>> a994040deed24fb49d47d13c34bb33876ab5ed82
->>>>>>> a03f9398c9cc272cb966bc82c5847f830f937193
 import register from './views/j-register.vue'
 import reset from './views/j-reset.vue'
 import Yorder from './views/y-order.vue'
@@ -58,29 +52,20 @@ export default new Router({
     //   name: 'Hello',
     //   component: Hello
     // },
-  {
-=======
     {
-<<<<<<< HEAD
-=======
       // 默认首页
       path: '/',
       name: 'Sallcity',
       component: Sallcity
     },
     {
->>>>>>> a994040deed24fb49d47d13c34bb33876ab5ed82
       // 附近商家点击
       path: '/yorder',
       name: 'Yorder',
-      component:Yorder
+      component: Yorder
     },
     {
-<<<<<<< HEAD
       // 公共头部
-=======
->>>>>>> a994040deed24fb49d47d13c34bb33876ab5ed82
->>>>>>> a03f9398c9cc272cb966bc82c5847f830f937193
       path: '/Shead',
       name: 'Shead',
       component: Shead
@@ -99,9 +84,9 @@ export default new Router({
     },
     {
       // 搜索美食
-      path:'/csfood',
-      name:'Csfood',
-      component:Csfood
+      path: '/csfood',
+      name: 'Csfood',
+      component: Csfood
     },
     {
       // 订单
@@ -116,9 +101,9 @@ export default new Router({
       component: Mine
     },
     {
-        path: '/Sfoot',
-        name: 'Sfoot',
-        component: Sfoot
+      path: '/Sfoot',
+      name: 'Sfoot',
+      component: Sfoot
     },
     {
       // 滑动店铺点击
