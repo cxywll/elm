@@ -18,8 +18,8 @@
         <!-- 搜索列表 -->
         <div class="searchList">
             <div class="list clearfix">
-                <router-link :to="{path: '/msite',query:{address:i.name}}" v-for="(i,$index) in list" :key="$index">
-                    <div class="citylist" @click="place(i)">
+                <router-link :to="{path: '/msite'}" v-for="(i,$index) in list" :key="$index">
+                    <div class="citylist" @click="[place(i),cun(i.name)]">
                         <p>{{i.name}}</p>
                         <p class="add">{{i.address}}</p>
                     </div>
@@ -29,8 +29,8 @@
         <div class="history">
             <div class="h_t">搜索历史</div>
             <ul class="list">
-                <router-link :to="{path:'/msite',query:{address:i.name}}"  v-for="(i,index) in historycity" :key="index">
-                    <li class="citylist">
+                <router-link :to="{path:'/msite'}"  v-for="(i,index) in historycity" :key="index">
+                    <li class="citylist" @click="cun(i.name)">
                         <p>{{i.name}}</p>
                         <p class="add">{{i.address}}</p>
                     </li>
@@ -70,7 +70,6 @@ export default {
     },
     methods:{
         search(){
-            console.log(this.$route)
             this.$http.get('http://elm.cangdu.org/v1/pois?type=search&city_id='+this.$route.query.id+'&keyword='+this.s_content+'')
                 .then(data=>{
                     if(this.s_content == ''){
@@ -87,6 +86,9 @@ export default {
         clearHistory(){
             this.historycity=[];
             localStorage.clear();
+        },
+        cun(a){
+            localStorage.place = a;
         }
     }
 }

@@ -113,7 +113,7 @@ export default {
   },
   created() {
     this.msite();
-    this.place = this.$route.query.address;
+    this.place = localStorage.place;
   },
   mounted() {
     new Swiper(".swiper-container", {

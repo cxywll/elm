@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Chotcity from './views/c-hotcity.vue'
 import register from './views/j-register.vue'
 import reset from './views/j-reset.vue'
 import Yorder from './views/y-order.vue'
 // 公共组件
 import Sfoot from './components/Sfoot.vue'
+import Search from './components/Search.vue'
 import Shead from './components/Shead.vue'
 import Mine from './components/Mine.vue'
-import List from './views/C-dingdan.vue'
+import List from './components/List.vue'
 import Sallcity from './views/Sallcity.vue'
 import Scitys from './views/Scitys.vue'
 // 美食主页
@@ -90,6 +90,11 @@ export default new Router({
       path: '/reset',
       name: 'reset',
       component: reset
+    },
+    {
+      path: '/Search',
+      name: 'Search',
+      component: Search
     },
   ]
 })
