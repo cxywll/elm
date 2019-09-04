@@ -24,7 +24,7 @@ export default {
         arr:[
           {icon:'icon-changyonglogo40',name:'外卖',path:'/msite'},
           {icon:'icon-zhinanzhen',name:'搜索',path:'/Search'},
-          {icon:'icon-dingdan',name:'订单',path:'/List'},
+          {icon:'icon-caidan',name:'订单',path:'/List'},
           {icon:'icon-wode',name:'我的',path:'/Mine'},
           ]
     }
@@ -41,10 +41,10 @@ export default {
     color:#3190e8
 }
 .S-icon:nth-child(1) .iconfont{
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 .S-icon:nth-child(2) .iconfont{
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .S-foot{
   width: 100%;
@@ -67,8 +67,8 @@ export default {
   float: left;
 }
 .S-icon .iconfont{
-  font-size: 0.6rem;
-  line-height: 1.1rem;
+  font-size: 0.5rem;
+  line-height: .9rem;
 }
 .S-icon .menu{
   line-height: 0.1rem;

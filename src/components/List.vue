@@ -1,9 +1,8 @@
 <template>
-    <div>
+    <div class="app">
       <Shead>
-        <template v-slot:left>1</template>
-        <template v-slot:center>2</template>
-        <template v-slot:right>3</template>
+          <template v-slot:left><i class="iconfont icon-jiantou"></i></template>
+          <template v-slot:center>订单列表</template>
       </Shead>
       <Sfoot></Sfoot>
     </div>

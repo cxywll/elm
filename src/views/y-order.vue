@@ -274,7 +274,6 @@
                     }
                 },
                 add(item) {
-                    console.log(item)
                     if (item.num) {
                         item.num++;
                     } else {
@@ -321,7 +320,6 @@
             computed: {
                 total() {//计算商品总价
                     var n = 0;
-                    console.log(this.selectList)
                     this.goodlist.forEach(element => {
                         n += (element.price).split('￥')[1] * element.num;
                     });

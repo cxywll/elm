@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import Yorder from './views/y-order.vue'
-import Yorder from './views/y-order.vue'
 import register from './views/j-register.vue'
 // 公共组件
 import Sfoot from './components/Sfoot.vue'
@@ -30,10 +29,6 @@ export default new Router({
     //   component:Yorder
     // },
     {
-      path: '/yorder',
-      name: 'Yorder',
-      component:Yorder
-    },{
       path: '/Shead',
       name: 'Shead',
       component: Shead
