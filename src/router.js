@@ -1,20 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< HEAD
-=======
 import Chotcity from './views/c-hotcity.vue'
-<<<<<<< HEAD
 import register from './views/j-register.vue'
 import reset from './views/j-reset.vue'
-=======
-=======
-// import Yorder from './views/y-order.vue'
->>>>>>> f41f36dff75aae32fc6f6e286c6426ff1e19c3ad
->>>>>>> 13a88ef9066278771e12ed6f85dad94772a08616
 import Yorder from './views/y-order.vue'
-import register from './views/j-register.vue'
 // 公共组件
->>>>>>> 0c52ac4cfe1097b1b2326f2530b4b90caa59958e
 import Sfoot from './components/Sfoot.vue'
 import Shead from './components/Shead.vue'
 import Mine from './components/Mine.vue'
@@ -26,11 +16,6 @@ import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
 // 搜索美食
 import Csfood from './views/C-searchfood.vue'
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 0c52ac4cfe1097b1b2326f2530b4b90caa59958e
 Vue.use(Router)
 
 export default new Router({
@@ -100,15 +85,11 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: register
-<<<<<<< HEAD
     },
     {
       path: '/reset',
       name: 'reset',
       component: reset
     },
-=======
-    }
->>>>>>> 0c52ac4cfe1097b1b2326f2530b4b90caa59958e
   ]
 })
