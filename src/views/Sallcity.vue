@@ -28,7 +28,7 @@
       </div>
       <div class="allcity">
           <div v-for="(i,$key,$index) in newObj" :key="$index" class="city">
-            <p>{{$key}} <i>（按字母排序）</i></p>
+            <p class="letterp">{{$key}} <i>（按字母排序）</i></p>
             <span v-for="(j,$ind) in i" :key="$ind" @click="id = i.id">
               <router-link :to="{path:'/Scitys',query:{city:j.name,id: j.id}}">
                 {{j.name}}
@@ -153,6 +153,7 @@ a span{
 }
 .city{
   background-color: #fff;
+  margin-top: 0.2rem;
 }
 .hotcity p{
   width: 100%;
@@ -166,8 +167,8 @@ a span{
   cursor: pointer;
   display: inline-block;
   width: 25%;
-  height: 0.85rem;
-  line-height: 0.85rem;
+  height: 0.95rem;
+  line-height: 0.95rem;
   text-align: center;
   border-top: 2px solid rgb(179, 177, 177);
   border-left: 2px solid rgb(179, 177, 177);
@@ -183,15 +184,18 @@ a span{
 }
 .allcity{
   width:100%;
-  height: 1.65rem;
+  min-height: 1.65rem;
   font-size: 0.1rem;
+  background-color: #eee;
 }
 .allcity p{
+  width: 98%;
   line-height: 0.8rem;
-  background-color: #eee;
+  background-color: #fff;
   font-size: 0.35rem;
   padding-left: 0.3rem;
   box-sizing: border-box;
+  border-bottom:1px #ccc solid;
 }
 .allcity p>i{
   color: #a3a3a3;
@@ -202,8 +206,8 @@ a span{
   cursor: pointer;
   display: inline-block;
   width: 25%;
-  height: 0.85rem;
-  line-height: 0.85rem;
+  height: 0.95rem;
+  line-height: 0.95rem;
   text-align: center;
   font-size: 0.15rem;
   border-right: 2px solid rgb(179, 177, 177);

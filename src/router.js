@@ -1,10 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< HEAD
-import Chotcity from './views/c-hotcity.vue'
-=======
-// import Yorder from './views/y-order.vue'
->>>>>>> f41f36dff75aae32fc6f6e286c6426ff1e19c3ad
 import Yorder from './views/y-order.vue'
 import register from './views/j-register.vue'
 // 公共组件
@@ -17,11 +12,8 @@ import Scitys from './views/Scitys.vue'
 // 美食主页
 import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
-<<<<<<< HEAD
-=======
 // 搜索美食
 import Csfood from './views/C-searchfood.vue'
->>>>>>> f41f36dff75aae32fc6f6e286c6426ff1e19c3ad
 
 Vue.use(Router)
 
@@ -30,33 +22,21 @@ export default new Router({
   // base: process.env.BASE_URL,
   routes: [
     {
-<<<<<<< HEAD
+      // 默认首页
       path: '/',
-      name: 'Chotcity',
-      component: Chotcity
+      name: 'Sallcity',
+      component: Sallcity
     },
     {
-=======
       // 附近商家点击
->>>>>>> f41f36dff75aae32fc6f6e286c6426ff1e19c3ad
       path: '/yorder',
       name: 'Yorder',
       component:Yorder
     },
     {
-<<<<<<< HEAD
-=======
-      // 公共头部
->>>>>>> f41f36dff75aae32fc6f6e286c6426ff1e19c3ad
       path: '/Shead',
       name: 'Shead',
       component: Shead
-    },
-    {
-      // 默认首页
-      path: '/',
-      name: 'Sallcity',
-      component: Sallcity
     },
     {
       // 搜索城市
@@ -82,12 +62,6 @@ export default new Router({
       name: 'List',
       component: List
     },
-    // {
-    //   // 搜索美食
-    //   path: '/Search',
-    //   name: 'Search',
-    //   component: Search
-    // },
     {
       // 我的
       path: '/Mine',
