@@ -115,6 +115,7 @@ export default {
   },
   methods: {
     commoditys(id) {
+      console.log(id)
       this.$router.push({ path: "/food", query: { title: id.title } });
     },
     msite() {

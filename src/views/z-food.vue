@@ -5,18 +5,79 @@
         <i class="iconfont icon-jiantou" @click="backBtn"></i>
       </template>
       <template v-slot:center>
-        <a href="home">{{title}}</a>
+        <a href="home">{{titles}}</a>
       </template>
     </Shead>
     <div class="sort_container">
       <div class="sort_item">
-        <div>奶茶果汁</div>
+        <div @click="is==0?is=-1:is=0">{{is?titles:'分类'}}</div>
+        <div class="category_container" v-show="is==0">
+          <div class="category_left">
+            <ul>
+              <li
+                v-for="(i,index) in category"
+                :key="index"
+                class="category_left_li"
+                @click="[btn(i),z_index=index]"
+                :style="{background:z_index==index?'#fff':''}"
+              >
+                <section>
+                  <span class="categorylist_left">{{i.name}}</span>
+                </section>
+                <section>
+                  <span class="categorylist_right">{{i.count}}</span>
+                  <i>></i>
+                </section>
+              </li>
+            </ul>
+          </div>
+          <div class="category_right">
+            <ul>
+              <li v-for="(i,$index) in l" :key="$index" class="category_left_li">
+                <section>
+                  <span class="categorylist_left">{{i.name}}</span>
+                </section>
+                <section>
+                  <span class="categorylist_right">{{i.count}}</span>
+                </section>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="sort_item">
-        <div>排序</div>
+        <div @click="is==1?is=-1:is=1">排序</div>
+        <div class="category_container" v-show="is == 1">
+          <ul class="sort_list_container">
+            <li class="sort_list_li" v-for="(itemArr,index) in arrList" :key="index">
+              <p class>
+                <span>{{itemArr}}</span>
+              </p>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="sort_item">
-        <div>筛选</div>
+        <div @click="is==2?is=-1:is = 2">筛选</div>
+        <div class="category_container filter_container" v-show="is == 2">
+          <div style="width:100%;">
+            <header class="filter_header_style">配送方式</header>
+            <ul class="filter_ul">
+              <li class="filter_li"  v-for="(i,index) in screen" :style="{color:'#'+i.color}" :key="index">
+                <span class>{{i.text}}</span>
+              </li>
+            </ul>
+          </div>
+          <div style="width:100%;">
+            <header class="filter_header_style">商家属性（可以多选）</header>
+            <ul class="filter_ul">
+              <li v-for="(i,index) in propertyList" :key="index" class="filter_li">
+                <span class="filter_icon" :style="{'color':'#'+i.icon_color,'borderColor':'#'+i.icon_color}">{{i.icon_name}}</span>
+                <span>{{i.name}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
     <div class="z-main">
@@ -62,19 +123,35 @@
         </ul>
       </div>
     </div>
-     <Sfoot></Sfoot>
+    <Sfoot></Sfoot>
   </div>
-</template>
+<!-- :style="color:#; border-color:i.icon_color;" -->
 
+</template>
 <script>
 import Shead from "../components/Shead";
-import Sfoot from '../components/Sfoot'
+import Sfoot from "../components/Sfoot";
 export default {
   name: "food",
   data() {
     return {
-      title: "",
-      commodity: [] //商品
+      titles: "",
+      commodity: [], //商品,
+      category: [], //分类
+      l: [],
+      z_index: "",
+      screen: [], //晒选
+      index: "",
+      is: -2,
+      propertyList: [], // 属性列表
+      arrList: [
+        "智能排序",
+        "距离最近",
+        "销量最高",
+        "起送价最低",
+        "配送速度最快",
+        "评分最高"
+      ]
     };
   },
   components: {
@@ -82,10 +159,13 @@ export default {
     Sfoot
   },
   created() {
-    this.title = this.$route.query.title;
-    this.list(); 
+    this.titles = this.$route.query.title;
+    this.list();
   },
   methods: {
+    btn(i) {
+      this.l = i.sub_categories;
+    },
     backBtn() {
       this.$router.back(-1);
     },
@@ -102,22 +182,58 @@ export default {
         .then(data => {
           this.commodity = data.data;
         });
+      //分类
+      this.$http
+        .get("http://elm.cangdu.org/shopping/v2/restaurant/category", {
+          params: {
+            latitude: "31.00455",
+            longitude: "121.23323"
+          }
+        })
+        .then(data => {
+          this.category = data.data;
+        });
+      //筛选
+      this.$http
+        .get("https://elm.cangdu.org/shopping/v1/restaurants/delivery_modes", {
+          params: {
+            latitude: "31.00455",
+            longitude: "121.23323"
+          }
+        })
+        .then(data => {
+          this.screen = data.data;
+        });
+      this.$http
+        .get(
+          "http://elm.cangdu.org/shopping/v1/restaurants/activity_attributes",
+          {
+            params: {
+              latitude: "31.00455",
+              longitude: "121.23323",
+              kw: ""
+            }
+          }
+        )
+        .then(data => {
+          console.log((this.propertyList = data.data));
+        });
     }
   }
 };
 </script>
 
 <style scoped>
-<<<<<<< HEAD
 * {
   margin: 0;
   padding: 0;
   list-style: none;
   text-decoration: none;
+  font-style: initial;
 }
-=======
->>>>>>> ddab78442048a5eadf17671ea610edb311a37bd1
-a{color: #fff;}
+a {
+  color: #fff;
+}
 .sort_container {
   position: fixed;
   left: 0;
@@ -280,6 +396,144 @@ a{color: #fff;}
 }
 .fee_right span {
   color: #3190e8;
+}
+.category_container {
+  width: 100%;
+  background: #fff;
+  position: absolute;
+  display: flex;
+  left: 0;
+}
+.category_left {
+  flex: 1;
+  background-color: #f1f1f1;
+  height: 750px;
+  overflow-y: auto;
+}
+.category_right {
+  flex: 1;
+  background-color: #fff;
+  padding-left: 35px;
+  height: 750px;
+  overflow-y: auto;
+}
+.categorylist_left {
+  font-size: 24px;
+  color: #666;
+  /* display: inline-block; */
+  line-height: 85px;
+}
+.categorylist_right {
+  padding: 0px 5px;
+  background: #ccc;
+  border-radius: 15px;
+  color: #fff;
+  margin-right: 15px;
+}
+.category_left_li {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+}
+.active {
+  background-color: #fff;
+}
+.filter_header_style {
+  font-size: 0.4rem;
+  color: #333;
+  line-height: 1.5rem;
+  height: 1.5rem;
+  text-align: left;
+  padding-left: 0.5rem;
+  background-color: #fff;
+}
+.sort_container .sort_list_container {
+  width: 100%;
+}
+.sort_container .sort_list_container {
+  width: 100%;
+}
+.sort_container .sort_list_container .sort_list_li {
+  height: 100px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.sort_container .sort_list_container .sort_list_li p {
+  line-height: 100px;
+  -ms-flex: auto;
+  flex: auto;
+  text-align: left;
+  text-indent: 25px;
+  border-bottom: 1pxs solid #e4e4e4;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.filter_container {
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  /* min-height: 10.6rem; */
+  background-color: #f1f1f1;
+}
+.sort_container .showlist-enter-active,
+.sort_container .showlist-leave-active {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+.sort_container .showlist-enter,
+.sort_container .showlist-leave-active {
+  opacity: 0;
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.sort_container .filter_container .filter_ul {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0 25px;
+  padding-bottom: 0px;
+  background-color: #fff;
+}
+.sort_container .filter_container .filter_ul .filter_li {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  border: 2px solid #eee;
+  width: 180px;
+  height: 80px;
+  margin-right: 18px;
+  border-radius: 10px;
+  padding: 0 15px;
+  margin-bottom: 15px;
+}
+.sort_container .filter_container .filter_ul .filter_li .filter_icon {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  border: 2px solid #e4e4e4;
+  border-radius: 15px;
+  margin-right: 0.25rem;
+  line-height: 40px;
+  text-align: center;
+}
+.sort_container .filter_container .filter_ul .filter_li span {
+  font-size: 24px;
+  color: #333;
 }
 </style>
 
