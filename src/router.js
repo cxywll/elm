@@ -11,6 +11,7 @@ import Mine from './components/Mine.vue'
 import List from './components/List.vue'
 import Sallcity from './views/Sallcity.vue'
 import Scitys from './views/Scitys.vue'
+import Sload from './components/Sload.vue'
 // 美食主页
 import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
@@ -95,6 +96,12 @@ export default new Router({
       path: '/Search',
       name: 'Search',
       component: Search
+    },
+    // 下载
+    {
+      path: '/Sload',
+      name: 'Sload',
+      component: Sload
     },
   ]
 })

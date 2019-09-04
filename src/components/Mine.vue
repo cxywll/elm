@@ -69,8 +69,10 @@
               <p class="s_name">服务中心<i class="iconfont icon-jiantouyou"></i></p>
             </div>
             <div class="serve">
-              <span><i class="iconfont icon-xiazaieliaomaapp"></i></span>
-              <p class="s_name">下载饿了么APP<i class="iconfont icon-jiantouyou"></i></p>
+              <router-link to="/Sload">
+                  <span><i class="iconfont icon-xiazaieliaomaapp"></i></span>
+                  <p class="s_name">下载饿了么APP<i class="iconfont icon-jiantouyou"></i></p>
+              </router-link>
             </div>
         </div>
         <Sfoot></Sfoot>
@@ -132,6 +134,9 @@ export default {
   border-bottom: .0025rem solid rgb(212, 211, 211);
   line-height: .9975rem;
   box-sizing: border-box;
+}
+.serve a p{
+  color: #000;
 }
 .serve:nth-child(3) p{
   border: none;
