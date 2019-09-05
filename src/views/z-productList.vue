@@ -110,11 +110,8 @@ export default {
   },
   created() {
     this.msite();
-<<<<<<< HEAD
     console.log(this.$route);
-=======
     this.place = localStorage.place;
->>>>>>> a03f9398c9cc272cb966bc82c5847f830f937193
   },
   mounted() {
     new Swiper(".swiper-container", {

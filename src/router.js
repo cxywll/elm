@@ -19,7 +19,7 @@ import Zfood from './views/z-food.vue'
 // 搜索美食
 import Csfood from './views/C-searchfood.vue'
 
-
+Vue.use(Router)
 export default new Router({
   mode: 'history',
   // base: process.env.BASE_URL,
