@@ -20,7 +20,7 @@ export default {
     return {
       old:'',
       index:0,
-        n: 0,
+        n: 0,                         
         arr:[
           {icon:'icon-changyonglogo40',name:'外卖',path:'/msite'},
           {icon:'icon-zhinanzhen',name:'搜索',path:'/csfood'},
