@@ -1,19 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import hotcity from './views/f-hotcity.vue'
-// 搜索城市
-// import fsearch from './views/f-search.vue'
-// import Hello from './components/HelloWorld.vue'
 
-// 头部
-// import Hello from './components/HelloWorld.vue'
-// import Chotcity from './views/c-hotcity.vue'
-// 登录
 import Yorder from './views/y-order.vue'
 import register from './views/j-register.vue'
 import reset from './views/j-reset.vue'
-import Yorder from './views/y-order.vue'
-// 公共组件
+// import Yorder from './views/y-order.vue'
 import Sfoot from './components/Sfoot.vue'
 import Search from './components/Search.vue'
 import Shead from './components/Shead.vue'
