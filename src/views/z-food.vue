@@ -125,8 +125,6 @@
     </div>
     <Sfoot></Sfoot>
   </div>
-<!-- :style="color:#; border-color:i.icon_color;" -->
-
 </template>
 <script>
 import Shead from "../components/Shead";

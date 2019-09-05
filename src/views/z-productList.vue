@@ -101,7 +101,7 @@ export default {
       list: [], //商品列表
       lists: [],
       commodity: [], //商品
-      place:'北京房山',//地址
+      place:'请选择地址...',//地址
     };
   },
   components: {
@@ -110,8 +110,10 @@ export default {
   },
   created() {
     this.msite();
-    console.log(this.$route);
-    this.place = localStorage.place;
+    //获取地址
+    this.$http.get('http://elm.cangdu.org/v2/pois/'+this.$route.query.geohash).then(data=>{
+      console.log(this.place = data.data.name)
+    })
   },
   mounted() {
     new Swiper(".swiper-container", {
@@ -123,7 +125,7 @@ export default {
   methods: {
     commoditys(id) {
       console.log(id)
-      this.$router.push({ path: "/food", query: { title: id.title } });
+      this.$router.push({ path: "/food", query: { title: id.title }});
     },
     msite() {
       //商品列表
