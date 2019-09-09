@@ -92,7 +92,6 @@ import Shead from '../components/Shead'
 				var seePassword = document.querySelector('#seePassword')
 				var password = document.querySelector('#password')
 				var passwordS=document.querySelector('#passwordS')
-				console.log(seePassword, password)
 				if(this.isOpen) {
 					seePassword.type = 'text'
 					password.style.background = '#4cd964'
@@ -268,7 +267,6 @@ import Shead from '../components/Shead'
 	.j-content-three-left {
 		width: 500px;
 		height: 90px;
-		background: gold;
 		float: left;
 	}
 	
@@ -276,10 +274,8 @@ import Shead from '../components/Shead'
 		width: 130px;
 		height: 100px;
 		margin-left: -120px;
-		/*background: gold;*/
 		float: left;
 		line-height: 150px;
-		background: gold;
 	}
 	
 	.j-content-three-right {

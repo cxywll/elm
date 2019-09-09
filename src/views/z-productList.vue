@@ -43,43 +43,45 @@
       </header>
       <div class="shoplist_container">
         <ul>
-          <li v-for="(i,index) in commodity" :key="index" class="shop_li">
-            <section>
-              <img :src="'//elm.cangdu.org/img/'+i.image_path" alt class="shop_img" />
-            </section>
-            <div class="shop_right">
-              <div class="shop_detail_header">
-                <h4 class="shop_title ellipsis premium">{{i.name}}</h4>
-                <ul class="shop_detail_ul">
-                  <li
-                    class="supports"
-                    v-for="(item,index) in i.supports"
-                    :key="index"
-                  >{{item.icon_name}}</li>
-                </ul>
-              </div>
-              <h5 class="rating_order_num">
-                <section class="rating_order_num_left">
-                  <section class="rating_section">
-                    <div class="rating_container"></div>
-                    <span class="rating_num">{{i.rating}}</span>
-                  </section>
-                  <section class="order_section">月售106单</section>
-                </section>
-                <div class="rating_order_num_right">
-                  <span class="delivery_style delivery_left">{{i.delivery_mode.text}}</span>
-                  <span class="delivery_style delivery_right">准时达</span>
+          <router-link to="/yorder">
+            <li v-for="(i,index) in commodity" :key="index" class="shop_li">
+              <section>
+                <img :src="'//elm.cangdu.org/img/'+i.image_path" alt class="shop_img" />
+              </section>
+              <div class="shop_right">
+                <div class="shop_detail_header">
+                  <h4 class="shop_title ellipsis premium">{{i.name}}</h4>
+                  <ul class="shop_detail_ul">
+                    <li
+                      class="supports"
+                      v-for="(item,index) in i.supports"
+                      :key="index"
+                    >{{item.icon_name}}</li>
+                  </ul>
                 </div>
-              </h5>
-              <h5 class="fee_distan">
-                <p>￥{{i.float_minimum_order_amount}}起送/{{i.piecewise_agent_fee.tips}}</p>
-                <p class="fee_right">
-                  {{i.distance}}/
-                  <span>{{i.order_lead_time}}</span>
-                </p>
-              </h5>
-            </div>
-          </li>
+                <h5 class="rating_order_num">
+                  <section class="rating_order_num_left">
+                    <section class="rating_section">
+                      <div class="rating_container"></div>
+                      <span class="rating_num">{{i.rating}}</span>
+                    </section>
+                    <section class="order_section">月售106单</section>
+                  </section>
+                  <div class="rating_order_num_right">
+                    <span class="delivery_style delivery_left">{{i.delivery_mode.text}}</span>
+                    <span class="delivery_style delivery_right">准时达</span>
+                  </div>
+                </h5>
+                <h5 class="fee_distan">
+                  <p>￥{{i.float_minimum_order_amount}}起送/{{i.piecewise_agent_fee.tips}}</p>
+                  <p class="fee_right">
+                    {{i.distance}}/
+                    <span>{{i.order_lead_time}}</span>
+                  </p>
+                </h5>
+              </div>
+            </li>
+          </router-link>
         </ul>
       </div>
     </div>
@@ -99,17 +101,19 @@ export default {
       list: [], //商品列表
       lists: [],
       commodity: [], //商品
-      place:'北京房山',//地址
+      place:'请选择地址...',//地址
     };
   },
   components: {
     Shead,
     Sfoot
-    
   },
   created() {
     this.msite();
-    this.place = localStorage.place;
+    //获取地址
+    this.$http.get('http://elm.cangdu.org/v2/pois/'+this.$route.query.geohash).then(data=>{
+      console.log(this.place = data.data.name)
+    })
   },
   mounted() {
     new Swiper(".swiper-container", {
@@ -120,9 +124,11 @@ export default {
   },
   methods: {
     commoditys(id) {
-      this.$router.push({ path: "/food", query: { title: id.title } });
+      console.log(id)
+      this.$router.push({ path: "/food", query: { title: id.title }});
     },
     msite() {
+      //商品列表
       this.$http
         .get("http://elm.cangdu.org/v2/index_entry", {
           params: {
@@ -208,7 +214,6 @@ a{
   font-size: 24px;
   display: block;
 }
-
 .z-main {
   background-color: #fff;
 }

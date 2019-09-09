@@ -36,14 +36,17 @@
             </span>
           </div>
       </div>
+      <cimage></cimage>
   </div>
 </template>
 <script>
 import Shead from '../components/Shead.vue'
+import cimage from '../components/Clodding'
 export default {
   name:'Sallcity',
   components: {
-      Shead
+      Shead,
+      cimage
   },
   data(){
     return{
