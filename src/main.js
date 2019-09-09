@@ -6,6 +6,9 @@ import 'lib-flexible/flexible.js'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import '../font/iconfont.css'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
 Vue.use(VueAxios, axios)
 
 axios.defaults.withCredentials = true;

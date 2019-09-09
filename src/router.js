@@ -17,6 +17,8 @@ import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
 // 搜索美食
 import Csfood from './views/C-searchfood.vue'
+// 支付
+import Cpay from './views/C-pay.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -102,5 +104,10 @@ export default new Router({
       name: 'Sload',
       component: Sload
     },
+    {
+      path:'/cpay',
+      name:'Cpay',
+      component:Cpay
+    }
   ]
 })
