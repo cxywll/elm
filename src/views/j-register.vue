@@ -92,7 +92,6 @@ import Shead from '../components/Shead'
 				var seePassword = document.querySelector('#seePassword')
 				var password = document.querySelector('#password')
 				var passwordS=document.querySelector('#passwordS')
-				console.log(seePassword, password)
 				if(this.isOpen) {
 					seePassword.type = 'text'
 					password.style.background = '#4cd964'

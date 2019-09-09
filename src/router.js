@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+import Yorder from './views/y-order.vue'
 import register from './views/j-register.vue'
 import reset from './views/j-reset.vue'
-import Yorder from './views/y-order.vue'
-// 公共组件
+// import Yorder from './views/y-order.vue'
 import Sfoot from './components/Sfoot.vue'
 import Search from './components/Search.vue'
 import Shead from './components/Shead.vue'
@@ -17,26 +18,50 @@ import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
 // 搜索美食
 import Csfood from './views/C-searchfood.vue'
+<<<<<<< HEAD
 // 支付
 import Cpay from './views/C-pay.vue'
 Vue.use(Router)
+=======
+>>>>>>> 2c83bb67f1c3eaf7eda7e805447cb020d75fae03
 
+Vue.use(Router)
 export default new Router({
   mode: 'history',
   // base: process.env.BASE_URL,
   routes: [
+    // {
+    //   path: '/',
+    //   name: 'hotcity',
+    //   component: hotcity
+    // },
+    // {
+    //   path: '/f-search/:id',
+    //   name: 'search',
+    //   component: fsearch,
+    //   props: route=>({
+    //     name:route.query
+    //   })
+    // },
+    // {
+    //   path: '/Hello',
+    //   name: 'Hello',
+    //   component: Hello
+    // },
     {
-      path:'/',
-      name:'Sallcity',
-      component:Sallcity
+      // 默认首页
+      path: '/',
+      name: 'Sallcity',
+      component: Sallcity
     },
     {
       // 附近商家点击
       path: '/yorder',
       name: 'Yorder',
-      component:Yorder
+      component: Yorder
     },
     {
+      // 公共头部
       path: '/Shead',
       name: 'Shead',
       component: Shead
@@ -55,9 +80,9 @@ export default new Router({
     },
     {
       // 搜索美食
-      path:'/csfood',
-      name:'Csfood',
-      component:Csfood
+      path: '/csfood',
+      name: 'Csfood',
+      component: Csfood
     },
     {
       // 订单
@@ -72,9 +97,9 @@ export default new Router({
       component: Mine
     },
     {
-        path: '/Sfoot',
-        name: 'Sfoot',
-        component: Sfoot
+      path: '/Sfoot',
+      name: 'Sfoot',
+      component: Sfoot
     },
     {
       // 滑动店铺点击
