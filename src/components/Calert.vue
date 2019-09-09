@@ -6,7 +6,7 @@
 export default {
     methods: {
       open() {
-        this.$alert('暂不提供支付服务！', '抱歉：', {
+        this.$alert('当前环境无法支付，请打开官方APP进行付款', '抱歉：', {
           dangerouslyUseHTMLString: true
         });
       }

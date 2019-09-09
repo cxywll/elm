@@ -1,10 +1,12 @@
 <template>
   <div class="c-paybox">
       <shead>
-          <template v-slot:left>
-              <i class="iconfont icon-jiantou"></i>
-          </template>
-          <template v-slot:center>在线支付</template>
+        <template v-slot:left>
+            <router-link to="/Mine">
+                  <i class="iconfont icon-jiantou"></i>
+            </router-link>
+        </template>
+        <template v-slot:center>在线支付</template>
       </shead>
       <div class="Timediv">
           <p>支付剩余时间</p>
@@ -102,6 +104,11 @@ export default {
     padding: 10% 20%;
     box-sizing: border-box;
     background-color: #fff;
+}
+.icon-jiantou{
+    color:#fff;
+    font-size: 0.55rem;
+    line-height: 1.2rem;
 }
 .Timediv p{
     font-size: 0.45rem;
