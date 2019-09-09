@@ -18,12 +18,9 @@ import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
 // 搜索美食
 import Csfood from './views/C-searchfood.vue'
-<<<<<<< HEAD
 // 支付
 import Cpay from './views/C-pay.vue'
 Vue.use(Router)
-=======
->>>>>>> 2c83bb67f1c3eaf7eda7e805447cb020d75fae03
 
 Vue.use(Router)
 export default new Router({
