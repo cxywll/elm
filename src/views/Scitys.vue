@@ -52,7 +52,7 @@ export default {
     },
     data(){
         return{
-            city: this.$route.query.city,
+            city: this.$route.params.city,
             s_content:'',
             // 搜索列表
             list:'',
@@ -61,7 +61,7 @@ export default {
         }
     },
     created(){
-        localStorage.city = this.$route.query.city;
+        localStorage.city = this.$route.params.city;
         if(localStorage.historycity){
             this.historycity = JSON.parse(localStorage.historycity)
         }else{
@@ -70,7 +70,7 @@ export default {
     },
     methods:{
         search(){
-            this.$http.get('http://elm.cangdu.org/v1/pois?type=search&city_id='+this.$route.query.id+'&keyword='+this.s_content+'')
+            this.$http.get('http://elm.cangdu.org/v1/pois?type=search&city_id='+this.$route.params.id+'&keyword='+this.s_content+'')
                 .then(data=>{
                     if(this.s_content == ''){
                         alert('请输入城市')
