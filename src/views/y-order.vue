@@ -50,7 +50,7 @@
       <footer class="footer">
         总价:{{total}}元
         <!-- 实现页面的跳转  to 默认是a标签-->
-        <router-link :to="{name:'/',params:{selectList}}">去结算</router-link>
+        <router-link :to="{name:'Cpay',params:{selectList}}">去结算</router-link>
       </footer>
     </div>
   </div>
