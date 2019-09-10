@@ -133,7 +133,6 @@ export default new Router({
       name: 'Sload',
       component: Sload
     },
-<<<<<<< HEAD
     // 服务中心
     {
     path: '/Sfuwu',
@@ -151,13 +150,12 @@ export default new Router({
     path: '/point',
     name: 'point',
     component: point
+  },
+  // 支付
+  {
+    path:'/cpay',
+    name:'Cpay',
+    component:Cpay
   }
-=======
-    {
-      path:'/cpay',
-      name:'Cpay',
-      component:Cpay
-    }
->>>>>>> 5a054d06f5108204b62072bc620d94dee0eedc44
   ]
 })
