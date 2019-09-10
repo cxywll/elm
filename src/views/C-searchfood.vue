@@ -1,7 +1,7 @@
 <template>
     <div id="c-bigbox">
         <shead>
-            <template v-slot:left><router-link to="/msite" style="color:#fff;">&lt;</router-link></template>
+            <template v-slot:left><router-link to="/msite" style="color:#fff;"><i class="iconfont icon-jiantou"></i></router-link></template>
             <template v-slot:center>搜索</template>
         </shead>
         <div class="inputbox">
@@ -93,6 +93,9 @@ export default {
 
 <style scoped>
 *{margin: 0;padding: 0;list-style: none;}
+a .iconfont{
+    font-size: .5rem;
+}
 #c-bigbox{
     width: 100%;
     height: 2rem;

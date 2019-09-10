@@ -96,6 +96,48 @@ export default {
           }
         });
     },
+<<<<<<< HEAD
+    data(){
+        return{
+            city: this.$route.params.city,
+            s_content:'',
+            // 搜索列表
+            list:'',
+            // 搜索历史
+            historycity:[]
+        }
+    },
+    created(){
+        localStorage.city = this.$route.params.city;
+        if(localStorage.historycity){
+            this.historycity = JSON.parse(localStorage.historycity)
+        }else{
+            this.historycity = []
+        }
+    },
+    methods:{
+        search(){
+            this.$http.get('http://elm.cangdu.org/v1/pois?type=search&city_id='+this.$route.params.id+'&keyword='+this.s_content+'')
+                .then(data=>{
+                    if(this.s_content == ''){
+                        alert('请输入城市')
+                    }else{
+                        this.list = data.data;
+                    }
+                })
+        },
+        place(a){
+            this.historycity.push(a);
+            localStorage.historycity = JSON.stringify(this.historycity)
+        },
+        clearHistory(){
+            this.historycity=[];
+            localStorage.clear();
+        },
+        cun(a){
+            localStorage.place = a;
+        }
+=======
     //跳转页面
     goTo_url(id) {
       this.$router.push({ path: "/msite", query: { geohash: id.geohash } });
@@ -107,6 +149,7 @@ export default {
     clearHistory() {
       this.historycity = [];
       localStorage.clear();
+>>>>>>> 5a054d06f5108204b62072bc620d94dee0eedc44
     }
   }
 };

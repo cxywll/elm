@@ -6,13 +6,19 @@ import register from './views/j-register.vue'
 import reset from './views/j-reset.vue'
 // import Yorder from './views/y-order.vue'
 import Sfoot from './components/Sfoot.vue'
-import Search from './components/Search.vue'
 import Shead from './components/Shead.vue'
 import Mine from './components/Mine.vue'
 import List from './components/List.vue'
 import Sallcity from './views/Sallcity.vue'
 import Scitys from './views/Scitys.vue'
 import Sload from './components/Sload.vue'
+// 我的积分
+import point from './components/points.vue'
+// 会员中心
+import Svip from './components/Svip.vue'
+// 我的里的服务中心
+import Sfuwu from './components/Sfuwu.vue'
+import Sintro from './components/Sintro.vue'
 // 美食主页
 import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
@@ -76,6 +82,12 @@ export default new Router({
       component: Zmsite
     },
     {
+      // 会员中心
+      path: '/Svip',
+      name: 'Svip',
+      component: Svip
+    },
+    {
       // 搜索美食
       path: '/csfood',
       name: 'Csfood',
@@ -115,21 +127,37 @@ export default new Router({
       name: 'reset',
       component: reset
     },
-    {
-      path: '/Search',
-      name: 'Search',
-      component: Search
-    },
-    // 下载
+    // 下载饿了么APP
     {
       path: '/Sload',
       name: 'Sload',
       component: Sload
     },
+<<<<<<< HEAD
+    // 服务中心
+    {
+    path: '/Sfuwu',
+    name: 'Sfuwu',
+    component: Sfuwu
+  },
+  // 热门问题具体讲解
+  {
+    path: '/Sintro',
+    name: 'Sintro',
+    component: Sintro
+  },
+  // 积分页
+  {
+    path: '/point',
+    name: 'point',
+    component: point
+  }
+=======
     {
       path:'/cpay',
       name:'Cpay',
       component:Cpay
     }
+>>>>>>> 5a054d06f5108204b62072bc620d94dee0eedc44
   ]
 })

@@ -45,28 +45,37 @@
               <p class="name">我的优惠</p>
             </div>
             <div class="much">
-              <p class="number">
-                <span class="num">0</span><span class="unit">分</span>
-              </p>
-              <p class="name">我的积分</p>
+              <router-link to='/point'>
+                <p class="number">
+                  <span class="num">0</span><span class="unit">分</span>
+                </p>
+                <p class="name">我的积分</p>
+              </router-link>
             </div>
         </div>
         <div>
             <div class="serve">
-              <span><i class="iconfont icon-caidan"></i></span>
-              <p class="s_name">我的订单<i class="iconfont icon-jiantouyou"></i></p>
+              <router-link to="/List">
+                <span><i class="iconfont icon-caidan"></i></span>
+                <p class="s_name">我的订单<i class="iconfont icon-jiantouyou"></i></p>
+              </router-link>
+              
             </div>
             <div class="serve">
-              <span><i class="iconfont icon-jifenshangcheng"></i></span>
-              <p class="s_name">积分商城<i class="iconfont icon-jiantouyou"></i></p>
+                <span><i class="iconfont icon-jifenshangcheng"></i></span>
+                <p class="s_name">积分商城<i class="iconfont icon-jiantouyou"></i></p>
             </div>
             <div class="serve">
-              <span><i class="iconfont icon-wangguan"></i></span>
-              <p class="s_name">饿了么会员卡<i class="iconfont icon-jiantouyou"></i></p>
+              <router-link to="/Svip">
+                <span><i class="iconfont icon-wangguan"></i></span>
+                <p class="s_name">饿了么会员卡<i class="iconfont icon-jiantouyou"></i></p>
+               </router-link>
             </div>
             <div class="serve">
-              <span><i class="iconfont icon-fuwu1"></i></span>
-              <p class="s_name">服务中心<i class="iconfont icon-jiantouyou"></i></p>
+              <router-link to="/Sfuwu">
+                <span><i class="iconfont icon-fuwu1"></i></span>
+                <p class="s_name">服务中心<i class="iconfont icon-jiantouyou"></i></p>
+              </router-link>
             </div>
             <div class="serve">
               <router-link to="/Sload">
@@ -82,7 +91,7 @@
 import Shead from './Shead.vue'
 import Sfoot from './Sfoot.vue'
 export default {
-    name:'Mine',
+  name:'Mine',
   components: {
     Shead,
     Sfoot
