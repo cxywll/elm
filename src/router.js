@@ -151,10 +151,19 @@ export default new Router({
     name: 'point',
     component: point
   },
+<<<<<<< HEAD
     {
       path:'/cpay',
       name:'Cpay',
       component:Cpay
     }
+=======
+  // 支付
+  {
+    path:'/cpay',
+    name:'Cpay',
+    component:Cpay
+  }
+>>>>>>> af69d7ca40882b5bca195c593a896711120fb512
   ]
 })

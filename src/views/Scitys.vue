@@ -82,20 +82,16 @@ export default {
     search() {
       this.$http
         .get(
-          "http://elm.cangdu.org/v1/pois?type=search&city_id=" +
-            this.$route.query.id +
-            "&keyword=" +
-            this.s_content +
-            ""
-        )
+          "http://elm.cangdu.org/v1/pois?type=search&city_id="+this.$route.params.id+"&keyword="+this.s_content+"")
         .then(data => {
           if (this.s_content == "") {
             alert("请输入城市");
           } else {
             this.list = data.data;
           }
-        });
+        })
     },
+<<<<<<< HEAD
     data(){
         return{
             city: this.$route.params.city,
@@ -105,15 +101,16 @@ export default {
             // 搜索历史
             historycity:[]
         }
+=======
+    clearHistory(){
+        this.historycity=[];
+        localStorage.clear();
+>>>>>>> af69d7ca40882b5bca195c593a896711120fb512
     },
-    created(){
-        localStorage.city = this.$route.params.city;
-        if(localStorage.historycity){
-            this.historycity = JSON.parse(localStorage.historycity)
-        }else{
-            this.historycity = []
-        }
+    cun(a){
+        localStorage.place = a;
     },
+<<<<<<< HEAD
     methods:{
         search(){
             this.$http.get('http://elm.cangdu.org/v1/pois?type=search&city_id='+this.$route.params.id+'&keyword='+this.s_content+'')
@@ -137,6 +134,8 @@ export default {
             localStorage.place = a;
         },
     },
+=======
+>>>>>>> af69d7ca40882b5bca195c593a896711120fb512
     //跳转页面
     goTo_url(id) {
       this.$router.push({ path: "/msite", query: { geohash: id.geohash } });
@@ -149,8 +148,26 @@ export default {
       this.historycity = [];
       localStorage.clear();
     }
+  },
+  data(){
+      return{
+          city: this.$route.params.city,
+          s_content:'',
+          // 搜索列表
+          list:'',
+          // 搜索历史
+          historycity:[]
+      }
+  },
+  created(){
+      localStorage.city = this.$route.params.city;
+      if(localStorage.historycity){
+          this.historycity = JSON.parse(localStorage.historycity)
+      }else{
+          this.historycity = []
+      }
   }
-};
+}
 </script>
 
 <style scoped>
