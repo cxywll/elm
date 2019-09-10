@@ -21,7 +21,7 @@
                   <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567675104513&di=7b3e509a9572d338716469f299a49704&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170703%2F2b4d688817e74dd9af3c720c5d9b4473_th.jpg" alt="">
               </div>
               <p>支付宝</p>
-              <i class="iconfont icon-icon_tupianweixuanzhong icon" @click="zfbchange"></i>
+              <i class="iconfont icon-icon_tupianweixuanzhong icon" @click="change"></i>
               <i class="iconfont icon-icon_tupianweixuanzhong icon1" v-show="zfb"></i>
           </div>
           <!-- 微信 -->
@@ -30,12 +30,13 @@
                   <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567679361418&di=0d87c05555d9fba10044f81ee0b6b1ff&imgtype=0&src=http%3A%2F%2Fwww.xdowns.com%2Fattachment%2Fsyapp%2Flogo%2F201809061536171675.jpg" alt="">
               </div>
               <p>微信</p>
-              <i class="iconfont icon-icon_tupianweixuanzhong icon" @click="wxchange"></i>
+              <i class="iconfont icon-icon_tupianweixuanzhong icon" @click="change"></i>
               <i class="iconfont icon-icon_tupianweixuanzhong icon1" v-show="wx"></i>
           </div>
       </div>
       <!-- 确认支付 -->
       <div class="butdiv">
+          <!-- 使用了elementui里面的弹框 -->
           <calert></calert>
       </div>
     
@@ -75,20 +76,11 @@ export default {
         },1000)
     },
     methods:{
-        // 选中微信
-        wxchange(){
-            this.wx = true;
-            this.zfb = false;
+        // 选中微信或支付宝
+        change(){
+            this.wx = !this.wx;
+            this.zfb = !this.zfb;
         },
-        // 选中支付宝
-        zfbchange(){
-            this.zfb = true;
-            this.wx = false;
-        },
-        // 点击确认支付按钮
-        pay(){
-            alert('暂不提供支付服务')
-        }
     }
 }
 </script>
@@ -119,7 +111,6 @@ export default {
 .time{
     width: 100%;
     height: 60%;
-    /* background-color: red; */
     font-size: 1.1rem;
     color:#3e3d3d;
     margin-top: 0.2rem;
@@ -155,7 +146,7 @@ export default {
 .zfbimg img,.wximg img{
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    /* border-radius: 50%; */
 }
 .zfb>p ,.wx>p{
     height: 100%;
