@@ -96,7 +96,6 @@ export default {
           }
         });
     },
-<<<<<<< HEAD
     data(){
         return{
             city: this.$route.params.city,
@@ -136,8 +135,8 @@ export default {
         },
         cun(a){
             localStorage.place = a;
-        }
-=======
+        },
+    },
     //跳转页面
     goTo_url(id) {
       this.$router.push({ path: "/msite", query: { geohash: id.geohash } });
@@ -149,7 +148,6 @@ export default {
     clearHistory() {
       this.historycity = [];
       localStorage.clear();
->>>>>>> 5a054d06f5108204b62072bc620d94dee0eedc44
     }
   }
 };
