@@ -110,9 +110,10 @@ export default {
 </script>
 <style>
 .serve p .iconfont{
+  font-size: 0.25rem;
   float: right;
-  margin-right: .5rem;
-  color: #888;
+  margin-right: .3rem;
+  color: rgb(187, 187, 187);
 }
 .serve:nth-child(1) span .iconfont{
   color: rgb(184, 183, 183);
@@ -138,14 +139,17 @@ export default {
   width: 8.8rem;
   height: 1rem;
   float: left;
-  font-size: .5rem;
+  color: #333;
+  font-size: .4rem;
   margin-left: .2rem;
-  border-bottom: .0025rem solid rgb(212, 211, 211);
-  line-height: .9975rem;
+  border-bottom: 1px solid #f1f1f1;
+  line-height: 1rem;
   box-sizing: border-box;
 }
 .serve a p{
-  color: #000;
+  line-height: 1rem;
+  font-size: 0.40rem;
+  color: #333;
 }
 .serve:nth-child(3) p{
   border: none;
@@ -157,7 +161,7 @@ export default {
   width: 1rem;
   height: 1rem;
   float: left;
-  text-align: right;
+  text-align: center;
   line-height: 1rem;
   font-size: .4rem;
 }

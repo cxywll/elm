@@ -13,7 +13,7 @@
                 <div class="points_header clearfix">
                     <span>当前积分</span>
                     <router-link to='/points/explain'>
-                        <span style="float:right;color:#000;"><a href="#">?</a>积分说明</span>
+                        <span style="float:right;color:#3190e8;"><a href="#">?</a>积分说明</span>
                     </router-link>
                 </div>
                 <div class="points_content clearfix">
@@ -55,6 +55,7 @@
         margin:0;
         list-style:none;
         text-decoration: none;
+        box-sizing: border-box;
     }
     a{
         color: #fff;
@@ -76,16 +77,20 @@
     }
     .points{
          padding-top:0.78rem;
+         min-height: 17.5rem;
+         background-color: #f5f5f5;
     }
     .container{
+        width: 100%;
         background:#3190e8;
-        padding:0.1rem;
-        margin-top: .5rem;
-        margin-left: .2rem;
+        padding:0.2rem;
+        margin-top: .45rem;
     }
     .points_c{
+        width: 100%;
+        height: 4rem;
         background:#fff;
-        padding:0.1rem;
+        padding:0.25rem;
         border-radius:0.06rem;
     }
     .points_header{
@@ -93,18 +98,19 @@
     }
     .points_header span:nth-of-type(1){
         float:left;
-        font-size:0.26rem;
+        font-size:0.35rem;
+        color: #333;
     }
     .points_header span:nth-of-type(2){
         float:right;
-        font-size:0.26rem;
+        font-size:0.35rem;
         color:#3190e8;
     }
     .points_header span a{
         display:inline-block;
-        width:0.3rem;
-        height:0.3rem;
-        font-size:0.24rem;
+        width:0.35rem;
+        height:0.35rem;
+        font-size:0.35rem;
         border-radius:50%;
         color:#fff;
         background:#3190e8;
@@ -113,26 +119,26 @@
     }
     .points_content{
         width:100%;
-       
+        margin-top: 0.3rem;
     }
     .money{
-        font-size:0.62rem;
+        font-size:1rem;
         float:left;
     }
     .points_content span:nth-of-type(2){
         float:left;
         margin-left:0.2rem;
-        font-size:0.26rem;
-        margin-top:0.4rem;
+        font-size:0.35rem;
+        margin-top:0.5rem;
     }
     .points_submit{
         width: 100%;
-        height: 0.8rem;
+        height: 1.2rem;
         font-size: .4rem;
         color: #fff;
         border-radius: 0.12rem;
-        line-height: 0.8rem;
-        margin-top: 0.5rem;
+        line-height: 1.2rem;
+        margin-top: 0.3rem;
         text-align: center;
         background-color: #fe6d47;
         border:none;
@@ -143,7 +149,8 @@
         height:0.8rem;
         line-height:0.8rem;
         padding-left:0.26rem;
-        font-size:0.26rem;
+        padding-top:0.25rem;
+        font-size:0.35rem;
         color:#999;
     }
     .jl{
@@ -152,11 +159,12 @@
         color:#aaa;
     }
     .jl p{
-        font-size:0.18rem;
+        font-size:0.3rem;
         color:#999;
         margin-top:0.24rem;
     }
     .jl p:nth-of-type(1){
-        font-size:0.3rem;
+        color: #666;
+        font-size:0.4rem;
     }
 </style>
