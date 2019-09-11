@@ -47,7 +47,7 @@ export default {
   font-size: 0.8rem;
 }
 .S-foot{
-  width: 100%;
+  width: 10rem;
   height: 1.5rem;
   background-color: #fff;
   position: fixed;

@@ -267,7 +267,6 @@ import Shead from '../components/Shead'
 	.j-content-three-left {
 		width: 500px;
 		height: 90px;
-		background: gold;
 		float: left;
 	}
 	
@@ -275,10 +274,12 @@ import Shead from '../components/Shead'
 		width: 130px;
 		height: 100px;
 		margin-left: -120px;
-		/*background: gold;*/
 		float: left;
 		line-height: 150px;
+<<<<<<< HEAD
 		/* background: gold; */
+=======
+>>>>>>> a98920a39e08884b5e90c64bd067d267654d332e
 	}
 	
 	.j-content-three-right {
