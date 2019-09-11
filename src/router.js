@@ -26,6 +26,8 @@ import Zfood from './views/z-food.vue'
 import Csfood from './views/C-searchfood.vue'
 // 支付
 import Cpay from './views/C-pay.vue'
+// 余额
+import Cyue from './components/Cyue.vue'
 Vue.use(Router)
 
 Vue.use(Router)
@@ -33,24 +35,6 @@ export default new Router({
   mode: 'history',
   // base: process.env.BASE_URL,
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'hotcity',
-    //   component: hotcity
-    // },
-    // {
-    //   path: '/f-search/:id',
-    //   name: 'search',
-    //   component: fsearch,
-    //   props: route=>({
-    //     name:route.query
-    //   })
-    // },
-    // {
-    //   path: '/Hello',
-    //   name: 'Hello',
-    //   component: Hello
-    // },
     {
       // 默认首页
       path: '/',
@@ -150,6 +134,11 @@ export default new Router({
     path: '/point',
     name: 'point',
     component: point
+  },
+  {
+    path:'/cyue',
+    name:'cyue',
+    component:Cyue
   },
   // 支付
   {

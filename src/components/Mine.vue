@@ -32,12 +32,14 @@
             </div>
         </div>
         <div class="finance">
+          <router-link to="/cyue">
             <div class="much">
               <p class="number">
                 <span class="num">0.00</span><span class="unit">元</span>
               </p>
               <p class="name">我的余额</p>
             </div>
+          </router-link>
             <div class="much">
               <p class="number">
                 <span class="num">0</span><span class="unit">个</span>
