@@ -115,7 +115,7 @@ export default {
     this.geohash = this.$route.query.geohash
     //获取地址
     this.$http
-      .get("http://elm.cangdu.org/v2/pois/" + this.$route.query.geohash)
+      .get("http://elm.cangdu.org/v2/pois/" + this.geohash)
       .then(data => {
         if (data.data.status == 0) {
           this.place = "请选择地址...";
@@ -133,7 +133,6 @@ export default {
   },
   methods: {
     commoditys(id) {
-      console.log(id);
       this.$router.push({ path: "/food", query: { title: id.title } });
     },
     msite() {

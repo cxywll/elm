@@ -278,7 +278,7 @@ import Shead from '../components/Shead'
 		/*background: gold;*/
 		float: left;
 		line-height: 150px;
-		background: gold;
+		/* background: gold; */
 	}
 	
 	.j-content-three-right {
