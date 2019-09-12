@@ -1,6 +1,17 @@
 <template>
   <div class="box">
     <div class="content clearfix">
+      <!-- 头部传参 -->
+      <div class="header">
+        <div class="headerimg">
+          <img :src="'//elm.cangdu.org/img/'+this.$route.params.img" alt class="shop_img" />
+        </div>
+        <div class="headerxq">
+          <h3>效果演示</h3>
+          <p><span>商家配送</span> / <span>{{this.$route.params.fz}}分钟送达</span> / <span>{{this.$route.params.money}}</span></p>
+          <i>公告：{{this.$route.params.promotion}}</i>
+        </div>
+      </div>
       <!-- 左侧菜单 -->
       <ul class="product">
         <li
@@ -17,13 +28,13 @@
         >{{item.type}}</li>
       </ul>
       <!-- 右侧具体信息 -->
-      <div class="information">
         <div class="nav">
           <ul class="list">
             <li>商品</li>
             <li>评价</li>
           </ul>
         </div>
+      <div class="information">
         <!-- 右侧商品列表 -->
         <div class="item-box clearfix" v-for="(item,index) in arr[idx].foods" :key="index">
           <!-- <div class='item-box clearfix' v-for='(item,index) in list' :key="index"> -->
@@ -69,6 +80,7 @@ export default {
     };
   },
   created() {
+    console.log(this.$route)
     this.axios
       .get("https://elm.cangdu.org/shopping/v2/menu?restaurant_id=1")
       .then(res => {
@@ -142,7 +154,7 @@ export default {
   // }
 };
 </script>
-  <style scoped>
+<style scoped>
 .box {
   width: 100%;
   height: auto;
@@ -151,18 +163,19 @@ export default {
 }
 .nav {
   width: 100%;
-  height: 0.7rem;
-  line-height: 0.7rem;
+  height: 1rem;
+  line-height: 1rem;
   text-align: center;
   border-bottom: 1px solid #ccc;
+  position: relative;
 }
 
 .list {
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
+  position: absolute;
 }
 .list li {
-  width: 25%;
+  width: 50%;
   float: left;
 }
 .hot {
@@ -175,14 +188,55 @@ export default {
   width: 100%;
   height: auto;
 }
+.header{
+  width: 100%;
+  height: 2.4rem;
+  background-color: rgba(111, 111, 111, 0.5);
+  padding: 0.2rem 0.3rem;
+  box-sizing: border-box;
+}
+.headerimg{
+  width: 22%;
+  height: 100%;
+  background-color: orange;
+  float: left;
+}
+.headerimg img{
+  width: 100%;
+  height: 100%;
+}
+.headerxq{
+  width: 76%;
+  height: 100%;
+  margin-left: 2%;
+  float: left;
+}
+.headerxq h3{
+  font-size: .55rem;
+  color: #fefefe;
+  margin-bottom: 0.15rem;
+}
+.headerxq p{
+  font-size: 0.38rem;
+  color: #f5f5f5;
+  line-height: 0.6rem;
+  margin-bottom: 0.1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.headerxq i{
+  font-style: normal;
+  font-size: 0.35rem;
+  color: #f5f5f5;
+}
 .product {
   width: 25%;
   border: 1px #ccc solid;
   text-align: center;
   float: left;
   box-sizing: border-box;
-  margin-top: 2.4rem;
-  overflow: hidden;
+  margin-top: 1rem;
 }
 .product li {
   width: 100%;
@@ -197,6 +251,8 @@ export default {
   height: auto;
   float: left;
   background: #fff;
+  margin-top: 0;
+  padding: 0;
 }
 .item-box,
 .jiesuan {
@@ -220,6 +276,11 @@ export default {
   margin-left: 0.1rem;
   float: left;
   position: relative;
+}
+.text h3{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .text .bt {
   margin-top: 0.3rem;

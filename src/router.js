@@ -145,6 +145,6 @@ export default new Router({
     path:'/cpay',
     name:'Cpay',
     component:Cpay
-  }
+  },
   ]
 })
