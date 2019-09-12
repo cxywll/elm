@@ -57,13 +57,13 @@ export default new Router({
       // 搜索城市
       path: '/Scitys',
       name: 'Scitys',
-      component: Scitys
+      component: Scitys,
     },
     {
       // 赵永超:美食主页
       path: '/msite',
-      name: 'Zmsite',
-      component: Zmsite
+      name: 'msite',
+      component: Zmsite,
     },
     {
       // 会员中心

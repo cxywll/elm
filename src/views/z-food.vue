@@ -33,13 +33,14 @@
           </div>
           <div class="category_right">
             <ul>
-              <li v-for="(i,$index) in l" :key="$index" class="category_left_li">
-                <section>
-                  <span class="categorylist_left">{{i.name}}</span>
-                </section>
-                <section>
-                  <span class="categorylist_right">{{i.count}}</span>
-                </section>
+              <li
+                v-for="(i,$index) in l"
+                :key="$index"
+                class="category_right_li"
+                @click="[classifys(i),is=-1]"
+              >
+                  <span>{{i.name}}</span>
+                  <span>{{i.count}}</span>
               </li>
             </ul>
           </div>
@@ -49,9 +50,14 @@
         <div @click="is==1?is=-1:is=1">排序</div>
         <div class="category_container" v-show="is == 1">
           <ul class="sort_list_container">
-            <li class="sort_list_li" v-for="(itemArr,index) in arrList" :key="index">
-              <p class>
-                <span>{{itemArr}}</span>
+            <li
+              class="sort_list_li"
+              v-for="(itemArr,index) in arrList"
+              :key="index"
+              @click="[sortList(itemArr.num),is=-1,isIndex=index]"
+            >
+              <p :style="{color:isIndex==index?'#3190e8':''}">
+                <span>{{itemArr.name}}</span>
               </p>
             </li>
           </ul>
@@ -63,7 +69,12 @@
           <div style="width:100%;">
             <header class="filter_header_style">配送方式</header>
             <ul class="filter_ul">
-              <li class="filter_li"  v-for="(i,index) in screen" :style="{color:'#'+i.color}" :key="index">
+              <li
+                class="filter_li"
+                v-for="(i,index) in screen"
+                :style="{color:'#'+i.color}"
+                :key="index"
+              >
                 <span class>{{i.text}}</span>
               </li>
             </ul>
@@ -71,11 +82,26 @@
           <div style="width:100%;">
             <header class="filter_header_style">商家属性（可以多选）</header>
             <ul class="filter_ul">
-              <li v-for="(i,index) in propertyList" :key="index" class="filter_li">
-                <span class="filter_icon" :style="{'color':'#'+i.icon_color,'borderColor':'#'+i.icon_color}">{{i.icon_name}}</span>
-                <span>{{i.name}}</span>
+              <li
+                v-for="(i,index) in propertyList"
+                :key="index"
+                class="filter_li"
+                @click="isTrue=index"
+              >
+                <span
+                  class="filter_icon"
+                  :style="{'color':'#'+i.icon_color,'borderColor':'#'+i.icon_color}"
+                >{{i.icon_name}}</span>
+                <span class>{{i.name}}</span>
               </li>
             </ul>
+          </div>
+          <div class="confirm_filter">
+            <div class="clear_all filter_button_style">清空</div>
+            <div class="confirm_select filter_button_style">
+              确定
+              <span>({{0}})</span>
+            </div>
           </div>
         </div>
       </div>
@@ -134,6 +160,7 @@ export default {
   data() {
     return {
       titles: "",
+      isTrue: "",
       commodity: [], //商品,
       category: [], //分类
       l: [],
@@ -141,14 +168,16 @@ export default {
       screen: [], //晒选
       index: "",
       is: -2,
+      isz_index:-1,
+      isIndex: -1,
       propertyList: [], // 属性列表
       arrList: [
-        "智能排序",
-        "距离最近",
-        "销量最高",
-        "起送价最低",
-        "配送速度最快",
-        "评分最高"
+        { name: "智能排序", num: 0 },
+        { name: "距离最近", num: 4 },
+        { name: "销量最高", num: 3 },
+        { name: "起送价最低", num: 3 },
+        { name: "配送速度最快", num: 4 },
+        { name: "评分最高", num: 3 }
       ]
     };
   },
@@ -161,6 +190,32 @@ export default {
     this.list();
   },
   methods: {
+    classifys(item){
+      this.$http.get('http://elm.cangdu.org/shopping/restaurants',{
+        params:{
+          latitude: '30.630231',
+          longitude: '116.575482',
+          restaurant_category_ids: [item.id],
+          order_by: '2',
+        }
+      }).then(data=>{
+          this.commodity = data.data;
+      })
+    },
+
+    sortList(index) {
+      this.$http
+        .get("http://elm.cangdu.org/shopping/restaurants", {
+          params: {
+            latitude: "30.630231",
+            longitude: "116.575482",
+            order_by: index
+          }
+        })
+        .then(data => {
+          this.commodity = data.data;
+        });
+    },
     btn(i) {
       this.l = i.sub_categories;
     },
@@ -214,7 +269,7 @@ export default {
           }
         )
         .then(data => {
-          console.log((this.propertyList = data.data));
+          this.propertyList = data.data;
         });
     }
   }
@@ -460,6 +515,16 @@ a {
   -ms-flex-align: center;
   align-items: center;
 }
+.sort_container .category_container .category_right .category_right_li {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    height: 85px;
+    line-height: 85px;
+    padding-right: 25px;
+    border-bottom: 1px solid #e4e4e4;
+}
 .sort_container .sort_list_container .sort_list_li p {
   line-height: 100px;
   -ms-flex: auto;
@@ -532,6 +597,33 @@ a {
 .sort_container .filter_container .filter_ul .filter_li span {
   font-size: 24px;
   color: #333;
+}
+.sort_container .filter_container .confirm_filter {
+  /* display: -ms-flexbox; */
+  display: flex;
+  background-color: #f1f1f1;
+  width: 100%;
+  padding: 15px 5px;
+}
+.sort_container .filter_container .confirm_filter .clear_all {
+  background-color: #fff;
+  margin-right: 20px;
+  border: 1px solid #fff;
+}
+.sort_container .filter_container .confirm_filter .filter_button_style {
+  width: 50%;
+  height: 70px;
+  font-size: 28px;
+  line-height: 70px;
+  border-radius: 10px;
+}
+.sort_container .filter_container .confirm_filter .confirm_select {
+  background-color: #56d176;
+  color: #fff;
+  border: 1px solid #56d176;
+}
+.sort_container .filter_container .filter_ul .filter_li .filter {
+  color: #3190e8;
 }
 </style>
 
