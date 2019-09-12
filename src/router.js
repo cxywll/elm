@@ -26,6 +26,8 @@ import Zfood from './views/z-food.vue'
 import Csfood from './views/C-searchfood.vue'
 // 支付
 import Cpay from './views/C-pay.vue'
+// 余额
+import Cyue from './components/Cyue.vue'
 Vue.use(Router)
 
 Vue.use(Router)
@@ -33,24 +35,6 @@ export default new Router({
   mode: 'history',
   // base: process.env.BASE_URL,
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'hotcity',
-    //   component: hotcity
-    // },
-    // {
-    //   path: '/f-search/:id',
-    //   name: 'search',
-    //   component: fsearch,
-    //   props: route=>({
-    //     name:route.query
-    //   })
-    // },
-    // {
-    //   path: '/Hello',
-    //   name: 'Hello',
-    //   component: Hello
-    // },
     {
       // 默认首页
       path: '/',
@@ -73,13 +57,13 @@ export default new Router({
       // 搜索城市
       path: '/Scitys',
       name: 'Scitys',
-      component: Scitys
+      component: Scitys,
     },
     {
       // 赵永超:美食主页
       path: '/msite',
-      name: 'Zmsite',
-      component: Zmsite
+      name: 'msite',
+      component: Zmsite,
     },
     {
       // 会员中心
@@ -151,11 +135,16 @@ export default new Router({
     name: 'point',
     component: point
   },
+  {
+    path:'/cyue',
+    name:'cyue',
+    component:Cyue
+  },
   // 支付
   {
     path:'/cpay',
     name:'Cpay',
     component:Cpay
-  }
+  },
   ]
 })

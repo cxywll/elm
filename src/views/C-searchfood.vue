@@ -5,7 +5,7 @@
             <template v-slot:center>搜索</template>
         </shead>
         <div class="inputbox">
-            <input type="text" placeholder="请输入商家或美食名称" v-model="keyword">
+            <input type="search" placeholder="请输入商家或美食名称" v-model="keyword">
             <button @click="searchfood">提交</button>
         </div>
         <!-- 搜索列表 -->
@@ -69,7 +69,12 @@ export default {
                     this.tipsshow = true;
                     this.tips = '很抱歉！无搜索结果';
                     this.historyShow = false
+                    if(this.keyword == ''){
+                        this.tips = ''
+                        this.tipsshow = false;
+                    }
                 }else{
+                    this.tipsshow = false;
                     this.show = true;
                     this.cslist = res.data.status;
                 }
@@ -78,9 +83,11 @@ export default {
         },
         // 历史纪录
         historyList(){
-            this.historyword.unshift(this.keyword)
-            console.log(this.historyword);
-            localStorage.historyword = JSON.stringify(this.historyword)
+            if(this.keyword!=''){
+                this.historyword.unshift(this.keyword)
+                console.log(this.historyword);
+                localStorage.historyword = JSON.stringify(this.historyword)
+            }
         },
         // 清空历史
         clearHistory(){
@@ -172,6 +179,7 @@ a .iconfont{
 .searchHistoy{
     width: 100%;
     min-height: 2rem;
+    margin-bottom: 1.6rem;
 }
 .sh,.c-clear{
     width: 100%;

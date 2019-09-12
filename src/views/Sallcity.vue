@@ -44,7 +44,7 @@ import Shead from '../components/Shead.vue'
 import cimage from '../components/Clodding'
 export default {
   name:'Sallcity',
-  components: {
+  components: { 
       Shead,
       cimage
   },
