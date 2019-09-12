@@ -59,7 +59,7 @@ import Shead from '../components/Shead'
 			}
 		},
 		methods: {
-			j_btn(a) {
+			j_btn() {
 				if(this.register == '') {
 					alert('请输入账号');
 					return;
@@ -276,10 +276,6 @@ import Shead from '../components/Shead'
 		margin-left: -120px;
 		float: left;
 		line-height: 150px;
-<<<<<<< HEAD
-		/* background: gold; */
-=======
->>>>>>> a98920a39e08884b5e90c64bd067d267654d332e
 	}
 	
 	.j-content-three-right {
