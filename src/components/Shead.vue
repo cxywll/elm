@@ -12,7 +12,7 @@ export default {
 </script>
 <style scoped>
 .S-head{
-    width: 10rem;
+    width: 100%;
     position: fixed;
     left: 0;
     top: 0;
