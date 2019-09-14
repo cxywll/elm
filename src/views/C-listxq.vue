@@ -14,9 +14,11 @@
               <img src="" alt="">
           </div>
           <h2>等待支付</h2>
-          <div class="another">
-              再来一单
-          </div>
+          <router-link to="/yorder">
+              <div class="another">
+                再来一单
+              </div>
+          </router-link>
         </div>
         <!-- 订单详情 -->
         <div class="orderDetails">
