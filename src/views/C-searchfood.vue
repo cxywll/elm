@@ -12,6 +12,10 @@
         <i class="null" v-show="tipsshow">{{this.tips}}</i>
         <ul class="foodList" v-show="show">
             <li v-for="(item,index) in cslist" :key="index">
+                <!-- <div class="imgb">
+                    <img src="" alt="">
+                </div> -->
+                <!-- <div class="xqbox"></!-->
                 <p>{{item.name}}</p>
                 <span>{{item.name}}</span>
             </li>
@@ -76,7 +80,7 @@ export default {
                 }else{
                     this.tipsshow = false;
                     this.show = true;
-                    this.cslist = res.data.status;
+                    this.cslist = res.data;
                 }
             })
             this.historyList()

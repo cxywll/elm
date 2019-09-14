@@ -28,6 +28,8 @@ import Csfood from './views/C-searchfood.vue'
 import Cpay from './views/C-pay.vue'
 // 余额
 import Cyue from './components/Cyue.vue'
+// 订单详情
+import listxq from './views/C-listxq.vue'
 Vue.use(Router)
 
 Vue.use(Router)
@@ -82,6 +84,12 @@ export default new Router({
       path: '/List',
       name: 'List',
       component: List
+    },
+    // 订单详情
+    {
+      path:'/listxq',
+      name:'listxq',
+      component:listxq
     },
     {
       // 我的
