@@ -1,19 +1,27 @@
 <template>
-	<div class="j-box">
+	<div class="j-boxs">
 		<div class="j-header">
 			<div class="j-headerleft">
-				<router-link to="./register">&lt;</router-link>
+				<router-link to="/register"><i class="iconfont icon-jiantou"></i></router-link>
 			</div>
 			<div class="j-headerright">
 				<p class="j-reset">重置密码</p>
 			</div>
 		</div>
+		<Shead>
+			<template v-slot:left>
+				<router-link to="/register"><i class="iconfont icon-jiantou"></i></router-link>
+			</template>
+			<template v-slot:center>
+			<a>重置密码</a>
+			</template>
+       </Shead>
 		<div class="j-container">
 			<div class="j-container-one">
 				<input type="text" placeholder="账号" class="j-one" v-model="user" />
 			</div>
 			<div class="j-container-two">
-				<input type="text" placeholder="旧密码" class="j-two" v-model="oldpassword" />
+				<input type="text" placeholder="旧密码" class="j-twos" v-model="oldpassword" />
 			</div>
 			<div class="j-container-three">
 				<input type="text" placeholder="请输入新密码" class="j-three" v-model="newpassword" />
@@ -39,7 +47,12 @@
 </template>
 
 <script>
+	import Shead from '../components/Shead'
+//	import Sfoot from '../components/Sfoot'
 	export default {
+		components: {
+			Shead
+		},
 		data() {
 			return {
 				user: '',//账号
@@ -99,18 +112,52 @@
 		padding: 0;
 	}
 	
-	.j-box {
+	/*a .iconfont {
+		color: #fff;
+		font-size:30px;
+	}*/
+	
+	.j-boxs {
 		width: 100%;
 		height: 1330px;
 		background: #eee;
+		overflow-x: hidden;
 	}
-	
+	a .icon-jiantou{
+		color: white;
+		font-size: 30px;
+	}
 	.j-header {
 		width: 100%;
 		height: 90px;
 		background: #3190e8;
 	}
-	
+	.j-headerleft{
+		float: left;
+		font-size: 35px;
+		height: 90px;
+		line-height: 90px;
+		margin-left: 20px;
+	}
+	.j-headerright {
+		width: 150px;
+		color: white;
+		height: 90px;
+		float: left;
+		line-height: 90px;
+		font-size: 35px;
+		position: absolute;
+		text-align: center;
+		left: 400px;
+		top: 0;
+	}
+	.leftone{
+		color: white;
+	}
+	.j-reset{
+		font-size: 28px;
+		color: white;
+	}
 	.j-container {
 		width: 100%;
 		height: 480px;
@@ -139,7 +186,7 @@
 		border-bottom: 1px solid #eee;
 	}
 	
-	.j-two {
+	.j-twos {
 		width: 100%;
 		height: 100px;
 		border: none;
@@ -203,7 +250,7 @@
 	.j-container-fivecenter {
 		width: 15%;
 		height: 100px;
-		margin-left: 180px;
+		margin-left: 220px;
 		float: left;
 		margin-top: 30px;
 	}
