@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import register from './views/j-register.vue'
-import reset from './views/j-reset.vue'
 import Yorder from './views/y-order.vue'
 // 公共组件
 import Sfoot from './components/Sfoot.vue'
@@ -17,6 +16,11 @@ import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
 // 搜索美食
 import Csfood from './views/C-searchfood.vue'
+// 地址
+import fadd from './views/f-address1.vue'
+import '../icon/iconfont.css'
+import fadd_add from './views/f-add_address.vue'
+import fscadd from './views/f-sc_add.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -88,11 +92,6 @@ export default new Router({
       component: register
     },
     {
-      path: '/reset',
-      name: 'reset',
-      component: reset
-    },
-    {
       path: '/Search',
       name: 'Search',
       component: Search
@@ -102,6 +101,21 @@ export default new Router({
       path: '/Sload',
       name: 'Sload',
       component: Sload
+    },
+    {
+      path:'/fadd',
+      name:'fadd',
+      component:fadd,
+    },
+    {
+      path:'/fadd_add',
+      name:'fadd_add',
+      component:fadd_add,
+    },
+    {
+      path:'/fscadd',
+      name:'fscadd',
+      component:fscadd,
     },
   ]
 })
