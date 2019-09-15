@@ -1,9 +1,9 @@
 <template>
-  <div class="msite">
+  <div class="msite animated fadeInRightBig">
     <div class="z-nev">
       <Shead>
         <template v-slot:left>
-          <router-link to='/csfood'>
+          <router-link to="/csfood">
             <i class="iconfont" style="font-size:0.6rem;"></i>
           </router-link>
         </template>
@@ -11,8 +11,18 @@
           <router-link to="/">{{place}}</router-link>
         </template>
         <template v-slot:right>
+<<<<<<< HEAD
+
+          <a href="register">登录|注册</a>
+
           <router-link to="/register">登录</router-link><span class="fen">|</span>
           <router-link to="/register">注册</router-link>
+
+=======
+          <router-link to="/register">登录</router-link>
+          <span class="fen">|</span>
+          <router-link to="/register">注册</router-link>
+>>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
         </template>
       </Shead>
       <div class="swiper-container">
@@ -43,8 +53,8 @@
       </header>
       <div class="shoplist_container">
         <ul>
-          <router-link to="/yorder">
-            <li v-for="(i,index) in commodity" :key="index" class="shop_li">
+          <router-link v-for="(i,index) in commodity" :key="index" :to="{name:'Yorder',params:{img:i.image_path,name:i.name,money:i.piecewise_agent_fee.tips,promotion:i.promotion_info,fz:i.order_lead_time}}">
+            <li class="shop_li">
               <section>
                 <img :src="'//elm.cangdu.org/img/'+i.image_path" alt class="shop_img" />
               </section>
@@ -85,7 +95,7 @@
         </ul>
       </div>
     </div>
-    <Sfoot></Sfoot>
+    <Sfoot ></Sfoot>
   </div>
 </template>
 
@@ -101,17 +111,27 @@ export default {
       list: [], //商品列表
       lists: [],
       commodity: [], //商品
-      place:'北京房山',//地址
+      place: "请选择地址...", //地址
+      geohash:''
     };
   },
   components: {
     Shead,
     Sfoot
-    
   },
   created() {
     this.msite();
-    this.place = localStorage.place;
+    this.geohash = this.$route.query.geohash
+    //获取地址
+    this.$http
+      .get("http://elm.cangdu.org/v2/pois/" + this.geohash)
+      .then(data => {
+        if (data.data.status == 0) {
+          this.place = "请选择地址...";
+        } else {
+          this.place = data.data.name;
+        }
+      });
   },
   mounted() {
     new Swiper(".swiper-container", {
@@ -125,6 +145,7 @@ export default {
       this.$router.push({ path: "/food", query: { title: id.title } });
     },
     msite() {
+      //商品列表
       this.$http
         .get("http://elm.cangdu.org/v2/index_entry", {
           params: {
@@ -158,6 +179,7 @@ export default {
         })
         .then(data => {
           this.commodity = data.data;
+          console.log(this.commodity)
         });
     }
   }
@@ -165,16 +187,16 @@ export default {
 </script>
 
 <style scoped>
-a{
+a {
   color: #fff;
 }
-.right a{
+.right a {
   float: left;
 }
-.fen{
+.fen {
   display: block;
   float: left;
-  margin: 0 .2rem;
+  margin: 0 0.2rem;
   z-index: 5;
 }
 * {
@@ -210,7 +232,6 @@ a{
   font-size: 24px;
   display: block;
 }
-
 .z-main {
   background-color: #fff;
 }
@@ -277,6 +298,9 @@ a{
   margin-right: -5px;
 }
 .swiper-container {
+  /* margin-top: 100px; */
+}
+.swiper-slide{
   margin-top: 100px;
 }
 .shop_right .shop_detail_header .shop_detail_ul .supports {

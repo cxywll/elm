@@ -32,12 +32,14 @@
             </div>
         </div>
         <div class="finance">
+          <router-link to="/cyue">
             <div class="much">
               <p class="number">
                 <span class="num">0.00</span><span class="unit">元</span>
               </p>
               <p class="name">我的余额</p>
             </div>
+          </router-link>
             <div class="much">
               <p class="number">
                 <span class="num">0</span><span class="unit">个</span>
@@ -45,28 +47,37 @@
               <p class="name">我的优惠</p>
             </div>
             <div class="much">
-              <p class="number">
-                <span class="num">0</span><span class="unit">分</span>
-              </p>
-              <p class="name">我的积分</p>
+              <router-link to='/point'>
+                <p class="number">
+                  <span class="num">0</span><span class="unit">分</span>
+                </p>
+                <p class="name">我的积分</p>
+              </router-link>
             </div>
         </div>
         <div>
             <div class="serve">
-              <span><i class="iconfont icon-caidan"></i></span>
-              <p class="s_name">我的订单<i class="iconfont icon-jiantouyou"></i></p>
+              <router-link to="/List">
+                <span><i class="iconfont icon-caidan"></i></span>
+                <p class="s_name">我的订单<i class="iconfont icon-jiantouyou"></i></p>
+              </router-link>
+              
             </div>
             <div class="serve">
-              <span><i class="iconfont icon-jifenshangcheng"></i></span>
-              <p class="s_name">积分商城<i class="iconfont icon-jiantouyou"></i></p>
+                <span><i class="iconfont icon-jifenshangcheng"></i></span>
+                <p class="s_name">积分商城<i class="iconfont icon-jiantouyou"></i></p>
             </div>
             <div class="serve">
-              <span><i class="iconfont icon-wangguan"></i></span>
-              <p class="s_name">饿了么会员卡<i class="iconfont icon-jiantouyou"></i></p>
+              <router-link to="/Svip">
+                <span><i class="iconfont icon-wangguan"></i></span>
+                <p class="s_name">饿了么会员卡<i class="iconfont icon-jiantouyou"></i></p>
+               </router-link>
             </div>
             <div class="serve">
-              <span><i class="iconfont icon-fuwu1"></i></span>
-              <p class="s_name">服务中心<i class="iconfont icon-jiantouyou"></i></p>
+              <router-link to="/Sfuwu">
+                <span><i class="iconfont icon-fuwu1"></i></span>
+                <p class="s_name">服务中心<i class="iconfont icon-jiantouyou"></i></p>
+              </router-link>
             </div>
             <div class="serve">
               <router-link to="/Sload">
@@ -82,7 +93,7 @@
 import Shead from './Shead.vue'
 import Sfoot from './Sfoot.vue'
 export default {
-    name:'Mine',
+  name:'Mine',
   components: {
     Shead,
     Sfoot
@@ -101,9 +112,10 @@ export default {
 </script>
 <style>
 .serve p .iconfont{
+  font-size: 0.25rem;
   float: right;
-  margin-right: .5rem;
-  color: #888;
+  margin-right: .3rem;
+  color: rgb(187, 187, 187);
 }
 .serve:nth-child(1) span .iconfont{
   color: rgb(184, 183, 183);
@@ -129,14 +141,17 @@ export default {
   width: 8.8rem;
   height: 1rem;
   float: left;
-  font-size: .5rem;
+  color: #333;
+  font-size: .4rem;
   margin-left: .2rem;
-  border-bottom: .0025rem solid rgb(212, 211, 211);
-  line-height: .9975rem;
+  border-bottom: 1px solid #f1f1f1;
+  line-height: 1rem;
   box-sizing: border-box;
 }
 .serve a p{
-  color: #000;
+  line-height: 1rem;
+  font-size: 0.40rem;
+  color: #333;
 }
 .serve:nth-child(3) p{
   border: none;
@@ -148,7 +163,7 @@ export default {
   width: 1rem;
   height: 1rem;
   float: left;
-  text-align: right;
+  text-align: center;
   line-height: 1rem;
   font-size: .4rem;
 }
