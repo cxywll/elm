@@ -9,6 +9,7 @@ import VueAxios from 'vue-axios'
 
 import '../font/iconfont.css'
 import ElementUI from 'element-ui'
+import animate from 'animate.css'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 Vue.use(VueAxios, axios)

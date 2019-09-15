@@ -198,7 +198,7 @@ export default {
 .headerimg{
   width: 22%;
   height: 100%;
-  background-color: orange;
+  background-color: #fff;
   float: left;
 }
 .headerimg img{

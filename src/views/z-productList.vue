@@ -1,5 +1,5 @@
 <template>
-  <div class="msite">
+  <div class="msite animated fadeInRightBig">
     <div class="z-nev">
       <Shead>
         <template v-slot:left>
@@ -289,6 +289,9 @@ a {
   margin-right: -5px;
 }
 .swiper-container {
+  /* margin-top: 100px; */
+}
+.swiper-slide{
   margin-top: 100px;
 }
 .shop_right .shop_detail_header .shop_detail_ul .supports {

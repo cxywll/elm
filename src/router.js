@@ -44,18 +44,6 @@ export default new Router({
       component: Sallcity
     },
     {
-      // 附近商家点击
-      path: '/yorder',
-      name: 'Yorder',
-      component: Yorder
-    },
-    {
-      // 公共头部
-      path: '/Shead',
-      name: 'Shead',
-      component: Shead
-    },
-    {
       // 搜索城市
       path: '/Scitys',
       name: 'Scitys',
@@ -68,16 +56,28 @@ export default new Router({
       component: Zmsite,
     },
     {
-      // 会员中心
-      path: '/Svip',
-      name: 'Svip',
-      component: Svip
+      // 滑动店铺点击
+      path: '/food',
+      name: 'Zfood',
+      component: Zfood
+    },
+    {
+      // 附近商家点击
+      path: '/yorder',
+      name: 'Yorder',
+      component: Yorder
     },
     {
       // 搜索美食
       path: '/csfood',
       name: 'Csfood',
       component: Csfood
+    },
+    {
+      // 会员中心
+      path: '/Svip',
+      name: 'Svip',
+      component: Svip
     },
     {
       // 订单
@@ -101,12 +101,6 @@ export default new Router({
       path: '/Sfoot',
       name: 'Sfoot',
       component: Sfoot
-    },
-    {
-      // 滑动店铺点击
-      path: '/food',
-      name: 'Zfood',
-      component: Zfood
     },
     {
       // 密码登录
@@ -143,6 +137,7 @@ export default new Router({
     name: 'point',
     component: point
   },
+  // 余额
   {
     path:'/cyue',
     name:'cyue',
