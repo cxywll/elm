@@ -30,7 +30,6 @@ export default {
 }
 .left .iconfont{
     font-size: 0.6rem;
-    font-weight: bold;
 }
 .center{
     width: 55%;
@@ -39,6 +38,8 @@ export default {
     margin-left: -30%;
     top: 0;
     text-align: center;
+    font-size: .5rem;
+    font-weight: bold;
     line-height: 1.2rem;
     color: #fff;
     overflow: hidden;

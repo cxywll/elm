@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view></router-view>
   </div>
 </template>
 <script>
 </script>
-<style>
+<style scoped>
 *{margin: 0;padding: 0;text-decoration: none;list-style: none;}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

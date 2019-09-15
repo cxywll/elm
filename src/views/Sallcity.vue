@@ -12,7 +12,7 @@
         <p class="pt">
           当前定位的城市：<span>定位不准时，请在城市列表中选择</span>
         </p>
-        <router-link :to="{path:'/Scitys',query:{city:mcity,id: id}}">
+        <router-link :to="{name:'Scitys',params:{city:mcity,id: id}}">
             <p class="mc" >
               {{mcity}}<span><a style="color: #3190e8"><i class="iconfont icon-jiantouyou"></i></a></span>
             </p>
@@ -21,29 +21,32 @@
       <div class="hotcity">
         <p>热门城市</p>
           <span v-for="(i,$index) in hotlist" :key="$index" @click="id = i.id">
-            <router-link :to="{path:'/Scitys',query:{city:i.name,id: i.id}}" >
+            <router-link :to="{name:'Scitys',params:{city:i.name,id: i.id}}" >
               {{i.name}}
             </router-link>
           </span>
       </div>
       <div class="allcity">
           <div v-for="(i,$key,$index) in newObj" :key="$index" class="city">
-            <p>{{$key}} <i>（按字母排序）</i></p>
+            <p class="letterp">{{$key}} <i>（按字母排序）</i></p>
             <span v-for="(j,$ind) in i" :key="$ind" @click="id = i.id">
-              <router-link :to="{path:'/Scitys',query:{city:j.name,id: j.id}}">
+              <router-link :to="{name:'Scitys',params:{city:j.name,id: j.id}}">
                 {{j.name}}
               </router-link>
             </span>
           </div>
       </div>
+      <cimage></cimage>
   </div>
 </template>
 <script>
 import Shead from '../components/Shead.vue'
+import cimage from '../components/Clodding'
 export default {
   name:'Sallcity',
-  components: {
-      Shead
+  components: { 
+      Shead,
+      cimage
   },
   data(){
     return{
@@ -153,6 +156,7 @@ a span{
 }
 .city{
   background-color: #fff;
+  margin-top: 0.2rem;
 }
 .hotcity p{
   width: 100%;
@@ -166,8 +170,8 @@ a span{
   cursor: pointer;
   display: inline-block;
   width: 25%;
-  height: 0.85rem;
-  line-height: 0.85rem;
+  height: 0.95rem;
+  line-height: 0.95rem;
   text-align: center;
   border-top: 2px solid rgb(179, 177, 177);
   border-left: 2px solid rgb(179, 177, 177);
@@ -183,15 +187,18 @@ a span{
 }
 .allcity{
   width:100%;
-  height: 1.65rem;
+  min-height: 1.65rem;
   font-size: 0.1rem;
+  background-color: #eee;
 }
 .allcity p{
+  width: 98%;
   line-height: 0.8rem;
-  background-color: #eee;
+  background-color: #fff;
   font-size: 0.35rem;
   padding-left: 0.3rem;
   box-sizing: border-box;
+  border-bottom:1px #ccc solid;
 }
 .allcity p>i{
   color: #a3a3a3;
@@ -202,8 +209,8 @@ a span{
   cursor: pointer;
   display: inline-block;
   width: 25%;
-  height: 0.85rem;
-  line-height: 0.85rem;
+  height: 0.95rem;
+  line-height: 0.95rem;
   text-align: center;
   font-size: 0.15rem;
   border-right: 2px solid rgb(179, 177, 177);

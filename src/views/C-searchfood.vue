@@ -1,17 +1,21 @@
 <template>
     <div id="c-bigbox">
         <shead>
-            <template v-slot:left><router-link to="/msite" style="color:#fff;">&lt;</router-link></template>
+            <template v-slot:left><router-link to="/msite" style="color:#fff;"><i class="iconfont icon-jiantou"></i></router-link></template>
             <template v-slot:center>搜索</template>
         </shead>
         <div class="inputbox">
-            <input type="text" placeholder="请输入商家或美食名称" v-model="keyword">
+            <input type="search" placeholder="请输入商家或美食名称" v-model="keyword">
             <button @click="searchfood">提交</button>
         </div>
         <!-- 搜索列表 -->
         <i class="null" v-show="tipsshow">{{this.tips}}</i>
         <ul class="foodList" v-show="show">
             <li v-for="(item,index) in cslist" :key="index">
+                <!-- <div class="imgb">
+                    <img src="" alt="">
+                </div> -->
+                <!-- <div class="xqbox"></!-->
                 <p>{{item.name}}</p>
                 <span>{{item.name}}</span>
             </li>
@@ -69,18 +73,25 @@ export default {
                     this.tipsshow = true;
                     this.tips = '很抱歉！无搜索结果';
                     this.historyShow = false
+                    if(this.keyword == ''){
+                        this.tips = ''
+                        this.tipsshow = false;
+                    }
                 }else{
+                    this.tipsshow = false;
                     this.show = true;
-                    this.cslist = res.data.status;
+                    this.cslist = res.data;
                 }
             })
             this.historyList()
         },
         // 历史纪录
         historyList(){
-            this.historyword.unshift(this.keyword)
-            console.log(this.historyword);
-            localStorage.historyword = JSON.stringify(this.historyword)
+            if(this.keyword!=''){
+                this.historyword.unshift(this.keyword)
+                console.log(this.historyword);
+                localStorage.historyword = JSON.stringify(this.historyword)
+            }
         },
         // 清空历史
         clearHistory(){
@@ -93,6 +104,9 @@ export default {
 
 <style scoped>
 *{margin: 0;padding: 0;list-style: none;}
+a .iconfont{
+    font-size: .5rem;
+}
 #c-bigbox{
     width: 100%;
     height: 2rem;
@@ -169,6 +183,7 @@ export default {
 .searchHistoy{
     width: 100%;
     min-height: 2rem;
+    margin-bottom: 1.6rem;
 }
 .sh,.c-clear{
     width: 100%;
