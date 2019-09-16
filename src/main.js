@@ -14,6 +14,11 @@ Vue.config.productionTip = false
 
 //Vue.use(VueResource)
 
+import VueLazyLoad from 'vue-lazyload'
+Vue.use(VueLazyLoad,{
+    error:require('./images/load.gif'),
+    loading:require('./images/loadding.gif')
+})
 
 Vue.config.productionTip = false
 
