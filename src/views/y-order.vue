@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
         
             <div class="box">
                 <div class="content clearfix">
@@ -51,7 +50,6 @@
                     <!-- 实现页面的跳转  to 默认是a标签-->
                     <router-link :to="{name:'shoppingCart',params:{selectList}}">去结算</router-link>
                 </footer>
-=======
   <div class="box">
     <div class="content clearfix">
       <!-- 头部传参 -->
@@ -106,7 +104,6 @@
                   @click="add(item.specfoods[0])"
                 >+</span>
               </p>
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
             </div>
           </div>
           <!-- </div> -->
@@ -121,7 +118,6 @@
   </div>
 </template>
     
-<<<<<<< HEAD
     <script> 
          export default{
             data() {
@@ -437,22 +433,8 @@
         
 
     </script>
-  <style type="text/css" scoped>
-  	.box {
-            width: 100%;
-            height: auto;
-            margin: 0 auto;
-            font-size: 0.18rem;
-        }
-        .nav {
-            width: 100%;
-            height: 0.7rem;
-            line-height: 0.7rem;
-            text-align: center;
-            border-bottom: 1px solid #ccc;
-        }
-=======
-    <script>
+  <script>
+  	
 export default {
   data() {
     return {
@@ -709,6 +691,5 @@ export default {
 </style>
 
 
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 
 

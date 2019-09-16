@@ -1,6 +1,5 @@
 <template>
 	<div class="j-box">
-<<<<<<< HEAD
 		<div class="j-header">
 			<div class="j-headerleft">
 				<router-link to="./msite">&lt;</router-link>
@@ -8,8 +7,6 @@
 			<div class="j-headerright" v-if="login_type">密码登录</div>
 		</div>
 
-=======
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 		<Shead>
 			<template v-slot:left>
 				<router-link to="/Mine"><i class="iconfont icon-jiantou"></i></router-link>
@@ -17,11 +14,8 @@
 			<template v-slot:center>
 				<a>密码登录</a>
 			</template>
-<<<<<<< HEAD
 		</Shead>
-=======
-        </Shead>
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
+		</Shead>
 		<div class="j-content">
 			<div class="j-content-one"><input type="text" placeholder="账号" class="j-input" v-model="user"></div>
 			<div class="j-content-two">
@@ -44,8 +38,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="j-content-bottom">
-			<p class="j-prompt">温馨提示：未注册过的账号，登录时将自动注册<br>注册过的用户可凭账号密码登录</p>
+		<div class="j-content-bottoms">
+			<p class="j-prompts">温馨提示:未注册过得账号，登录时讲自动注册</br>注册过的用户可凭账号密码登录</p>
 		</div>
 		<div class="j-footer">
 			<button v-if="login_type" class="login" @click="login()">登录</button>
@@ -75,15 +69,14 @@
 			}
 		},
 		methods: {
-<<<<<<< HEAD
-		
+
 			verifyImg_again() {
-					this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
-						console.log(data)
-						this.verifyImg = data.data.code
-					})
+				this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
+					console.log(data)
+					this.verifyImg = data.data.code
+				})
 			},
-			
+
 			login() {
 				this.$http.post(
 						"https://elm.cangdu.org/v2/login", {
@@ -100,22 +93,27 @@
 						} else if(!this.verifyNumber) {
 							alert('请输入验证码')
 						} else if(this.user = data.data.username) {
-							console.log(data)		
+							console.log(data)
 							alert('登录成功')
-							localStorage.userName =JSON.stringify(data.data)
+							localStorage.userName = JSON.stringify(data.data)
 							this.$router.push('/msite')
-=======
+						} else {
+							alert(data.data.message)
+							this.imgUrl()
+						}
+					});
+			},
 			j_btn() {
 				if(this.register == '') {
 					alert('请输入账号');
 					return;
-				} else if (this.password == ''){
+				} else if(this.password == '') {
 					alert('请输入密码')
 					return;
-				} else if (this.verifyNumber == ''){
+				} else if(this.verifyNumber == '') {
 					alert('请输入验证码')
 					return;
-				}else {
+				} else {
 					this.axios.post('https://elm.cangdu.org/v2/login', {
 						username: this.register,
 						password: this.password,
@@ -124,28 +122,24 @@
 						console.log(data);
 						if(data.data.message == '密码错误') {
 							alert('登录失败');
-						} else if (data.data.message == '验证码不正确'){
+						} else if(data.data.message == '验证码不正确') {
 							alert('验证码错误');
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 						} else {
 							alert(data.data.message)
 							this.verifyImg_again()
 						}
 						console.log(data);
 					});
+				}
 			},
-
 			passMove() {
 				this.isOpen = !this.isOpen;
 				var seePassword = document.querySelector('#seePassword')
 				var password = document.querySelector('#password')
-<<<<<<< HEAD
 				var passwordS = document.querySelector('#passwordS')
 				console.log(seePassword, password)
 
-=======
-				var passwordS=document.querySelector('#passwordS')
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
+				var passwordS = document.querySelector('#passwordS')
 				if(this.isOpen) {
 					seePassword.type = 'text'
 					password.style.background = '#4cd964'
@@ -162,31 +156,30 @@
 				this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
 					this.verifyImg = data.data.code
 				})
-			}
-		},
-		created() {
-<<<<<<< HEAD
-			var href = location.href.split("?")[1];
-			if(href == "in") {
-				this.login_type = true;
-			} else if(href == "up") {
-				this.login_type = false;
-			}
-			this.verifyImg_again();
-			if(localStorage.userName) {
-				this.login_success = true
-			} else {
-				this.login_success = false
-			}
+			},
 
-=======
-			this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
-//				console.log(data)
-				this.verifyImg = data.data.code
-			})
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
+			created() {
+				var href = location.href.split("?")[1];
+				if(href == "in") {
+					this.login_type = true;
+				} else if(href == "up") {
+					this.login_type = false;
+				}
+				this.verifyImg_again();
+				if(localStorage.userName) {
+					this.login_success = true
+				} else {
+					this.login_success = false
+				}
+
+				this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
+					//				console.log(data)
+					this.verifyImg = data.data.code
+				})
+			}
 		}
-	};
+
+	}
 </script>
 
 <style scoped>
@@ -290,7 +283,6 @@
 		width: 100%;
 		height: 300px;
 		background: white;
-		margin-top: 100px;
 	}
 	
 	.j-content-one {
@@ -393,15 +385,12 @@
 	}
 	
 	.j-content-three-center {
-<<<<<<< HEAD
 		width: 120px;
 		height: 100px;
 		margin-left: 80px;
-=======
 		width: 130px;
 		height: 100px;
 		margin-left: -120px;
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 		float: left;
 		line-height: 150px;
 	}
@@ -426,17 +415,19 @@
 		margin-top: 10px;
 	}
 	
-	.j-content-bottom {
+	.j-content-bottoms {
 		width: 100%;
 		height: 120px;
-		margin-left: 35px;
+		/*background: gold;*/
 	}
 	
-	.j-prompt {
+	.j-prompts {
+		width: 500px;
 		font-size: 20px;
+		margin-left: 20px;
+		line-height: 40px;
+		/*background: lightcoral;*/
 		color: red;
-		margin-top: 20px;
-		line-height: 60px;
 	}
 	
 	.j-footer {
