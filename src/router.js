@@ -1,30 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-import Chotcity from './views/c-hotcity.vue'
-
 import register from './views/j-register.vue'
-<<<<<<< HEAD
-=======
 import reset from './views/j-reset.vue'
-import zhifu from './views/j-zhifu.vue'
 
-// import Yorder from './views/y-order.vue'
-
->>>>>>> 9c55eea7e2a03d3509fd1aa6ce542d0bc0b112c4
-import Yorder from './views/y-order.vue'
-//import register from './views/j-register.vue'
 // 公共组件
-
-=======
->>>>>>> 3f828816b7c2f6fea7c102323af37929edfa6ef7
-
 import Yorder from './views/y-order.vue'
-import register from './views/j-register.vue'
 import zhifu from './views/j-zhifu.vue'
-import reset from './views/j-reset.vue'
 // import Yorder from './views/y-order.vue'
 import Sfoot from './components/Sfoot.vue'
 import Shead from './components/Shead.vue'
@@ -45,31 +26,21 @@ import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'
 // 搜索美食
 import Csfood from './views/C-searchfood.vue'
-<<<<<<< HEAD
 // 地址
 import fadd from './views/f-address1.vue'
 import '../icon/iconfont.css'
 import fadd_add from './views/f-add_address.vue'
 import fscadd from './views/f-sc_add.vue'
-=======
 // 支付
 import Cpay from './views/C-pay.vue'
 // 余额
 import Cyue from './components/Cyue.vue'
-<<<<<<< HEAD
 // 优惠券
 import Squan from './views/S-quan.vue'
 import Shong from './views/S-hongbao.vue'
 import Sshopper from './views/S-shopper.vue'
-=======
 // 订单详情
 import listxq from './views/C-listxq.vue'
-<<<<<<< HEAD
-=======
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
->>>>>>> 9c55eea7e2a03d3509fd1aa6ce542d0bc0b112c4
->>>>>>> 91f3fa27b34d537048e2819626e40064f1a701bb
->>>>>>> 3f828816b7c2f6fea7c102323af37929edfa6ef7
 Vue.use(Router)
 
 Vue.use(Router)
@@ -162,11 +133,6 @@ export default new Router({
     },
     
     {
-<<<<<<< HEAD
-      path: '/Search',
-      name: 'Search',
-      component: Search
-=======
       path: '/reset',
       name: 'reset',
       component: reset
@@ -176,18 +142,13 @@ export default new Router({
       path: '/zhifu',
       name: 'zhifu',
       component: zhifu
->>>>>>> 9c55eea7e2a03d3509fd1aa6ce542d0bc0b112c4
     },
-    
-    
-
     // 下载饿了么APP
     {
       path: '/Sload',
       name: 'Sload',
       component: Sload
     },
-<<<<<<< HEAD
     {
       path:'/fadd',
       name:'fadd',
@@ -203,7 +164,6 @@ export default new Router({
       name:'fscadd',
       component:fscadd,
     },
-=======
     // 服务中心
     {
     path: '/Sfuwu',
@@ -234,9 +194,6 @@ export default new Router({
     name:'Cpay',
     component:Cpay
   },
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
   // 优惠券
   {
     path:'/Squan',
@@ -256,10 +213,5 @@ export default new Router({
       }
     ]
   },
-=======
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
->>>>>>> 9c55eea7e2a03d3509fd1aa6ce542d0bc0b112c4
->>>>>>> 91f3fa27b34d537048e2819626e40064f1a701bb
->>>>>>> 3f828816b7c2f6fea7c102323af37929edfa6ef7
   ]
 })

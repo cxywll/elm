@@ -289,6 +289,9 @@
 	.h_left {
 		float: left;
 		width: 7rem;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 	}
 	
 	.h_left span {
@@ -296,14 +299,13 @@
 		padding-left: 20px;
 		font-weight: bold;
 		color: #fff;
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
 	}
 	.h_span{
+    width: 7rem;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    color: #fff;
   }
 	.h_span span {
 		padding-left: 20px;
