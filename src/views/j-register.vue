@@ -15,7 +15,10 @@
 				<a>密码登录</a>
 			</template>
 		</Shead>
+<<<<<<< HEAD
 		</Shead>
+=======
+>>>>>>> a3348c49e19784472bd80c2dcaee5909a7cb66d9
 		<div class="j-content">
 			<div class="j-content-one"><input type="text" placeholder="账号" class="j-input" v-model="user"></div>
 			<div class="j-content-two">
@@ -69,7 +72,11 @@
 			}
 		},
 		methods: {
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> a3348c49e19784472bd80c2dcaee5909a7cb66d9
 			verifyImg_again() {
 				this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
 					console.log(data)
@@ -97,9 +104,12 @@
 							alert('登录成功')
 							localStorage.userName = JSON.stringify(data.data)
 							this.$router.push('/msite')
+<<<<<<< HEAD
 						} else {
 							alert(data.data.message)
 							this.imgUrl()
+=======
+>>>>>>> a3348c49e19784472bd80c2dcaee5909a7cb66d9
 						}
 					});
 			},
@@ -139,7 +149,10 @@
 				var passwordS = document.querySelector('#passwordS')
 				console.log(seePassword, password)
 
+<<<<<<< HEAD
 				var passwordS = document.querySelector('#passwordS')
+=======
+>>>>>>> a3348c49e19784472bd80c2dcaee5909a7cb66d9
 				if(this.isOpen) {
 					seePassword.type = 'text'
 					password.style.background = '#4cd964'
@@ -156,6 +169,7 @@
 				this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
 					this.verifyImg = data.data.code
 				})
+<<<<<<< HEAD
 			},
 
 			created() {
@@ -177,6 +191,24 @@
 					this.verifyImg = data.data.code
 				})
 			}
+=======
+			}
+		},
+		created() {
+			var href = location.href.split("?")[1];
+			if(href == "in") {
+				this.login_type = true;
+			} else if(href == "up") {
+				this.login_type = false;
+			}
+			this.verifyImg_again();
+			if(localStorage.userName) {
+				this.login_success = true
+			} else {
+				this.login_success = false
+			}
+
+>>>>>>> a3348c49e19784472bd80c2dcaee5909a7cb66d9
 		}
 
 	}
@@ -385,9 +417,12 @@
 	}
 	
 	.j-content-three-center {
+<<<<<<< HEAD
 		width: 120px;
 		height: 100px;
 		margin-left: 80px;
+=======
+>>>>>>> a3348c49e19784472bd80c2dcaee5909a7cb66d9
 		width: 130px;
 		height: 100px;
 		margin-left: -120px;

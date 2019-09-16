@@ -109,7 +109,8 @@
     <div class="z-main">
       <div class="shoplist_container">
         <ul>
-          <li v-for="(i,index) in commodity" :key="index" class="shop_li">
+          <router-link :to="{name:'Yorder',params:{img:i.image_path,name:i.name,money:i.piecewise_agent_fee.tips,promotion:i.promotion_info,fz:i.order_lead_time}}" v-for="(i,index) in commodity" :key="index">
+            <li class="shop_li">
             <section>
               <img :src="'//elm.cangdu.org/img/'+i.image_path" alt class="shop_img" />
             </section>
@@ -145,7 +146,8 @@
                 </p>
               </h5>
             </div>
-          </li>
+            </li>
+          </router-link>
         </ul>
       </div>
     </div>
