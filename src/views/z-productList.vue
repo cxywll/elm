@@ -114,15 +114,11 @@ export default {
     this.msite();
     this.geohash = this.$route.query.geohash
     //获取地址
-    this.$http
-      .get("http://elm.cangdu.org/v2/pois/" + this.geohash)
-      .then(data => {
-        if (data.data.status == 0) {
-          this.place = "请选择地址...";
-        } else {
-          this.place = data.data.name;
-        }
-      });
+    if (localStorage.m_city) {
+      this.place =localStorage.m_city;
+    } else {
+      this.place = "请选择地址...";
+    }
   },
   mounted() {
     new Swiper(".swiper-container", {

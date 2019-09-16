@@ -28,6 +28,10 @@ import Csfood from './views/C-searchfood.vue'
 import Cpay from './views/C-pay.vue'
 // 余额
 import Cyue from './components/Cyue.vue'
+// 优惠券
+import Squan from './views/S-quan.vue'
+import Shong from './views/S-hongbao.vue'
+import Sshopper from './views/S-shopper.vue'
 Vue.use(Router)
 
 Vue.use(Router)
@@ -145,6 +149,25 @@ export default new Router({
     path:'/cpay',
     name:'Cpay',
     component:Cpay
+  },
+  // 优惠券
+  {
+    path:'/Squan',
+    name:'Squan',
+    component:Squan,
+    children:[
+      // 红包
+      {
+        path:'/Squan/Shong',
+        name:'Shong',
+        component:Shong
+      },
+      {
+        path:'/Squan/Sshopper',
+        name:'Sshopper',
+        component:Sshopper
+      }
+    ]
   },
   ]
 })
