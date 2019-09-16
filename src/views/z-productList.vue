@@ -47,7 +47,7 @@
           <router-link v-for="(i,index) in commodity" :key="index" :to="{name:'Yorder',params:{img:i.image_path,name:i.name,money:i.piecewise_agent_fee.tips,promotion:i.promotion_info,fz:i.order_lead_time}}">
             <li class="shop_li">
               <section>
-                <img v-lazy="'//elm.cagdu.org/img/'+i.image_path" alt="" class="shop_img">
+                <img v-lazy="'//elm.cangdu.org/img/'+i.image_path" alt="" class="shop_img">
               </section>
               <div class="shop_right">
                 <div class="shop_detail_header">
