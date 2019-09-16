@@ -13,7 +13,7 @@
         </router-link>
         
         <!-- <router-link> -->
-            <div class="head">
+            <div class="head" >
                 <p style="font-weight:bold;font-size:13px;">{{name}}</p>
                 <span style="float:left;margin-top:-15px;margin-left:50px;">{{phone}}</span>
                 <li style="width:20px;height:15px;font-size:8px;background:#ff5722;color:white;border-radius:4px;margin-top:5px;">{{check}}</li>        
@@ -41,6 +41,9 @@ export default {
         this.phone = this.$route.query.phone
         this.address = this.$route.query.address
         this.check = this.$route.query.check
+        // if(name==''||val==''||phone==''||check==''||address==''){
+        //         this.box.style.display='none'
+        //     }
     }
 }
 </script>

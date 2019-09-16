@@ -9,7 +9,8 @@
                 <p>联系人</p>
                 <input type="text" name="name" placeholder="你的名字" v-model="val" >
                 <div class="man">
-                    <div>先生</div>
+                    <p>先生</p>
+                    <i class=""> </i>
                 </div>                       
             </div>
 
