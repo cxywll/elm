@@ -15,6 +15,10 @@
 				<a>密码登录</a>
 			</template>
 		</Shead>
+<<<<<<< HEAD
+		</Shead>
+=======
+>>>>>>> a3348c49e19784472bd80c2dcaee5909a7cb66d9
 		<div class="j-content">
 			<div class="j-content-one"><input type="text" placeholder="账号" class="j-input" v-model="user"></div>
 			<div class="j-content-two">
@@ -37,8 +41,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="j-content-bottom">
-			<p class="j-prompt">温馨提示：未注册过的账号，登录时将自动注册<br>注册过的用户可凭账号密码登录</p>
+		<div class="j-content-bottoms">
+			<p class="j-prompts">温馨提示:未注册过得账号，登录时讲自动注册</br>注册过的用户可凭账号密码登录</p>
 		</div>
 		<div class="j-footer">
 			<button v-if="login_type" class="login" @click="login()">登录</button>
@@ -68,14 +72,18 @@
 			}
 		},
 		methods: {
+<<<<<<< HEAD
+
+=======
 		
+>>>>>>> a3348c49e19784472bd80c2dcaee5909a7cb66d9
 			verifyImg_again() {
-					this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
-						console.log(data)
-						this.verifyImg = data.data.code
-					})
+				this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
+					console.log(data)
+					this.verifyImg = data.data.code
+				})
 			},
-			
+
 			login() {
 				this.$http.post(
 						"https://elm.cangdu.org/v2/login", {
@@ -92,10 +100,16 @@
 						} else if(!this.verifyNumber) {
 							alert('请输入验证码')
 						} else if(this.user = data.data.username) {
-							console.log(data)		
+							console.log(data)
 							alert('登录成功')
-							localStorage.userName =JSON.stringify(data.data)
+							localStorage.userName = JSON.stringify(data.data)
 							this.$router.push('/msite')
+<<<<<<< HEAD
+						} else {
+							alert(data.data.message)
+							this.imgUrl()
+=======
+>>>>>>> a3348c49e19784472bd80c2dcaee5909a7cb66d9
 						}
 					});
 			},
@@ -103,13 +117,13 @@
 				if(this.register == '') {
 					alert('请输入账号');
 					return;
-				} else if (this.password == ''){
+				} else if(this.password == '') {
 					alert('请输入密码')
 					return;
-				} else if (this.verifyNumber == ''){
+				} else if(this.verifyNumber == '') {
 					alert('请输入验证码')
 					return;
-				}else {
+				} else {
 					this.axios.post('https://elm.cangdu.org/v2/login', {
 						username: this.register,
 						password: this.password,
@@ -118,7 +132,7 @@
 						console.log(data);
 						if(data.data.message == '密码错误') {
 							alert('登录失败');
-						} else if (data.data.message == '验证码不正确'){
+						} else if(data.data.message == '验证码不正确') {
 							alert('验证码错误');
 						} else {
 							alert(data.data.message)
@@ -128,7 +142,6 @@
 					});
 				}
 			},
-
 			passMove() {
 				this.isOpen = !this.isOpen;
 				var seePassword = document.querySelector('#seePassword')
@@ -136,6 +149,10 @@
 				var passwordS = document.querySelector('#passwordS')
 				console.log(seePassword, password)
 
+<<<<<<< HEAD
+				var passwordS = document.querySelector('#passwordS')
+=======
+>>>>>>> a3348c49e19784472bd80c2dcaee5909a7cb66d9
 				if(this.isOpen) {
 					seePassword.type = 'text'
 					password.style.background = '#4cd964'
@@ -152,6 +169,29 @@
 				this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
 					this.verifyImg = data.data.code
 				})
+<<<<<<< HEAD
+			},
+
+			created() {
+				var href = location.href.split("?")[1];
+				if(href == "in") {
+					this.login_type = true;
+				} else if(href == "up") {
+					this.login_type = false;
+				}
+				this.verifyImg_again();
+				if(localStorage.userName) {
+					this.login_success = true
+				} else {
+					this.login_success = false
+				}
+
+				this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
+					//				console.log(data)
+					this.verifyImg = data.data.code
+				})
+			}
+=======
 			}
 		},
 		created() {
@@ -168,8 +208,10 @@
 				this.login_success = false
 			}
 
+>>>>>>> a3348c49e19784472bd80c2dcaee5909a7cb66d9
 		}
-	};
+
+	}
 </script>
 
 <style scoped>
@@ -273,7 +315,6 @@
 		width: 100%;
 		height: 300px;
 		background: white;
-		margin-top: 100px;
 	}
 	
 	.j-content-one {
@@ -376,6 +417,12 @@
 	}
 	
 	.j-content-three-center {
+<<<<<<< HEAD
+		width: 120px;
+		height: 100px;
+		margin-left: 80px;
+=======
+>>>>>>> a3348c49e19784472bd80c2dcaee5909a7cb66d9
 		width: 130px;
 		height: 100px;
 		margin-left: -120px;
@@ -403,17 +450,19 @@
 		margin-top: 10px;
 	}
 	
-	.j-content-bottom {
+	.j-content-bottoms {
 		width: 100%;
 		height: 120px;
-		margin-left: 35px;
+		/*background: gold;*/
 	}
 	
-	.j-prompt {
+	.j-prompts {
+		width: 500px;
 		font-size: 20px;
+		margin-left: 20px;
+		line-height: 40px;
+		/*background: lightcoral;*/
 		color: red;
-		margin-top: 20px;
-		line-height: 60px;
 	}
 	
 	.j-footer {
