@@ -43,7 +43,7 @@
             <div class="much">
                <router-link to="/Squan/Shong">
               <p class="number">
-                <span class="num">0</span><span class="unit">个</span>
+                <span class="num">3</span><span class="unit">个</span>
               </p>
               <p class="name">我的优惠</p>
                </router-link>

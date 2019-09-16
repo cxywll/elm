@@ -70,7 +70,7 @@
 				</div>
 				<footer class='footer'>
 					总价 : {{total}} 元
-					<router-link :to="{name:'/',params:{selectList}}">
+					<router-link :to="{name:'Cpay',params:{selectList}}">
 						去结算
 					</router-link>
 				</footer>

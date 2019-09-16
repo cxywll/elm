@@ -174,6 +174,10 @@ export default {
 </script>
 
 <style scoped>
+.shoplist_container>ul{
+  padding-bottom: 1.8rem;
+  box-sizing: border-box;
+}
 a {
   color: #fff;
 }
