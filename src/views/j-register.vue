@@ -1,15 +1,29 @@
 <template>
 	<div class="j-box">
+<<<<<<< HEAD
+		<div class="j-header">
+			<div class="j-headerleft">
+				<router-link to="./msite">&lt;</router-link>
+			</div>
+			<div class="j-headerright" v-if="login_type">密码登录</div>
+		</div>
+
+=======
+>>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 		<Shead>
 			<template v-slot:left>
 				<router-link to="/Mine"><i class="iconfont icon-jiantou"></i></router-link>
 			</template>
 			<template v-slot:center>
-			<a>密码登陆</a>
+				<a>密码登录</a>
 			</template>
+<<<<<<< HEAD
+		</Shead>
+=======
         </Shead>
+>>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 		<div class="j-content">
-			<div class="j-content-one"><input type="text" placeholder="账号" class="j-input" v-model="register"></div>
+			<div class="j-content-one"><input type="text" placeholder="账号" class="j-input" v-model="user"></div>
 			<div class="j-content-two">
 				<div class="j-content-two-left"><input type="password" placeholder="密码" class="j-inputs" v-model="password" id="seePassword"></div>
 				<div class="j-content-two-right">
@@ -34,7 +48,8 @@
 			<p class="j-prompt">温馨提示：未注册过的账号，登录时将自动注册<br>注册过的用户可凭账号密码登录</p>
 		</div>
 		<div class="j-footer">
-			<button class="j-btn" @click="j_btn">登录</button>
+			<button v-if="login_type" class="login" @click="login()">登录</button>
+			<button v-else class="login" @click="login()">注册</button>
 		</div>
 		<div class="j-footer-bottom">
 			<router-link to="./reset" class="j-a">重置密码？</router-link>
@@ -43,14 +58,15 @@
 </template>
 
 <script>
-import Shead from '../components/Shead'
+	import Shead from '../components/Shead'
 	export default {
 		components: {
-			Shead	
+			Shead
 		},
 		data() {
 			return {
-				register: '',
+				login_type: "",
+				user: '',
 				password: '',
 				verify: '',
 				verifyImg: '',
@@ -59,6 +75,36 @@ import Shead from '../components/Shead'
 			}
 		},
 		methods: {
+<<<<<<< HEAD
+		
+			verifyImg_again() {
+					this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
+						console.log(data)
+						this.verifyImg = data.data.code
+					})
+			},
+			
+			login() {
+				this.$http.post(
+						"https://elm.cangdu.org/v2/login", {
+							username: this.user,
+							password: this.password,
+							captcha_code: this.verifyNumber
+						},
+					)
+					.then(data => {
+						if(!this.user) {
+							alert('请输入账号')
+						} else if(!this.password) {
+							alert('请输入密码')
+						} else if(!this.verifyNumber) {
+							alert('请输入验证码')
+						} else if(this.user = data.data.username) {
+							console.log(data)		
+							alert('登录成功')
+							localStorage.userName =JSON.stringify(data.data)
+							this.$router.push('/msite')
+=======
 			j_btn() {
 				if(this.register == '') {
 					alert('请输入账号');
@@ -80,29 +126,38 @@ import Shead from '../components/Shead'
 							alert('登录失败');
 						} else if (data.data.message == '验证码不正确'){
 							alert('验证码错误');
+>>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 						} else {
-							alert('登录成功');
-                            this.$router.push({path:'/msite'})
+							alert(data.data.message)
+							this.verifyImg_again()
 						}
-					})
-				}
+						console.log(data);
+					});
 			},
+
 			passMove() {
 				this.isOpen = !this.isOpen;
 				var seePassword = document.querySelector('#seePassword')
 				var password = document.querySelector('#password')
+<<<<<<< HEAD
+				var passwordS = document.querySelector('#passwordS')
+				console.log(seePassword, password)
+
+=======
 				var passwordS=document.querySelector('#passwordS')
+>>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 				if(this.isOpen) {
 					seePassword.type = 'text'
 					password.style.background = '#4cd964'
-					passwordS.innerHTML='off'
+					passwordS.innerHTML = 'off'
 				} else {
 					seePassword.type = 'password'
 					password.style.background = '#CCCCCC'
-					passwordS.innerHTML='on'
+					passwordS.innerHTML = 'on'
 
 				}
 			},
+
 			verifyImg_again() {
 				this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
 					this.verifyImg = data.data.code
@@ -110,10 +165,26 @@ import Shead from '../components/Shead'
 			}
 		},
 		created() {
+<<<<<<< HEAD
+			var href = location.href.split("?")[1];
+			if(href == "in") {
+				this.login_type = true;
+			} else if(href == "up") {
+				this.login_type = false;
+			}
+			this.verifyImg_again();
+			if(localStorage.userName) {
+				this.login_success = true
+			} else {
+				this.login_success = false
+			}
+
+=======
 			this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
 //				console.log(data)
 				this.verifyImg = data.data.code
 			})
+>>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 		}
 	};
 </script>
@@ -123,12 +194,62 @@ import Shead from '../components/Shead'
 		margin: 0;
 		padding: 0;
 	}
-	a .iconfont{
+	
+	a .iconfont {
 		color: #fff;
 	}
-	.iconfont{
+	
+	.iconfont {
 		font-size: 0.5rem;
 	}
+	
+	#msg {
+		width: 300px;
+		height: 500px;
+		position: fixed;
+		top: 49%;
+		margin-top: -80px;
+		left: 50%;
+		margin-left: -133px;
+		background: lightcoral;
+		box-shadow: 5px 5px 8px #999;
+		font-size: 17px;
+		color: #666;
+		border: 1px solid #f8f8f8;
+		text-align: center;
+		line-height: 150px;
+		display: inline-block;
+		padding-bottom: 20px;
+	}
+	
+	#msg_top {
+		background: #f8f8f8;
+		padding: 5px 15px 5px 20px;
+		text-align: left;
+	}
+	
+	#msg_top span {
+		font-size: 22px;
+		float: right;
+		cursor: pointer;
+	}
+	
+	#msg_cont {
+		padding: 15px 20px 20px;
+		text-align: left;
+	}
+	
+	#msg_clear {
+		display: inline-block;
+		color: #fff;
+		padding: 1px 15px;
+		background: #8fc31f;
+		border-radius: 2px;
+		float: right;
+		margin-right: 15px;
+		cursor: pointer;
+	}
+	
 	.j-box {
 		width: 100%;
 		height: 1330px;
@@ -153,7 +274,7 @@ import Shead from '../components/Shead'
 	}
 	
 	.j-headerright {
-		width: 10rem;
+		width: 100px;
 		color: white;
 		height: 90px;
 		float: left;
@@ -169,7 +290,7 @@ import Shead from '../components/Shead'
 		width: 100%;
 		height: 300px;
 		background: white;
-		margin-top: 1.3rem;
+		margin-top: 100px;
 	}
 	
 	.j-content-one {
@@ -188,15 +309,16 @@ import Shead from '../components/Shead'
 	.j-content-two-right {
 		width: 108px;
 		height: 100px;
-		/*background: gold;*/
 		float: right;
 		margin-right: 40px;
 	}
-	.j-off{
+	
+	.j-off {
 		font-size: 25px;
 		margin-left: 10px;
 		line-height: 35px;
 	}
+	
 	.j-see-password {
 		width: 100%;
 		height: 35px;
@@ -271,9 +393,15 @@ import Shead from '../components/Shead'
 	}
 	
 	.j-content-three-center {
+<<<<<<< HEAD
+		width: 120px;
+		height: 100px;
+		margin-left: 80px;
+=======
 		width: 130px;
 		height: 100px;
 		margin-left: -120px;
+>>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 		float: left;
 		line-height: 150px;
 	}
@@ -281,7 +409,6 @@ import Shead from '../components/Shead'
 	.j-content-three-right {
 		width: 108px;
 		height: 100px;
-		/*background: gold;*/
 		margin-right: 60px;
 		float: right;
 	}
@@ -302,7 +429,6 @@ import Shead from '../components/Shead'
 	.j-content-bottom {
 		width: 100%;
 		height: 120px;
-		/*background: gold;*/
 		margin-left: 35px;
 	}
 	
@@ -332,10 +458,22 @@ import Shead from '../components/Shead'
 		font-size: 28px;
 	}
 	
+	.login {
+		outline: none;
+		background-color: #4cd964;
+		border: 0.01rem;
+		width: 95%;
+		height: 1.25rem;
+		margin: 0 0.15rem;
+		color: #fff;
+		border-radius: 0.05rem;
+		font-size: 0.4375rem;
+	}
+	
 	.j-footer-bottom {
 		width: 130px;
 		height: 30px;
-		margin-left: 700px;
+		margin-left: 600px;
 		margin-top: 40px;
 	}
 	

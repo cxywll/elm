@@ -9,7 +9,8 @@
           <template v-slot:center>订单列表</template>
       </Shead>
       <ul class="list">
-        <li>
+        <router-link to="/listxq">
+          <li>
           <div class="imgbox">
             <img src="" alt="">
           </div>
@@ -27,8 +28,8 @@
               <span>去支付(还剩14分25秒)</span>
             </div>
           </div>
-        </li>
-        
+          </li>
+        </router-link>
       </ul>
       <Sfoot></Sfoot>
     </div>

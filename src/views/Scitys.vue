@@ -1,5 +1,5 @@
 <template>
-  <div class="ht">
+  <div class="ht animated fadeInRightBig">
     <Shead>
       <template v-slot:left>
         <router-link :to="{path:'/'}">

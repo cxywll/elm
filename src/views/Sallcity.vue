@@ -120,7 +120,7 @@ a span{
   width: 100%;
   height: 2rem;
   font-size: 0.2rem;
-  margin-top: 1.4rem;
+  margin-top: 1.25rem;
   border-bottom: 2px solid #ccc;
   background-color: #fff;
   margin-bottom: 0.2rem;

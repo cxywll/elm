@@ -1,5 +1,5 @@
 <template>
-  <div class="msite">
+  <div class="msite animated fadeInRightBig">
     <div class="z-nev">
       <Shead>
         <template v-slot:left>
@@ -11,9 +11,18 @@
           <router-link to="/">{{place}}</router-link>
         </template>
         <template v-slot:right>
+<<<<<<< HEAD
+
+          <a href="register">登录|注册</a>
+
+          <router-link to="/register">登录</router-link><span class="fen">|</span>
+          <router-link to="/register">注册</router-link>
+
+=======
           <router-link to="/register">登录</router-link>
           <span class="fen">|</span>
           <router-link to="/register">注册</router-link>
+>>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
         </template>
       </Shead>
       <div class="swiper-container">
@@ -285,6 +294,9 @@ a {
   margin-right: -5px;
 }
 .swiper-container {
+  /* margin-top: 100px; */
+}
+.swiper-slide{
   margin-top: 100px;
 }
 .shop_right .shop_detail_header .shop_detail_ul .supports {
