@@ -1,6 +1,5 @@
 <template>
 	<div class="j-box">
-<<<<<<< HEAD
 		<div class="j-header">
 			<div class="j-headerleft">
 				<router-link to="./msite">&lt;</router-link>
@@ -8,8 +7,6 @@
 			<div class="j-headerright" v-if="login_type">密码登录</div>
 		</div>
 
-=======
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 		<Shead>
 			<template v-slot:left>
 				<router-link to="/Mine"><i class="iconfont icon-jiantou"></i></router-link>
@@ -17,11 +14,7 @@
 			<template v-slot:center>
 				<a>密码登录</a>
 			</template>
-<<<<<<< HEAD
 		</Shead>
-=======
-        </Shead>
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 		<div class="j-content">
 			<div class="j-content-one"><input type="text" placeholder="账号" class="j-input" v-model="user"></div>
 			<div class="j-content-two">
@@ -75,7 +68,6 @@
 			}
 		},
 		methods: {
-<<<<<<< HEAD
 		
 			verifyImg_again() {
 					this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
@@ -104,7 +96,9 @@
 							alert('登录成功')
 							localStorage.userName =JSON.stringify(data.data)
 							this.$router.push('/msite')
-=======
+						}
+					});
+			},
 			j_btn() {
 				if(this.register == '') {
 					alert('请输入账号');
@@ -126,26 +120,22 @@
 							alert('登录失败');
 						} else if (data.data.message == '验证码不正确'){
 							alert('验证码错误');
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 						} else {
 							alert(data.data.message)
 							this.verifyImg_again()
 						}
 						console.log(data);
 					});
+				}
 			},
 
 			passMove() {
 				this.isOpen = !this.isOpen;
 				var seePassword = document.querySelector('#seePassword')
 				var password = document.querySelector('#password')
-<<<<<<< HEAD
 				var passwordS = document.querySelector('#passwordS')
 				console.log(seePassword, password)
 
-=======
-				var passwordS=document.querySelector('#passwordS')
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 				if(this.isOpen) {
 					seePassword.type = 'text'
 					password.style.background = '#4cd964'
@@ -165,7 +155,6 @@
 			}
 		},
 		created() {
-<<<<<<< HEAD
 			var href = location.href.split("?")[1];
 			if(href == "in") {
 				this.login_type = true;
@@ -179,12 +168,6 @@
 				this.login_success = false
 			}
 
-=======
-			this.axios.post('https://elm.cangdu.org/v1/captchas', {}).then((data) => {
-//				console.log(data)
-				this.verifyImg = data.data.code
-			})
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 		}
 	};
 </script>
@@ -393,15 +376,9 @@
 	}
 	
 	.j-content-three-center {
-<<<<<<< HEAD
-		width: 120px;
-		height: 100px;
-		margin-left: 80px;
-=======
 		width: 130px;
 		height: 100px;
 		margin-left: -120px;
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
 		float: left;
 		line-height: 150px;
 	}

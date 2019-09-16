@@ -11,18 +11,9 @@
           <router-link to="/">{{place}}</router-link>
         </template>
         <template v-slot:right>
-<<<<<<< HEAD
-
-          <a href="register">登录|注册</a>
-
-          <router-link to="/register">登录</router-link><span class="fen">|</span>
-          <router-link to="/register">注册</router-link>
-
-=======
           <router-link to="/register">登录</router-link>
           <span class="fen">|</span>
           <router-link to="/register">注册</router-link>
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
         </template>
       </Shead>
       <div class="swiper-container">

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Yorder from './views/y-order.vue'
 import register from './views/j-register.vue'
+import zhifu from './views/j-zhifu.vue'
 import reset from './views/j-reset.vue'
 // import Yorder from './views/y-order.vue'
 import Sfoot from './components/Sfoot.vue'
