@@ -28,7 +28,7 @@
     <!-- 搜索列表 -->
     <div class="searchList">
       <div class="list clearfix">
-        <div @click="goTo_url(i)" v-for="(i,$index) in list" :key="$index">
+        <div @click="goTo_url(i,i.name)" v-for="(i,$index) in list" :key="$index">
           <div class="citylist" @click="place(i)">
             <p>{{i.name}}</p>
             <p class="add">{{i.address}}</p>
@@ -39,7 +39,7 @@
     <div class="history">
       <div class="h_t">搜索历史</div>
       <ul class="list">
-        <div @click="goTo_url(i)" v-for="(i,index) in historycity" :key="index">
+        <div @click="goTo_url(i,i.name)" v-for="(i,index) in historycity" :key="index">
           <li class="citylist">
             <p>{{i.name}}</p>
             <p class="add">{{i.address}}</p>
@@ -90,8 +90,9 @@ export default {
                 })
         },
         //跳转页面
-        goTo_url(id) {
+        goTo_url(id,a) {
           this.$router.push({ path: "/msite", query: { geohash: id.geohash } });
+          localStorage.m_city = a;
         },
         place(a){
             this.historycity.push(a);
