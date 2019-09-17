@@ -7,7 +7,7 @@
         <input type="text" placeholder="小区，写字楼/学校等" v-model="val">
         <button @click="sc_city()">搜索</button>
         <div class="box">
-                <li v-for="i in sc_arr">
+                <li v-for="(i,index) in sc_arr" :key="index" @click="btn(i)">
                     <router-link :to="{path:'/fadd_add',query:{city_name:i.name}}">
                         <p>{{i.name}}</p>
                         <br>
@@ -30,6 +30,9 @@ export default {
         Shead
     },
     methods:{
+        btn(i){
+            localStorage.adds_n=i.name
+        },
          sc_city(){
             this.$http.get('https://elm.cangdu.org/v1/pois',{
                 params:{
@@ -37,12 +40,12 @@ export default {
                     keyword:this.val
                 }
             }).then(data=>{
-                console.log(data)
+                // console.log(data)
                 if(this.val==''){
                     alert("请输入城市")
                 }else{
                     this.sc_arr=data.data
-                    console.log(this.sc_arr)
+                    // console.log(this.sc_arr)
                 }
             })
         }

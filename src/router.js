@@ -1,12 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-import Chotcity from './views/c-hotcity.vue'
->>>>>>> e0063484039430806a67ef5e71dc6c79b37db84b
+// import Chotcity from './views/c-hotcity.vue'
 
 import register from './views/j-register.vue'
 import reset from './views/j-reset.vue'
@@ -14,21 +8,12 @@ import zhifu from './views/j-zhifu.vue'
 
 // import Yorder from './views/y-order.vue'
 
-import Yorder from './views/y-order.vue'
+// import Yorder from './views/y-order.vue'
 //import register from './views/j-register.vue'
 // 公共组件
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 3f828816b7c2f6fea7c102323af37929edfa6ef7
 
 import Yorder from './views/y-order.vue'
-import register from './views/j-register.vue'
-import zhifu from './views/j-zhifu.vue'
-import reset from './views/j-reset.vue'
->>>>>>> e0063484039430806a67ef5e71dc6c79b37db84b
-// import Yorder from './views/y-order.vue'
 import Sfoot from './components/Sfoot.vue'
 import Shead from './components/Shead.vue'
 import Mine from './components/Mine.vue'
@@ -45,19 +30,11 @@ import Sfuwu from './components/Sfuwu.vue'
 import Sintro from './components/Sintro.vue'
 // 美食主页
 import Zmsite from './views/z-productList.vue'
-<<<<<<< HEAD
 import Zfood from './views/z-food.vue'                                                                                      
 
 // 搜索美食
 import Csfood from './views/C-searchfood.vue'
 
-
-=======
-import Zfood from './views/z-food.vue'
-// 搜索美食
-import Csfood from './views/C-searchfood.vue'
-<<<<<<< HEAD
->>>>>>> e0063484039430806a67ef5e71dc6c79b37db84b
 // 地址
 import fadd from './views/f-address1.vue'
 import '../icon/iconfont.css'
@@ -67,29 +44,17 @@ import fscadd from './views/f-sc_add.vue'
 import Cpay from './views/C-pay.vue'
 // 余额
 import Cyue from './components/Cyue.vue'
-<<<<<<< HEAD
 // 优惠券
 import Squan from './views/S-quan.vue'
 import Shong from './views/S-hongbao.vue'
 import Sshopper from './views/S-shopper.vue'
-=======
 // 订单详情
 import listxq from './views/C-listxq.vue'
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
->>>>>>> 9c55eea7e2a03d3509fd1aa6ce542d0bc0b112c4
->>>>>>> 91f3fa27b34d537048e2819626e40064f1a701bb
->>>>>>> 3f828816b7c2f6fea7c102323af37929edfa6ef7
->>>>>>> e0063484039430806a67ef5e71dc6c79b37db84b
 Vue.use(Router)
 
-Vue.use(Router)
 export default new Router({
   mode: 'history',
-  // base: process.env.BASE_URL,
+  base: process.env.BASE_URL,
   routes: [
     {
       // 默认首页
@@ -98,11 +63,8 @@ export default new Router({
       component: Sallcity
     },
     {
-<<<<<<< HEAD
 
       // 附近商家点击
-=======
->>>>>>> e0063484039430806a67ef5e71dc6c79b37db84b
       // 附近商家点击
       path: '/yorder',
       name: 'Yorder',
@@ -132,12 +94,12 @@ export default new Router({
       name: 'Zfood',
       component: Zfood
     },
-    {
-      // 附近商家点击
-      path: '/yorder',
-      name: 'Yorder',
-      component: Yorder
-    },
+    // {
+    //   // 附近商家点击
+    //   path: '/yorder',
+    //   name: 'Yorder',
+    //   component: Yorder
+    // },
     {
       // 搜索美食
       path: '/csfood',
@@ -178,18 +140,8 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: register
-<<<<<<< HEAD
-    },{
-=======
     },
-    
     {
-<<<<<<< HEAD
-      path: '/Search',
-      name: 'Search',
-      component: Search
-=======
->>>>>>> e0063484039430806a67ef5e71dc6c79b37db84b
       path: '/reset',
       name: 'reset',
       component: reset
@@ -201,11 +153,7 @@ export default new Router({
       component: zhifu
     },
     
-    
-<<<<<<< HEAD
-=======
 
->>>>>>> e0063484039430806a67ef5e71dc6c79b37db84b
     // 下载饿了么APP
     {
       path: '/Sload',
@@ -257,11 +205,6 @@ export default new Router({
     name:'Cpay',
     component:Cpay
   },
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
   // 优惠券
   {
     path:'/Squan',
@@ -270,22 +213,16 @@ export default new Router({
     children:[
       // 红包
       {
-        path:'/Squan/Shong',
+        path:'Shong',
         name:'Shong',
         component:Shong
       },
       {
-        path:'/Squan/Sshopper',
+        path:'Sshopper',
         name:'Sshopper',
         component:Sshopper
-      }
+      },
     ]
   },
-=======
->>>>>>> 54dc2cbcade8900abe96309dc36d3138e7e77f63
->>>>>>> 9c55eea7e2a03d3509fd1aa6ce542d0bc0b112c4
->>>>>>> 91f3fa27b34d537048e2819626e40064f1a701bb
->>>>>>> 3f828816b7c2f6fea7c102323af37929edfa6ef7
->>>>>>> e0063484039430806a67ef5e71dc6c79b37db84b
   ]
 })

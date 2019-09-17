@@ -15,9 +15,13 @@
         <!-- <router-link> -->
             <div class="head" >
                 <p style="font-weight:bold;font-size:13px;">{{name}}</p>
-                <span style="float:left;margin-top:-15px;margin-left:50px;">{{phone}}</span>
-                <li style="width:20px;height:15px;font-size:8px;background:#ff5722;color:white;border-radius:4px;margin-top:5px;">{{check}}</li>        
+                <span style="margin-left:80px;position:relative;top:-15px;">{{sex}}</span>
+                <span style="float:left;margin-top:-30px;margin-left:120px;">{{phone}}</span>
+                <li style="width:20px;height:15px;font-size:8px;background:#ff5722;color:white;border-radius:4px;margin-top:-5px;">{{check}}</li>
+                <li style="margin-top:-18px;margin-left:30px;">{{address}}</li>        
             </div>
+            
+            
         <!-- </router-link> -->
         <router-view></router-view>
     </div>
@@ -31,18 +35,30 @@ export default {
     data(){
         return{
             name:'',
+            sex:'',
             phone:'',
             address:'',
-            check:''
+            check:'',
+            arr:[],
         }
     },
     created(){
-        this.name = this.$route.query.name
+        this.name = localStorage.adds_n
+        this.sex = this.$route.query.sex
         this.phone = this.$route.query.phone
         this.address = this.$route.query.address
         this.check = this.$route.query.check
+        this.arr.push(this.$route.query)
+        
+        // localStorage.json = this.$route.query;
+        // if(localStorage.json){
+        //     // this.arr = JSON.parse(localStorage.json)
+        // }else{
+        //     this.arr = []
+        // }
+        console.log(this.arr)
         // if(name==''||val==''||phone==''||check==''||address==''){
-        //         this.box.style.display='none'
+        //         this.box.style.display='none' 
         //     }
     }
 }
@@ -67,6 +83,7 @@ export default {
         right: 80px;
     }
     .head{
+        height:120px;
         background: #ccc;   
         margin-top: 100px;
         border-bottom:1px solid red;
