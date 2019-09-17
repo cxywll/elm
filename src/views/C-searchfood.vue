@@ -11,16 +11,19 @@
         <!-- 搜索列表 -->
         <i class="null" v-show="tipsshow">{{this.tips}}</i>
         <ul class="foodList" v-show="show">
-            <li v-for="(item,index) in cslist" :key="index">
-                <div class="imgb">
-                    <img :src="'//elm.cangdu.org/img/'+item.image_path" alt="">
-                </div>
-                <div class="xqbox">
-                    <p>{{item.name}}</p>
-                    <span>月售{{item.recent_order_num}}单</span> <br>
-                    <i>{{item.float_minimum_order_amount}}元起送 / 距离{{item.distance}}</i>
-                </div>
-            </li>
+            <!-- :to="{name:'Yorder',params:{img:i.image_path,name:i.name,money:i.piecewise_agent_fee.tips,promotion:i.promotion_info,fz:i.order_lead_time}}" -->
+            <router-link v-for="(item,index) in cslist" :key="index+'cslist'" :to="{name:'Yorder',params:{img:item.image_path,name:item.name,money:item.piecewise_agent_fee.tips,promotion:item.promotion_info,fz:item.order_lead_time}}">
+                <li>
+                    <div class="imgb">
+                        <img :src="'//elm.cangdu.org/img/'+item.image_path" alt="">
+                    </div>
+                    <div class="xqbox">
+                        <p>{{item.name}}</p>
+                        <span>月售{{item.recent_order_num}}单</span> <br>
+                        <i>{{item.float_minimum_order_amount}}元起送 / 距离{{item.distance}}</i>
+                    </div>
+                </li>
+            </router-link>
         </ul>
         <!-- 搜索历史 -->
         <div class="searchHistoy">
