@@ -114,7 +114,6 @@
             <li class="shop_li">
             <section>
                 <img v-lazy="'//elm.cangdu.org/img/'+i.image_path" alt="" class="shop_img">
-
             </section>
             <div class="shop_right">
               <div class="shop_detail_header">
@@ -134,7 +133,7 @@
                     <span class="rating_num">{{i.rating}}</span>
                   </section>
                   <section class="order_section">月售106单</section>
-                </section>
+                </section> 
                 <div class="rating_order_num_right">
                   <span class="delivery_style delivery_left" v-if="i.delivery_mode">{{i.delivery_mode.text}}</span>
                   <span class="delivery_style delivery_right">准时达</span>
