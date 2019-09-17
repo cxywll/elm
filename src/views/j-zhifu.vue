@@ -12,7 +12,7 @@
 			</div>
 		</div>
 		<div class="add_address">
-			<router-link :to="{path:'/'}">
+			<router-link :to="{path:'/fadd_add'}">
 				<div class="add_address-left">
 					<i class="iconfont icon-dizhi"></i>
 				</div>
@@ -203,14 +203,15 @@
 		font-size: 0.466666rem;
 		height: 1.2rem;
 		line-height: 1.2rem;
-		margin-right: 31%;
+		/* margin-right: 31%; */
 	}
 	
 	.j-headercenter {
-		width: 18%;
+		width: 64%;
 		height: 1.2rem;
 		float: left;
-		margin-right: 13%;
+		text-align: center;
+		/* margin-right: 13%; */
 	}
 	
 	.j-confirm {
@@ -223,7 +224,7 @@
 	.j-headerrights {
 		width: 23%;
 		height: 1.2rem;
-		float: left;
+		float: right;
 		line-height: 1.2rem;
 		text-align: center;
 	}
@@ -295,11 +296,11 @@
 	}
 	
 	.add_address-tou {
-		width: 1.333333rem;
-		height: 2.133333rem;
+		/* width: 1.333333rem;
+		height: 2.133333rem; */
 		float: left;
 		margin-left: 4.333333rem;
-		font-size: 0.4rem;
+		font-size: 0.5rem;
 		color: #929292;
 		line-height: 2.133333rem;
 	}
@@ -309,7 +310,7 @@
 		line-height: 2.133333rem;
 		padding-left: 0.2rem;
 		box-sizing: border-box;
-		font-size: 0.333333rem;
+		font-size: 0.4rem;
 	}
 	
 	.add_address-right p span {

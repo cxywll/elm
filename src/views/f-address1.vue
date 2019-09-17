@@ -1,7 +1,7 @@
 <template>
     <div>
         <Shead>
-            <template v-slot:left><router-link to='' style="color:#fff;">&lt;</router-link></template>
+            <template v-slot:left><router-link to='/zhifu' style="color:#fff;">&lt;</router-link></template>
             <template v-slot:center>选择地址</template>        
         </Shead>
         <!-- 新增收获地址 -->
