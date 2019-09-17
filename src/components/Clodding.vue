@@ -25,7 +25,7 @@ export default {
         this.title = document.querySelector('#elmloading');
         console.log(this.title)
         this.title.style.display='none'
-      },1500)
+      },500)
   },
   methods:{
 

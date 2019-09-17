@@ -4,7 +4,7 @@
 		<!--返回图标-->
 		<router-link to="/msite">
 			<div class="returnbtn"><i class="icon iconfont icon-fanhui1-copy" style="font-size: 20px;"></i></div>
-		</router-link> 
+		</router-link>
 
 		<header>
 			<div class="h_img">
@@ -301,9 +301,11 @@
 		text-overflow: ellipsis;
 	}
 	.h_span{
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    width: 7rem;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+    color: #fff;
   }
 	.h_span span {
 		padding-left: 20px;

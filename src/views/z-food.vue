@@ -74,8 +74,9 @@
                 v-for="(i,index) in screen"
                 :style="{color:'#'+i.color}"
                 :key="index"
+                @click="clickBtn(i,index)"
               >
-                <span class>{{i.text}}</span>
+                <span class :style="{color:i.__v?'red':'#'+i.color}">{{i.text}}</span>
               </li>
             </ul>
           </div>
@@ -86,21 +87,22 @@
                 v-for="(i,index) in propertyList"
                 :key="index"
                 class="filter_li"
-                @click="isTrue=index"
+                @click="clickBtn(i,index+1)"
+                :value="i.id"
               >
                 <span
                   class="filter_icon"
                   :style="{'color':'#'+i.icon_color,'borderColor':'#'+i.icon_color}"
                 >{{i.icon_name}}</span>
-                <span class>{{i.name}}</span>
+                <span class :style="{color:i.__v?'red':'#'+i.icon_color}">{{i.name}}</span>
               </li>
             </ul>
           </div>
           <div class="confirm_filter">
-            <div class="clear_all filter_button_style">清空</div>
-            <div class="confirm_select filter_button_style">
+            <div class="clear_all filter_button_style" @click="clearBtn">清空</div>
+            <div class="confirm_select filter_button_style" @click="[classifys(shai),is=-1]">
               确定
-              <span>({{0}})</span>
+              <span v-show="zero">({{zero}})</span>
             </div>
           </div>
         </div>
@@ -112,7 +114,7 @@
           <router-link :to="{name:'Yorder',params:{img:i.image_path,name:i.name,money:i.piecewise_agent_fee.tips,promotion:i.promotion_info,fz:i.order_lead_time}}" v-for="(i,index) in commodity" :key="index">
             <li class="shop_li">
             <section>
-              <img :src="'//elm.cangdu.org/img/'+i.image_path" alt class="shop_img" />
+                <img v-lazy="'//elm.cangdu.org/img/'+i.image_path" alt="" class="shop_img">
             </section>
             <div class="shop_right">
               <div class="shop_detail_header">
@@ -132,9 +134,9 @@
                     <span class="rating_num">{{i.rating}}</span>
                   </section>
                   <section class="order_section">月售106单</section>
-                </section>
+                </section> 
                 <div class="rating_order_num_right">
-                  <span class="delivery_style delivery_left">{{i.delivery_mode.text}}</span>
+                  <span class="delivery_style delivery_left" v-if="i.delivery_mode">{{i.delivery_mode.text}}</span>
                   <span class="delivery_style delivery_right">准时达</span>
                 </div>
               </h5>
@@ -162,6 +164,8 @@ export default {
   data() {
     return {
       titles: "",
+      support_ids:[],//筛选列表
+      zero:0,
       isTrue: "",
       commodity: [], //商品,
       category: [], //分类
@@ -170,6 +174,7 @@ export default {
       screen: [], //晒选
       index: "",
       is: -2,
+      shai:'',
       isz_index:-1,
       isIndex: -1,
       propertyList: [], // 属性列表
@@ -192,19 +197,36 @@ export default {
     this.list();
   },
   methods: {
+    //清空
+    clearBtn(){
+        this.support_ids = []
+        this.zero = 0
+    },
+    //筛选
+    clickBtn(i,index){
+      if(i.__v = !i.__v){
+        this.zero++
+      this.support_ids.push(i.id)
+      }else{
+        this.zero--
+        this.support_ids.pop()
+      }
+      console.log(this.support_ids)
+    },
     classifys(item){
+      console.log(this.shai = item)
       this.$http.get('http://elm.cangdu.org/shopping/restaurants',{
         params:{
           latitude: '30.630231',
           longitude: '116.575482',
           restaurant_category_ids: [item.id],
           order_by: '2',
+          support_ids: this.support_ids
         }
       }).then(data=>{
           this.commodity = data.data;
       })
     },
-
     sortList(index) {
       this.$http
         .get("http://elm.cangdu.org/shopping/restaurants", {
@@ -221,6 +243,7 @@ export default {
     btn(i) {
       this.l = i.sub_categories;
     },
+    //后退按钮
     backBtn() {
       this.$router.back(-1);
     },

@@ -1,19 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+<<<<<<< HEAD
 // import Chotcity from './views/c-hotcity.vue'
 
+=======
+>>>>>>> 528b5deef48efdc1759f64b5e567b892972c041a
 import register from './views/j-register.vue'
 import reset from './views/j-reset.vue'
-import zhifu from './views/j-zhifu.vue'
 
-// import Yorder from './views/y-order.vue'
-
+<<<<<<< HEAD
 // import Yorder from './views/y-order.vue'
 //import register from './views/j-register.vue'
 // 公共组件
 
 
 import Yorder from './views/y-order.vue'
+=======
+// 公共组件
+import Yorder from './views/y-order.vue'
+
+import zhifu from './views/j-zhifu.vue'
+>>>>>>> 528b5deef48efdc1759f64b5e567b892972c041a
 import Sfoot from './components/Sfoot.vue'
 import Shead from './components/Shead.vue'
 import Mine from './components/Mine.vue'
@@ -31,10 +38,12 @@ import Sintro from './components/Sintro.vue'
 // 美食主页
 import Zmsite from './views/z-productList.vue'
 import Zfood from './views/z-food.vue'                                                                                      
-
 // 搜索美食
 import Csfood from './views/C-searchfood.vue'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 528b5deef48efdc1759f64b5e567b892972c041a
 // 地址
 import fadd from './views/f-address1.vue'
 import '../icon/iconfont.css'
@@ -63,18 +72,15 @@ export default new Router({
       component: Sallcity
     },
     {
+<<<<<<< HEAD
 
       // 附近商家点击
       // 附近商家点击
+=======
+>>>>>>> 528b5deef48efdc1759f64b5e567b892972c041a
       path: '/yorder',
       name: 'Yorder',
       component: Yorder
-    },
-    {
-      // 公共头部
-      path: '/Shead',
-      name: 'Shead',
-      component: Shead
     },
     {
       // 搜索城市
@@ -152,8 +158,11 @@ export default new Router({
       name: 'zhifu',
       component: zhifu
     },
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> 528b5deef48efdc1759f64b5e567b892972c041a
     // 下载饿了么APP
     {
       path: '/Sload',
