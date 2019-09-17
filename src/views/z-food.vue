@@ -101,7 +101,7 @@
           <div class="confirm_filter">
             <div class="clear_all filter_button_style" @click="clearBtn">清空</div>
             <div class="confirm_select filter_button_style" @click="[classifys(shai),is=-1]">
-              确定{{shai}}
+              确定
               <span v-show="zero">({{zero}})</span>
             </div>
           </div>
