@@ -44,7 +44,6 @@ export default {
     height: 1rem;
     font-size: .4rem;
     margin-top: 1.2rem;
-    background-color: pink;
 }
 .type .t_name{
     width: 50%;
