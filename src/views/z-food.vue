@@ -74,8 +74,9 @@
                 v-for="(i,index) in screen"
                 :style="{color:'#'+i.color}"
                 :key="index"
+                @click="clickBtn(i)"
               >
-                <span class>{{i.text}}</span>
+                <span class :style="{color:'#'+i.color}">{{i.text}}</span>
               </li>
             </ul>
           </div>
@@ -86,21 +87,21 @@
                 v-for="(i,index) in propertyList"
                 :key="index"
                 class="filter_li"
-                @click="isTrue=index"
+                @click="clickBtn(i)"
               >
                 <span
                   class="filter_icon"
                   :style="{'color':'#'+i.icon_color,'borderColor':'#'+i.icon_color}"
                 >{{i.icon_name}}</span>
-                <span class>{{i.name}}</span>
+                <span class :style="{color:'#'+i.icon_color}">{{i.name}}</span>
               </li>
             </ul>
           </div>
           <div class="confirm_filter">
-            <div class="clear_all filter_button_style">清空</div>
-            <div class="confirm_select filter_button_style">
+            <div class="clear_all filter_button_style" @click="clearBtn">清空</div>
+            <div class="confirm_select filter_button_style" @click="[classifys,is=-1]">
               确定
-              <span>({{0}})</span>
+              <span v-show="zero">({{zero}})</span>
             </div>
           </div>
         </div>
@@ -135,7 +136,7 @@
                   <section class="order_section">月售106单</section>
                 </section>
                 <div class="rating_order_num_right">
-                  <span class="delivery_style delivery_left">{{i.delivery_mode.text}}</span>
+                  <span class="delivery_style delivery_left" v-if="i.delivery_mode">{{i.delivery_mode.text}}</span>
                   <span class="delivery_style delivery_right">准时达</span>
                 </div>
               </h5>
@@ -163,6 +164,8 @@ export default {
   data() {
     return {
       titles: "",
+      support_ids:[],//筛选列表
+      zero:0,
       isTrue: "",
       commodity: [], //商品,
       category: [], //分类
@@ -193,6 +196,19 @@ export default {
     this.list();
   },
   methods: {
+    //清空
+    clearBtn(){
+        this.support_ids = []
+        this.zero = 0
+    },
+    //筛选
+    clickBtn(i){
+      if(i.id = !i.id){
+        this.zero--
+      }else{
+        this.zero++
+      }
+    },
     classifys(item){
       this.$http.get('http://elm.cangdu.org/shopping/restaurants',{
         params:{
@@ -200,12 +216,12 @@ export default {
           longitude: '116.575482',
           restaurant_category_ids: [item.id],
           order_by: '2',
+          support_ids: this.support_ids
         }
       }).then(data=>{
           this.commodity = data.data;
       })
     },
-
     sortList(index) {
       this.$http
         .get("http://elm.cangdu.org/shopping/restaurants", {
@@ -222,6 +238,7 @@ export default {
     btn(i) {
       this.l = i.sub_categories;
     },
+    //后退按钮
     backBtn() {
       this.$router.back(-1);
     },
