@@ -74,9 +74,9 @@
                 v-for="(i,index) in screen"
                 :style="{color:'#'+i.color}"
                 :key="index"
-                @click="clickBtn(i)"
+                @click="clickBtn(i,index)"
               >
-                <span class :style="{color:'#'+i.color}">{{i.text}}</span>
+                <span class :style="{color:i.__v?'red':'#'+i.color}">{{i.text}}</span>
               </li>
             </ul>
           </div>
@@ -87,20 +87,21 @@
                 v-for="(i,index) in propertyList"
                 :key="index"
                 class="filter_li"
-                @click="clickBtn(i)"
+                @click="clickBtn(i,index+1)"
+                :value="i.id"
               >
                 <span
                   class="filter_icon"
                   :style="{'color':'#'+i.icon_color,'borderColor':'#'+i.icon_color}"
                 >{{i.icon_name}}</span>
-                <span class :style="{color:'#'+i.icon_color}">{{i.name}}</span>
+                <span class :style="{color:i.__v?'red':'#'+i.icon_color}">{{i.name}}</span>
               </li>
             </ul>
           </div>
           <div class="confirm_filter">
             <div class="clear_all filter_button_style" @click="clearBtn">清空</div>
-            <div class="confirm_select filter_button_style" @click="[classifys,is=-1]">
-              确定
+            <div class="confirm_select filter_button_style" @click="[classifys(shai),is=-1]">
+              确定{{shai}}
               <span v-show="zero">({{zero}})</span>
             </div>
           </div>
@@ -173,6 +174,7 @@ export default {
       screen: [], //晒选
       index: "",
       is: -2,
+      shai:'',
       isz_index:-1,
       isIndex: -1,
       propertyList: [], // 属性列表
@@ -201,14 +203,18 @@ export default {
         this.zero = 0
     },
     //筛选
-    clickBtn(i){
-      if(i.id = !i.id){
-        this.zero--
-      }else{
+    clickBtn(i,index){
+      if(i.__v = !i.__v){
         this.zero++
+      this.support_ids.push(i.id)
+      }else{
+        this.zero--
+        this.support_ids.pop()
       }
+      console.log(this.support_ids)
     },
     classifys(item){
+      console.log(this.shai = item)
       this.$http.get('http://elm.cangdu.org/shopping/restaurants',{
         params:{
           latitude: '30.630231',
